@@ -1,0 +1,14 @@
+
+body{display: flex; flex-direction: column; font-family: 'Varela Round', sans-serif;}
+header, #header_01,#header_02 .footer{ display: flex; flex-direction: row;width: 100vw;}
+#header_01{height: 10vh; width: 70vw; text-align: center; margin-top: 2%;color:#383736; }
+.header_01_a{width:20%;}
+#header_02{width: 20vw; margin-top: 2%; color:#383736;justify-content: flex-end;} 
+.header_02_a{width:10%; }
+a{text-decoration: none; }
+footer{min-height: 15vh; background-color: #383736; color: #f2ebe5; text-align: center;}
+.footer{margin-top: 1.9%;}
+#section_title{color:#383736; margin-left: 15%}
+#section_contents{width: 70vw; border-top: 0.5rem solid #383736; height: 75vh; margin-left: 15%;}
+#logo{font-size: 2rem;margin-right: 2%;}
+ 
