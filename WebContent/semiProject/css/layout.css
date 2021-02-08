@@ -1,0 +1,15 @@
+/* 레이아웃 */
+.header-wrap{display: flex; width: 1279px; font-size: 2rem; margin:0 auto; font-family: 'Varela Round';}  
+.logo{float: left; width: 4.5%; margin-top: 3%;}
+#header_01{display: flex; width:35%; justify-content: space-between; margin-top: 3%; margin-left:5.5%;}
+#header_02{ display:flex; width:17%; justify-content: space-between; margin:3%; margin-left:auto;}
+.header_01_a{list-style: none; flex: 1;}
+.header_02_a{list-style: none; }
+footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: center;}
+.footer{margin-top: 3%;}
+#section_title{width: 1279px; font-size: 2rem; font-family: 'Varela Round'; margin: 0 auto;}
+#section-title-text{color:#383736; font-size: 2rem; font-family: 'Varela Round'; margin:0% 10% 0% 10%}
+#section-contents-wrap{width: 1279px; margin: 0 auto;}
+#section_contents{border-top: 0.5rem solid #383736; height: 75%; margin:0% 10% 0% 10%}
+
+
