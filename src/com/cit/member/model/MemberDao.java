@@ -90,7 +90,7 @@ public class MemberDao {
 		try {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","CIT","CITPASS");
 			query = "SELECT U_PW FROM \"USER\" WHERE U_ID = ?";
-			pstmt =conn.prepareStatement(query);
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1,id);
 			rset = pstmt.executeQuery();
 			
@@ -115,7 +115,7 @@ public class MemberDao {
 				
 			}
 		}
-		System.out.println("3");
+	
 		return result;
 		
 	}
