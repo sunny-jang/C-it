@@ -17,6 +17,4 @@ public class IdDupCheck extends HttpServlet {
 		MemberDao mbao = MemberDao.getInstance();
 		String id = request.getParameter("id");
 	}
-
-
 }

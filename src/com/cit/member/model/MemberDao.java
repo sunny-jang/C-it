@@ -69,7 +69,7 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		
 		try {
-//			con = 
+			
 		}catch(Exception e) {
 			
 		}finally {
