@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/log.css">
+    <link rel="stylesheet" href="/Cit/css/common.css">
+    <link rel="stylesheet" href="/Cit/css/layout.css">
+    <link rel="stylesheet" href="/Cit/css/log.css">
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     <title>signin</title>
 </head>
@@ -41,9 +41,11 @@
             <div id="section_contents">
                 <div id="box-name">Welcome to C-it</div>
                 <div id="box">
+                <form method="post" name="log">
                     <div class="box-div input" id="fist"><input type="text" placeholder="아이디"></div>
                     <div class="box-div input"><input type="password" placeholder="비밀번호"></div>
                     <div class="box-div input" id="signin"><input type="submit" value="Sign in"></input></div>
+                </form>    
                     <div class="box-text-out">
                     <div class="box-text" id="id-text"><a href="#">아이디찾기</a></div>
                     <div class="box-text" id="pw-text"><a href="#">/비밀번호찾기</a></div>
