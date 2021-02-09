@@ -36,7 +36,7 @@
         <div id="section_title">   
             <h1 id="section-title-text">Sign in</h1>  
         </div>       
-        <!-- 컨텐츠내용 -->
+        <!-- 컨텐츠내용 --> 
         <div id="section-contents-wrap"></div>
             <div id="section_contents">
                 <div id="box-name">Welcome to C-it</div>
