@@ -64,14 +64,10 @@ import com.cit.member.service.MemberService;
 			boolean result =  new MemberService().join(mDto);
 
 			if(result) {
-				System.out.println("성공");
-				// 데이터 필요하기 때문에 dispatcher 사용
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/signUpResult.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/member/signUpResult.jsp");
 				dispatcher.forward(request, response);
 			} else {
-				System.out.println("실패");
-				// 데이터 필요없기 때문에 sendRedirect 사용
-				response.sendRedirect(request.getContextPath() +"/join.jsp");
+				response.sendRedirect(request.getContextPath() +"/member/join.jsp");
 			}
 		}
 	}
