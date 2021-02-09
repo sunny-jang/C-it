@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <style>
     label {
       width: 150px;
@@ -24,16 +25,38 @@
       width: 100px;
     }
   </style>
+  <script>
+  	$(function() {
+  		$("#checkIdDup").on("click", function() {
+  			let msgEle = $("#idCheckMsg");
+  			let idVal = $("id").val();
+  			
+  			$.ajax({
+  				url : "IdDupCheck.do",
+  				data : {id : idVal},
+  				dataType: 'json',
+  				success: function(data) {
+  					if(data.codeDup == 'dup') {
+  						
+  					}else {
+  						
+  					}
+  				}
+  				
+  			})
+  		})
+  	})
+  </script>
 </head>
 <body>
-  <form action="joinController" method="post">
-    <label for="">아이디</label><input type="text" name="id"><input type="button" value="중복확인"><br>
-    <label></label><span>${request.msg}</span><br>
+  <form action="/joinController" method="post">
+    <label for="">아이디</label><input type="text" name="id" id="id"><input type="button" value="중복확인" id="checkIdDup"><br>
+    <label></label><span id="idCheckMsg">${request.msg}</span><br>
     <label for="">비밀번호</label><input type="password" name="pw"><br>
     <label for="">비밀번호 확인</label><input type="password"><br>
     <label for="">이름</label><input type="text" name="name"><br>
     <label for="">이메일</label><input type="email" name="email"><br>
-    <label for="">성별 | </label> 
+    <label for="">성별 </label> 
          여 <input type="radio" name="gender" value="f">
          남 <input type="radio" name="gender" value="m"><br>
     <label for="">생년월일</label><input type="text" name="year" class="small"><input type="text" name="month" class="small"><input type="text" name="day" class="small"><br>
@@ -45,5 +68,5 @@
     </div>
   </form>
 </body>
-<script></script>
+
 </html>

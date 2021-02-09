@@ -5,9 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 public class MemberDao {
 
-	// 싱글톤 패턴
 	private static MemberDao instance;
     private MemberDao(){}
     public static MemberDao getInstance(){
@@ -15,10 +18,15 @@ public class MemberDao {
             instance=new MemberDao();
         return instance;
     }
+    
+    private Connection getConnection() throws Exception {
+		Context initCtx = new InitialContext();
+		Context envCtx = (Context) initCtx.lookup("java:comp/env");
+		DataSource ds = (DataSource) envCtx.lookup("jdbc/pool01");
+		return ds.getConnection();
+	}
 
-    // 회원가입 : DM에 회원정보 넣기
 	public int insert(MemberDto mDto) {
-
 		Connection conn = null;
 		String query = null;
 		PreparedStatement pstmt = null;
@@ -43,7 +51,6 @@ public class MemberDao {
 			return result;
 
 		} catch (SQLException e) {
-			System.out.println("연결 오류");
 			e.printStackTrace();
 		}finally {
 			try {
@@ -56,4 +63,20 @@ public class MemberDao {
 		return result;
 	}
 
+	
+	public MemberDto getMember() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+//			con = 
+		}catch(Exception e) {
+			
+		}finally {
+			
+		}
+		
+		return null;
+		
+	}
 }
