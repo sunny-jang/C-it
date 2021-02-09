@@ -79,4 +79,44 @@ public class MemberDao {
 		return null;
 		
 	}
+	
+	public int loginCheck(String id, String pw) {
+		Connection conn = null;
+		String query = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int result = 1;
+		
+		try {
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","CIT","CITPASS");
+			query = "SELECT U_PW FROM \"USER\" WHERE U_ID = ?";
+			pstmt =conn.prepareStatement(query);
+			pstmt.setString(1,id);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {	// 아이디가 있을 경우
+				String pass = rset.getString("U_PW");
+				if(pass.equals(pw)) {
+					result = 1;	// 입력받은 비번과 DB의 비번이 같으면 1
+				}else {
+					result = -1;	// 다르면 -1
+				}
+			}else {
+				result = 0;	// 아이디가 없을 경우 0
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset != null) rset.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				
+			}
+		}
+		System.out.println("3");
+		return result;
+		
+	}
 }
