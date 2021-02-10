@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css"> 
 
-    
-    
+    <!-- 스마트에디터 -->    
+    <script type="text/javascript" src="../../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8" src="../../js/s/1/1-1.js"></script>
+       
     <title>Document</title>
 </head>
 <body>     
@@ -31,21 +33,21 @@
     </header>    
     <section>
         <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">Find Password</h1></div>
+        <div id="section_title"><h1 id="section-title-text">NEWS</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
-                <div id="box-name">비밀번호 찾기</div>
-                <div class="show-id">          
-                    <div>귀하의 비밀번호는 </div>
-                    <div id="foundid"></div>
-                    <div>입니다.</div>
-                </div> 
-                <div class="btn-set">                    
-                    <input type="button" class="sign-btn" name="sign-btn" value="Sign In">
-                </div> 
-
-
+                <div class="editor-title-set">
+                    <div class="editor-title-text">제목</div>
+                    <div class="editor-title"></div>
+                </div>
+                <form action="send.jsp" method="post" id="frm">
+                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; mar"></textarea>
+                    <div class="write-btn-set">
+                        <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
+                        <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
+                    </div>       
+                </form>
             </div>   
         </div>     
     </section>
