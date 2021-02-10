@@ -1,0 +1,59 @@
+/* FLOAT CLEARFIX */
+.clearfix:after {content:""; clear:both; display:block;}
+.float--left {float:left;}
+.float--right {float:right;}
+
+/* SECTION */
+section {width: 100%;}
+section #join_form {width:100%; height:100%;}
+section #join_form span {font-weight:700; text-align:center; font-size:1.5rem;}
+::placeholder {color:#bcbcbc;}
+#userBirth {text-align:center;}
+input[type='text'] {width:50%; font-size:1rem; margin:2%;}
+.ico:after {content:'*'; color:#f95427; font-size:1rem; font-weight:700;}
+#etc {width:43%;}
+.sub {margin:3% 5% 0 0;}
+.agreeform-chk-wrap {margin-left: auto; margin-right: auto;}
+input[type="radio"], input[type="checkbox"] {width:auto;}
+.agreeform-chk-wrap {float:right; margin: 3% 15% 0 0;}
+
+table {width:100%; margin:0px auto;}
+td {width: 30%; height: 100%; vertical-align:middle;}
+th {width: 30%; height: 100%; vertical-align:middle;}
+.chk-group {line-height: 3rem; }
+
+/* 개인정보처리방침 */
+section .agreeform-wrap.top {width:100%; border:solid #bcbcbc; border-width:0.2rem 0 0.1rem;}
+section .agreeform-wrap {width:50%; padding:3%;}
+section .agreeform-wrap span.required {color:#bcbcbc;}
+section .agreeform-wrap p.title {margin-left:-5%; margin-bottom:2%; font-size:1.5rem; font-weight:700; display:inline-block;}
+section .agreeform-wrap p.text {margin-left:-6%; width:90%; height:200px; border:0.1rem solid #bcbcbc; overflow:auto;} 
+
+/* 제출버튼 */
+section div.btn-group {display:flex; align-items:center; justify-content:center;}
+.join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; 
+font-size: 1.5rem; font-weight:700; margin-bottom:10%;}
+input[type="reset"] {background:#bcbcbc; margin-right:10%; border-radius:4px;}
+input[type="submit"] {background:#20b8bc; color:#eee; border-radius:4px;}
+
+
+/* BUTTON */
+.btn {height: 30%;
+  background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+  border: 0.2rem solid #eee;
+  border-radius:5px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3%; 
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box; 
+}
+
+
+
+
+

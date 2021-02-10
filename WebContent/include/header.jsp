@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/join.css">
-    <title>Join</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css">
+    <script src="${pageContext.request.contextPath}/js/jquery.js" type="application/javascript"></script>
+    <title>C-it</title>
 </head>
 <body>     
     <header>

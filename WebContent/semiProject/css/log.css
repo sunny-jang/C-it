@@ -1,0 +1,21 @@
+/* 검정박스부분 */
+#box{width: 40%; height: 55%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.8rem; background-color: #383736; color: #eee }
+#box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%;}
+.box-div{margin:1%}
+.input{width: 80%; height: 10%; margin: 0 auto; margin:4% 10% 10% 10%} 
+#box-div-text{font-size: 0.9rem;}
+
+/* signin-box안아이디찾기/비밀번호찾기/회원가입 */
+.box-text{display: inline-block; font-size: 1rem;}
+#id-text{float: left; margin-left: 10%;}
+#pw-text{float: left;}
+#join-text{float: right;margin-right: 10%;}
+
+
+
+
+
+
+
+
+
