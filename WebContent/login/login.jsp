@@ -18,7 +18,6 @@ $(function() {
 						console.log(data.result);
 						if(data.id == "-1" || data.pw =="-1") {
 							alert("아이디 또는 비밀번호를 입력해주세요.")
-							
 						}else if(data.result == "-1"){
 							alert("비밀번호가 다릅니다.")
 						}else if(data.result == "0"){
