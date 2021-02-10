@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css"> 
     <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/findpw.css">
+    <link rel="stylesheet" href="../css/findId.css">
+    <link rel="stylesheet" href="../css/findid_fail.css">
     
     
     <title>Document</title>
@@ -32,18 +33,17 @@
     </header>    
     <section>
         <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">Find Password</h1></div>
+        <div id="section_title"><h1 id="section-title-text">Find Id</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
-              	<div id="box-name">비밀번호 찾기</div>
-                <div id="box">
-                    <div class="box-div" id="box-div-text">비밀번호는 가입시 입력하신 아이디,이메일을 통해 찾을 수 있습니다.</div>
-                    <div class="box-div input"><input type="text"  placeholder="이름" ><br></div>
-                    <div class="box-div input"><input type="text"  placeholder="아이디" ><br></div>
-                    <div class="box-div input"><input type="email" placeholder="이메일"><br></div>
-                    <div class="box-div input"><input type="submit" value="찾기"></input></div>
-                </div>
+                <div id="box-name">아이디찾기</div>
+                <div class="show-id">
+                    <div id="nofoundid">입력하신 정보와 일치하는 아이디가 없습니다.</div>
+                </div> 
+                <div class="btn-set">                    
+                    <input type="button" class="join-btn" name="join-btn" value="Sign In">
+                </div> 
             </div>   
         </div>     
     </section>
