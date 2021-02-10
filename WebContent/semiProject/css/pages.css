@@ -10,17 +10,20 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .footer{width: 100%; padding-top: 3%; }
 #section_title{width: 1279px; height: 100%; font-size: 2rem; font-family: 'Varela Round'; margin: 0 auto;}
 #section-title-text{color:#383736; height: 100%; font-size: 2rem; font-family: 'Varela Round'; margin:0% 10% 0% 10%}
-#section-contents-wrap{width: 1279px; margin: 0 auto;}
-#section_contents{border-top: 0.5rem solid #383736; height: 75%; margin:0% 10% 0% 10%}
+#section-contents-wrap{width: 1279px; margin: 0 auto; }
+#section_contents{border-top: 0.5rem solid #383736; min-height: 800px; margin:0% 10% 0% 10%}
 
 /* log.css */
 /* 검정박스부분 */
 #box{width: 40%; height: 60%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.8rem; background-color: #383736; color: #eee; padding-bottom:3%}
 #box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%;}
 .box-div{margin-top:-2%}
-.input{width: 80%; height: 10%; margin: 0 auto; margin:4% 10% 10% 10%} 
+.input{width: 80%; height: 10%; margin: 0 auto; margin:0;} 
 #box-div-text{font-size: 0.9rem;}
-/* signin-box안아이디찾기/비밀번호찾기/회원가입 */
+
+/* signin-box안아이디찾기/비밀번호찾기/회원가입/아이디저장 */
+.idck{display: flex; margin:0%;text-align: center; font-size: 1rem;}
+.idck > input{width: 20%;}
 .box-text{display: inline-block; font-size: 1rem;}
 #id-text{float: left; margin-left: 10%;}
 #pw-text{float: left;}
@@ -47,7 +50,7 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
 .btn-set{display: flex; width: 15%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%;}
-.join-btn{width: 100%;height: 5%;background-color: #20b8bc; color: #f2ebe5;}
+/* .join-btn{width: 100%;height: 5%;background-color: #20b8bc; color: #f2ebe5;} */
 
 /* findid_success.css */
 /* 찾은아이디 보여주기 */
@@ -73,13 +76,12 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
 .btn-set{display: flex; width: 40%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%;}
-.fpw-btn{width: 40%; height: 5%; background-color: #20bc20; color: #f2ebe5; font-size: 1.2rem;}
-.sign-btn{width: 40%;height: 5%; background-color: #20b8bc; color: #f2ebe5;}
+.sign-btn{width: 40%;height: 5%; background-color: #20b8bc; color: #f2ebe5; margin:0 auto;}
 
 /* news_main.css */
-.category{display: flex; margin-top: 3%; justify-content: space-between; width: 40%; }
+.category{display: flex; margin-top: 2%; justify-content: space-between; width: 40%; }
 .all{margin-top:3%}
-.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 4%; }
+.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 1%; margin-bottom: 1.5%; }
 .news_set_box{width: 30%; }
 .news_pic{width: 100%; height: 300px; border: 1px solid black; }
 .news_title{width: 100%; height: 30px; border: 1px solid black; margin-top: 3%;}
@@ -87,11 +89,26 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .recruit{display: flex; align-items: center;}
 .company{display: flex; align-items: center;}
 .interview{display: flex; align-items: center;}
+.more-btn{width: 20%; margin:0 auto; }
+.more-btn-input{background-color: #20b8bc; color:#f2ebe5;} 
 
 /* news_view.css */
 /* 뉴스내용 */
 .news-view-title{width: 100%; height: 10%; text-align: left; color:#383736; font-size: 2rem; margin-top: 2%;}
 .news-view-info-box{width: 40%; height:5%;  color:#383736; margin-top: 1%;}
 .news-view-info{display: inline-block;}
-.news-view-pic{ margin-top: 3%;}
+.news-view-pic{ margin-top: 3%; text-align: center;}
 .news-view-text{width: 100%; height: 30%; border: 1px solid black; margin-top:2%}
+
+/* main.css */
+.main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
+
+/* news_write.css */
+.editor-title-set{display: flex; width: 100%; margin-top: 2%;}
+.editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
+.editor-title{border: 1px solid black; height: 30px; margin:0 auto; width: 80%} 
+.save-btn{width: 15%; margin: 0 auto; }
+.savebutton{background-color: #20b8bc; color:#f2ebe5;}
+.write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
+.reset-btn{width: 15%; margin: 0 auto; }
+.resetbutton{background-color: #20bc20; color:#f2ebe5;}
