@@ -21,6 +21,7 @@ public class loginController extends HttpServlet{
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
+		
 		loginService ls = new loginService();
 		int result = ls.loginCheck(id, pw);
 	
