@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" type="text/css">
+<script>
+$(function() {
+	$("#checkIdDup").on("click", function() {
+		let idVal = $("#id").val();
+		$.ajax({
+			url: "/Cit/IdDupCheck.do",
+			dataType: "json",
+			data : {id: idVal},
+			success: function(data) {
+				if(data.id == "0") {
+					alert("사용할 수 없는 아이디 입니다.");
+				}else if(data.id == "1") {
+					alert("사용할 수 있는 아이디 입니다.");
+				}else if(data.id == "-1"){
+					alert("값을 입력해 주세요.")
+				}
+			},
+			error : function(request, status, error) {
+				alert("에러코드 : "+  error);
+			}
+			
+		})
+	})
+})
+</script>
     <!-- SECTION -->
     <section>
     <!-- 제목 -->
@@ -16,10 +42,8 @@
             <span class="ico"></span>
             필수입력사항
          </p>
-           
-
     <!-- JOIN FORM   -->
-        <form id="join_form" method="POST" action="sign_in.html">
+        <form id="join_form" method="post" action="${pageContext.request.contextPath}/joinController">
           <table>
             <colgroup>
               <col width="30%"/>
@@ -29,26 +53,26 @@
             <tbody>
                 <tr>
                   <th><span class="ico">아이디</span></th>
-                  <td><input type="text" placeholder="6자 이상의 영문 혹은 영문+숫자 조합" required>
-                   <a href="" class="btn btn-chk">중복 확인</a>
+                  <td><input type="text" placeholder="6자 이상의 영문 혹은 영문+숫자 조합" required id="id" name="id">
+                   <a class="btn btn-chk" id="checkIdDup">중복 확인</a>
                   </td>
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호</span></th>
-                  <td><input type="text" placeholder="8자 이상의 영문+숫자+특수문자 조합" required></td>
+                  <td><input type="text" placeholder="8자 이상의 영문+숫자+특수문자 조합" required id="pw" name="pw"></td>
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호 확인</span></th>
-                  <td><input type="text" placeholder="비밀번호를 한 번 더 입력해주세요." required></td>
+                  <td><input type="text" placeholder="비밀번호를 한 번 더 입력해주세요." required id="pw_check" name="pw_check"></td>
                 </tr>
                 <tr>
                   <th><span class="ico">이름</span></th>
-                  <td><input type="text" placeholder="이름을 입력해주세요" required></td>
+                  <td><input type="text" placeholder="이름을 입력해주세요" required id="name" name="name"></td>
                 </tr>
                 <tr>
                   <th><span class="ico">이메일</span></th>
                   <td>
-                    <input class="email-text" type="text" placeholder="예:cit@cit.com" required>
+                    <input class="email-text" type="email" placeholder="예:cit@cit.com" required id="email" name="email">
                     <a href="" class="btn btn-confirm">이메일 인증</a>
                   </td>
                 </tr>
@@ -56,9 +80,9 @@
                   <th><span>성별</span></th>
                   <td class="radio">
                      <div class="chk-group"> 
-                      <input type="radio" id='m' name="gender" class="gender-type" value="male">
+                      <input type="radio" id="m" name="gender" class="gender-type" value="m">
                       <label for="m">남</label>   
-                      <input type="radio" id='f' name="gender" class="gender-type" value="female">
+                      <input type="radio" id="f" name="gender" class="gender-type" value="f">
                       <label for="f">여</label> 
                      </div>
                   </td>      
@@ -67,27 +91,27 @@
                     <th><span>생년월일</span></th>
                     <td>
                       <div class="birth_day">
-                        <input type="text" name="birth_year" id="birth_year" pattern="[0-9]*" value label="생년월일" size="4" maxlength="4"
+                        <input type="text" name="year" id="birth_year" pattern="[0-9]*" label="생년월일" size="4" maxlength="4"
                         placeholder="YYYY">
                       <span class="bar"></span>   
-                        <input type="text" name="birth[]" id="birth_month" pattern="[0-9]*" value label="생년월일" size="2" maxlength="2"
+                        <input type="text" name="month" id="birth_month" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
                         placeholder="MM">
                       <span class="bar"></span>
-                        <input type="text" name="birth[]" id="birth_day" pattern="[0-9]*" value label="생년월일" size="2" maxlength="2"
+                        <input type="text" name="day" id="birth_day" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
                         placeholder="DD">
                       </div>
-                    <td>
+                    </td>
                 </tr>              
                 <tr>
                     <th><span>직업</span></th>
                     <td class="radio">
                         <div class="chk-group">
-                          <input type="radio" id='student' name='job' value="student"><label for="student">학생</label>
-                          <input type="radio" id='predeveloper' name='job' value="predeveloper"><label for="predeveloper">취준생</label>
-                          <input type="radio" id='developer' name='job' value="developer"><label for="developer">IT 관련 종사자</label><br>
+                          <input type="radio" id="student" name="job" value="학생"><label for="student">학생</label>
+                          <input type="radio" id="predeveloper" name="job" value="취준생"><label for="predeveloper">취준생</label>
+                          <input type="radio" id="developer" name="job" value="관련종사자"><label for="developer">IT 관련 종사자</label><br>
                         </div>
                         <div class="etc">
-                          <input type="radio" id='job-etc' name='job' value="job-etc"><label for="job-etc">기타</label>
+                          <input type="radio" id="job-etc" name="job" value="job-etc"><label for="job-etc">기타</label>
                           <input type="text" id="etc" name="job" placeholder="선택 기입" disabled>
                         </div>
                     </td>
@@ -96,12 +120,12 @@
                     <th><span>가입 경로</span></th>
                         <td class="checkbox">
                           <div class="chk-group">
-                              <input type="checkbox" id="ads" name='path' value="ads"><label for="ads">광고</label>
-                              <input type="checkbox" id="site" name='path' value="site"><label for="site">사이트</label>
-                              <input type="checkbox" id="rec" name='path' value="rec"><label for="rec">지인 추천</label><br>
+                              <input type="checkbox" id="ads" name="path" value="광고"><label for="ads">광고</label>
+                              <input type="checkbox" id="site" name="path" value="타사이트"><label for="site">타사이트</label>
+                              <input type="checkbox" id="rec" name="path" value="지인추천"><label for="rec">지인 추천</label><br>
                           </div>
                           <div class="etc">
-                              <input type="checkbox" id="path-etc" name='path' value="path-etc"><label for="path-etc">기타</label>
+                              <input type="checkbox" id="path-etc" name="path" value="기타"><label for="path-etc">기타</label>
                               <input type="text" id="etc" name="path" placeholder="선택 기입" disabled>
                           </div>
                         </td>
@@ -131,14 +155,14 @@
                       </td>
                   </tr>
               </tbody>
-            </table>
-                    <!-- 제출버튼 -->
-                    <div class="btn-group">
-                      <input type="reset" class="join reset" value="취소">
-                      <input type="submit" class="join join" value="가입하기">
-                    </div>    
+            </table> 
+            <!-- 제출버튼 -->
+            <div class="btn-group">
+              <input type="reset" class="join reset" value="취소">
+              <input type="submit" class="join join" value="가입하기">
+            </div>    
         </form>  
      </div>
     </div> 
   </section>
-<%@ include file="/include/footer.jsp" %>
+<%-- <%@ include file="/include/footer.jsp" %> --%>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,31 +17,43 @@ import com.cit.member.model.MemberDto;
 import com.cit.member.service.MemberService;
 
 @WebServlet("/joinController")
-	public class joinController extends HttpServlet {
+public class joinController extends HttpServlet {
 
-		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String textPath ="";
+		java.sql.Date birth = null;
+		request.setCharacterEncoding("UTF-8");
+		
+		Map<String, String[]> aa = request.getParameterMap();
+		
+		System.out.println(aa.get("id"));
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String gender = request.getParameter("gender");
+		String job = request.getParameter("job");
+		String[] path = request.getParameterValues("path");
+		String bd = request.getParameter("year")+request.getParameter("month")+request.getParameter("day");
+		
+		textPath = checkJoinPath(path);
+		birth = checkBirthDate(bd);
 
-			request.setCharacterEncoding("UTF-8");
+		MemberDto mDto = new MemberDto(id,pw,name,email,gender,birth,job,textPath);
+		boolean result =  new MemberService().join(mDto);
 
-
-			String id = request.getParameter("id");
-			String pw = request.getParameter("pw");
-			String name = request.getParameter("name");
-			String email = request.getParameter("email");
-			String gender = request.getParameter("gender");
-			String job = request.getParameter("job");
-//			String path = request.getParameter("path");
-
-//			String textJob = new String();
-//			for(int i =0; i<job.length; i++) {
-//				textJob += job[i]+" ";
-//				System.out.println(textJob);
-//			}
-//			
-//			
-//			
-			String[] path = request.getParameterValues("path");
-			String textPath ="";
+		if(result) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath() +"/main.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect(request.getContextPath() +"/member/join.jsp");
+		}
+	}
+	
+	public String checkJoinPath(String[] path) {
+		String textPath = "";
+		if(path != null) {
 			for(int i =0; i<path.length; i++) {
 				if(i==path.length-1) {
 					textPath += path[i];
@@ -48,27 +61,25 @@ import com.cit.member.service.MemberService;
 				}
 				textPath+= path[i]+",";
 			} 
-
+		}
+		
+		return textPath;
+	}
+	
+	public java.sql.Date checkBirthDate(String bd) {
+		java.sql.Date birth = null;
+		if(!bd.equals("")) {
 			SimpleDateFormat df = new SimpleDateFormat("yyyymmdd");	
 			java.util.Date date = null;
 			try {
-				date = df.parse(request.getParameter("year")+request.getParameter("month")+request.getParameter("day"));
+				date = df.parse(bd);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 			
-			java.sql.Date birth = new java.sql.Date(date.getTime());
-
-			//String birth_ = request.getParameter("year")+request.getParameter("month")+request.getParameter("day");
-			MemberDto mDto = new MemberDto(id,pw,name,email,gender,birth,job,textPath);
-			boolean result =  new MemberService().join(mDto);
-
-			if(result) {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/member/signUpResult.jsp");
-				dispatcher.forward(request, response);
-			} else {
-				response.sendRedirect(request.getContextPath() +"/member/join.jsp");
-			}
+			birth = new java.sql.Date(date.getTime());
 		}
+		return birth;
 	}
+}
 
