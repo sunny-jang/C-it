@@ -10,6 +10,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 public class MemberDao {
+	Connection conn = null;
+	String query = null;
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
 
 	private static MemberDao instance;
     private MemberDao(){}
@@ -64,21 +68,45 @@ public class MemberDao {
 	}
 
 	
-	public MemberDto getMember() {
-		Connection con = null;
-		PreparedStatement pstmt = null;
+	public MemberDto getMember(String id) {
+		String query = "SELECT * FROM \"USER\" WHERE U_ID = ?";
 		
 		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				String u_id = rset.getString("U_ID");
+				String u_pw = rset.getString("U_PW");
+				String name = rset.getString("U_NAME");
+				String email = rset.getString("U_EMAIL");
+				String gender = rset.getString("U_GENDER");
+				java.sql.Date birth = rset.getDate("U_BIRTH");
+				String job = rset.getString("U_JOB");
+				String path = rset.getString("JOIN_PATH");
+				
+				MemberDto mdto = new MemberDto(u_id, u_pw, name, email, gender, birth, job, path);
+				return mdto;
+			}
 			
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		}finally {
-			
+			try {
+				if(rset != null) rset.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {}
 		}
 		
 		return null;
-		
 	}
+	
+	
+	//TODO getMember() 메서드 이용해서 서비스에서 아이디 비번 체크하는 걸로 변경 
 	
 	public int loginCheck(String id, String pw) {
 		Connection conn = null;

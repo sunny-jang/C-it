@@ -26,7 +26,6 @@ public class MemberDto {
 		this.birth=birth;
 		this.job=job;
 		this.path=path;
-
 	}
 
 	public String getId() {
