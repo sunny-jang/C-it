@@ -16,8 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.cit.member.model.MemberDto;
 import com.cit.member.service.MemberService;
 
-@WebServlet("/joinController")
+@WebServlet("/joinController.do")
 public class joinController extends HttpServlet {
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/member/join.jsp");
+		rd.forward(request, response);
+		
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String textPath ="";
