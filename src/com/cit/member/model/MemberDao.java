@@ -105,49 +105,6 @@ public class MemberDao {
 		return null;
 	}
 	
-	
-	//TODO getMember() 메서드 이용해서 서비스에서 아이디 비번 체크하는 걸로 변경 
-	
-	public int loginCheck(String id, String pw) {
-		Connection conn = null;
-		String query = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		int result = 1;
-		
-		try {
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","CIT","CITPASS");
-			query = "SELECT U_PW FROM \"USER\" WHERE U_ID = ?";
-			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1,id);
-			rset = pstmt.executeQuery();
-			
-			if(rset.next()) {	// 아이디가 있을 경우
-				String pass = rset.getString("U_PW");
-				if(pass.equals(pw)) {
-					result = 1;	// 입력받은 비번과 DB의 비번이 같으면 1
-				}else {
-					result = -1;	// 다르면 -1
-				}
-			}else {
-				result = 0;	// 아이디가 없을 경우 0
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			try {
-				if(rset != null) rset.close();
-				if(pstmt != null) pstmt.close();
-				if(conn != null) conn.close();
-			} catch (Exception e2) {
-				
-			}
-		}
-	
-		return result;
-		
-	}
-	
 	public MemberDto searchId(String name, String email) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -181,6 +138,47 @@ public class MemberDao {
 				if(rset != null) rset.close();
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} return mdto;
+	}
+	
+	public MemberDto searchPw(String name, String id, String email) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		MemberDto mdto = null;
+		
+		try {
+			conn = getConnection();
+			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			pstmt.setString(3, email);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				mdto = new MemberDto(
+						rset.getString("U_ID"),
+						rset.getString("U_PW"),
+						rset.getString("U_NAME"),
+						rset.getString("U_EMAIL"),
+						rset.getString("U_GENDER"),
+						rset.getDate("U_BIRTH"),
+						rset.getString("U_JOB"),
+						rset.getString("JOIN_PATH")
+						);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
