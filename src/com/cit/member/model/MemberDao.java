@@ -143,4 +143,45 @@ public class MemberDao {
 			}
 		} return mdto;
 	}
+	
+	public MemberDto searchPw(String name, String id, String email) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		MemberDto mdto = null;
+		
+		try {
+			conn = getConnection();
+			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			pstmt.setString(3, email);
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				mdto = new MemberDto(
+						rset.getString("U_ID"),
+						rset.getString("U_PW"),
+						rset.getString("U_NAME"),
+						rset.getString("U_EMAIL"),
+						rset.getString("U_GENDER"),
+						rset.getDate("U_BIRTH"),
+						rset.getString("U_JOB"),
+						rset.getString("JOIN_PATH")
+						);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} return mdto;
+	}
 }
