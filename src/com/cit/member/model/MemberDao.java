@@ -68,13 +68,17 @@ public class MemberDao {
 	}
 
 	
-	public MemberDto getMember(String id) {
-		String query = "SELECT * FROM \"USER\" WHERE U_ID = ?";
+	public MemberDto getMember(String type, String value) {
+		switch(type) {
+		case "id" : type = "U_ID"; break;
+		case "email" : type = "U_EMAIL"; break;
+		}
 		
+		String query = "SELECT * FROM \"USER\" WHERE "+type+" = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, id);
+			pstmt.setString(1, value);
 			
 			rset = pstmt.executeQuery();
 			
