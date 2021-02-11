@@ -38,7 +38,9 @@ $(function() {
 			data : {email: emailVal},
 			success: function(data) {
 				console.log(data);
-				if(data.isUsed) {
+				if(data.isEmpty){
+					alert("이메일을 입력해 주세요.")
+				}else if(data.isUsed) {
 					alert("이미 사용중인 이메일 입니다.");
 				}else {
 					alert("이메일이 전송되었습니다.");

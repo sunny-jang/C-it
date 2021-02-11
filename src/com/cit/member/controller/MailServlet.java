@@ -32,7 +32,8 @@ public class MailServlet extends HttpServlet {
 			  
 	  mdto = MemberDao.getInstance().getMember("email", uEmail);
 
-	  if(mdto == null) {
+
+	  if(mdto == null && !uEmail.equals("")) {
 		  json.put("isUsed", false);
 		  String to =  "";
 	      if (!uEmail.equals("")) to = uEmail;//change accordingly
@@ -79,6 +80,8 @@ public class MailServlet extends HttpServlet {
 	      } catch (MessagingException e) {
 	            throw new RuntimeException(e);
 	      }
+	  }else if(uEmail.equals("")){
+		  json.put("isEmpty", true);
 	  }else {
 		  System.out.println();
 		  json.put("isUsed", true);
