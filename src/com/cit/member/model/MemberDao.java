@@ -106,14 +106,11 @@ public class MemberDao {
 	}
 	
 	public MemberDto searchId(String name, String email) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
 		MemberDto mdto = null;
 		try {
 			
 			conn = getConnection();
-			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_EMAIL\"=?";
+			query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_EMAIL\"=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, name);
 			pstmt.setString(2, email);
@@ -145,14 +142,11 @@ public class MemberDao {
 	}
 	
 	public MemberDto searchPw(String name, String id, String email) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
 		MemberDto mdto = null;
 		
 		try {
 			conn = getConnection();
-			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
+			query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, name);
