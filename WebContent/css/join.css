@@ -40,7 +40,7 @@ section div.btn-group {display:flex; align-items:center; justify-content:center;
 .join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; 
 font-size: 1.5rem; font-weight:700; margin-bottom:10%;}
 input[type="reset"] {background:#bcbcbc; margin-right:10%; border-radius:4px;}
-input[type="submit"] {background:#20b8bc; color:#eee; border-radius:4px;}
+input[type="submit"], #joinSubmit {background:#20b8bc; color:#eee; border-radius:4px;}
 
 
 /* BUTTON */
