@@ -10,17 +10,20 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .footer{width: 100%; padding-top: 3%; }
 #section_title{width: 1279px; height: 100%; font-size: 2rem; font-family: 'Varela Round'; margin: 0 auto;}
 #section-title-text{color:#383736; height: 100%; font-size: 2rem; font-family: 'Varela Round'; margin:0% 10% 0% 10%}
-#section-contents-wrap{width: 1279px; margin: 0 auto;}
-#section_contents{border-top: 0.5rem solid #383736; height: 75%; margin:0% 10% 0% 10%}
+#section-contents-wrap{width: 1279px; margin: 0 auto; }
+#section_contents{border-top: 0.5rem solid #383736; min-height: 800px; margin:0% 10% 0% 10%}
 
 /* log.css */
 /* 검정박스부분 */
 #box{width: 40%; height: 60%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.8rem; background-color: #383736; color: #eee; padding-bottom:3%}
 #box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%;}
 .box-div{margin-top:-2%}
-.input{width: 80%; height: 10%; margin: 0 auto; margin:4% 10% 10% 10%} 
+.input{width: 80%; height: 10%; margin: 0 auto; margin:0;} 
 #box-div-text{font-size: 0.9rem;}
-/* signin-box안아이디찾기/비밀번호찾기/회원가입 */
+
+/* signin-box안아이디찾기/비밀번호찾기/회원가입/아이디저장 */
+.idck{display: flex; margin:0%;text-align: center; font-size: 1rem;}
+.idck > input{width: 20%;}
 .box-text{display: inline-block; font-size: 1rem;}
 #id-text{float: left; margin-left: 10%;}
 #pw-text{float: left;}
@@ -47,7 +50,7 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
 .btn-set{display: flex; width: 15%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%;}
-.join-btn{width: 100%;height: 5%;background-color: #20b8bc; color: #f2ebe5;}
+/* .join-btn{width: 100%;height: 5%;background-color: #20b8bc; color: #f2ebe5;} */
 
 /* findid_success.css */
 /* 찾은아이디 보여주기 */
@@ -73,13 +76,12 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
 .btn-set{display: flex; width: 40%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%;}
-.fpw-btn{width: 40%; height: 5%; background-color: #20bc20; color: #f2ebe5; font-size: 1.2rem;}
-.sign-btn{width: 40%;height: 5%; background-color: #20b8bc; color: #f2ebe5;}
+.sign-btn{width: 40%;height: 5%; background-color: #20b8bc; color: #f2ebe5; margin:0 auto;}
 
 /* news_main.css */
-.category{display: flex; margin-top: 3%; justify-content: space-between; width: 40%; }
+.category{display: flex; margin-top: 2%; justify-content: space-between; width: 40%; }
 .all{margin-top:3%}
-.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 4%; }
+.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 1%; margin-bottom: 1.5%; }
 .news_set_box{width: 30%; }
 .news_pic{width: 100%; height: 300px; border: 1px solid black; }
 .news_title{width: 100%; height: 30px; border: 1px solid black; margin-top: 3%;}
@@ -87,11 +89,151 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .recruit{display: flex; align-items: center;}
 .company{display: flex; align-items: center;}
 .interview{display: flex; align-items: center;}
+.more-btn{width: 20%; margin:0 auto; }
+.more-btn-input{background-color: #20b8bc; color:#f2ebe5;} 
 
 /* news_view.css */
 /* 뉴스내용 */
 .news-view-title{width: 100%; height: 10%; text-align: left; color:#383736; font-size: 2rem; margin-top: 2%;}
 .news-view-info-box{width: 40%; height:5%;  color:#383736; margin-top: 1%;}
 .news-view-info{display: inline-block;}
-.news-view-pic{ margin-top: 3%;}
+.news-view-pic{ margin-top: 3%; text-align: center;}
 .news-view-text{width: 100%; height: 30%; border: 1px solid black; margin-top:2%}
+
+/* main.css */
+.main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
+
+/* news_write.css */
+.editor-title-set{display: flex; width: 100%; margin-top: 2%;}
+.editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
+.editor-title{border: 1px solid black; height: 30px; margin:0 auto; width: 80%} 
+.save-btn{width: 15%; margin: 0 auto; }
+.savebutton{background-color: #20b8bc; color:#f2ebe5;}
+.write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
+.reset-btn{width: 15%; margin: 0 auto; }
+<<<<<<< HEAD
+.resetbutton{background-color: #20bc20; color:#f2ebe5;}
+
+/* join */
+/* FLOAT CLEARFIX */
+.clearfix:after {content:""; clear:both; display:block;}
+.float--left {float:left;}
+.float--right {float:right;}
+
+/* SECTION */
+section {width: 100%;}
+/* JOIN FORM */
+section #join_form {width:100%; height:100%;}
+section #join_form span {font-weight:700; text-align:center; font-size:1.5rem;}
+:placeholder {color:#bcbcbc;}
+
+#join_form .birth_day {overflow:hidden; width: 50%;
+border:0.1rem solid #ccc; font-size:1rem; margin:1% 0;}
+#join_form .birth_day input[type='text'] {float:left; width: 100px; margin: 0; border: 0; text-align: center;}
+#join_form .bar:after {content: "/"; float:left; width: 5%; font-size:2rem; color:#bcbcbc;
+  line-height:3rem; text-align:center;}
+#join_form input[type='text'] {width:50%; font-size:1rem; margin:0 5% 2% 0;}
+.ico:after {content:'*'; color:#f95427; font-size:1rem; font-weight:700;}
+#etc {width:43%;}
+.sub {margin:3% 5% 0 0;}
+#join_form .agreeform-chk-wrap {margin-left: auto; margin-right: auto;}
+#join_form input[type="radio"], #join_form input[type="checkbox"] {width:auto;}
+#join_form .agreeform-chk-wrap {float:right; margin: 3% 15% 0 0;}
+
+#join_form table {width:100%; margin:0px auto;}
+#join_form td {width: 70%; height: 100%; vertical-align:middle;}
+#join_form th {width: 30%; height: 100%; vertical-align:middle;}
+#join_form .chk-group {line-height: 3rem;}
+
+/* 개인정보처리방침 */
+section .agreeform-wrap.top {width:100%; border:solid #bcbcbc; border-width:0.2rem 0 0.1rem;}
+section .agreeform-wrap {width:50%; padding:3%;}
+section .agreeform-wrap span.required {color:#bcbcbc;}
+section .agreeform-wrap p.title {margin-left:-5%; margin-bottom:2%; font-size:1.5rem; font-weight:700; display:inline-block;}
+section .agreeform-wrap p.text {margin-left:-6%; width:90%; height:200px; border:0.1rem solid #bcbcbc; overflow:auto;} 
+
+/* 제출버튼 */
+section div.btn-group {display:flex; align-items:center; justify-content:center;}
+section .join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; 
+font-size: 1.5rem; font-weight:700; margin-bottom:10%;}
+section input[type="reset"] {background:#bcbcbc; margin-right:10%;}
+section input[type="submit"] {background:#20b8bc; color:#eee;}
+
+
+/* BUTTON */
+.btn {height: 30%;
+  background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+  border: 0.2rem solid #eee;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3%; 
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box; 
+}
+
+/* member_update */
+section .complete-btn-wrap {display:flex; align-items:center; justify-content:center;
+  width:100%; border-top:solid #bcbcbc; border-width:0.2rem 0 0; margin-top:5%;}
+.complete-btn-wrap input[type="submit"] {background:#20b8bc; color:#eee;
+  width:20%; box-sizing:border-box; cursor:pointer; 
+  font-size: 1.5rem; font-weight:700;
+  display:flex; justify-content: center; align-items: center;
+  margin: 7% 0 3%; min-height:70%}
+
+/* BUTTON */
+.btn {height: 30%;
+  background: #eee linear-gradient(to bottom, #fcfcfc, #eee);
+  border: 0.2rem solid #eee;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 3%; 
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box; 
+}
+.btn.btn-confirm {margin-left:5%;}
+#widthrawal {float:right; margin-top:-13%;}
+
+/* member_delete */
+/* 회원탈퇴 */
+section div.delete-wrap {width:100%; font-size:1rem; text-align:center; margin:7% auto; min-height:70%;}
+section i.far.fa-check-circle {font-size:5rem;}
+section p.delete-title {font-size:1.8rem; font-weight:900; margin:1% 0 1%;}
+section p.delete-content {font-size:1rem; font-weight:600;}
+
+/* board_list */
+.board-wrap table {width:100%; height: 100%;}
+.board-wrap td {border-top: 1px solid #bcbcbc; text-align: center; padding:3% 0 3% 0;}
+.board-wrap th {padding:1% 0; font-weight:900; background:#20bc20;}
+
+.pagination {display:flex;}
+.pagination li {font-size:2rem;}
+.justify-content-center {justify-content: center; align-items: center;}
+.btn-write {
+    margin-bottom: 2%;
+    height: 30%;
+    background:#20b8bc;
+    border: 0.2rem solid #20b8bc;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 3%;
+    color:#eee;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    float:right; 
+  }
+  .bottom {padding: 3% 0;}
+=======
+.resetbutton{background-color: #20bc20; color:#f2ebe5;}
+>>>>>>> branch 'master' of https://github.com/sunny-jang/C-it.git

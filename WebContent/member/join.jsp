@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css" type="text/css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/join.css?version=1" type="text/css">
 <script>
 $(function() {
+	let authCheck = false;
 	$("#checkIdDup").on("click", function() {
 		let idVal = $("#id").val();
 		$.ajax({
@@ -24,6 +25,67 @@ $(function() {
 			}
 			
 		})
+	});
+	
+	$("#checkEmail").on("click", function() {
+		let emailVal = $("#email").val();
+		$("#emailAuthBox").css("display","block");
+		$.ajax({
+			url: "/Cit/mailServlet.do",
+			dataType: "json",
+			data : {email: emailVal},
+			success: function(data) {
+			},
+			error : function(request, status, error) {
+				alert("에러코드 : "+  error);
+			}
+			
+		})
+	});
+	
+	$("#checkAuth").on("click", function() {
+	alert("인증번호");
+		let authNumlVal = $("#authNum").val();
+		$.ajax({
+			url: "/Cit/checkAuth.do",
+			dataType: "json",
+			data : {authNum: authNumlVal},
+			success: function(data) {
+				console.log("다녀왔음");
+				if(data.check == "값 없음") {
+					alert("값을 입력해주세요.");
+				}else if(data.check ="일치") {
+					alert("이메일이 인증되었습니다!");
+					authCheck = true;
+					
+				}else {
+					alert("인증번호를 확인해주세요.");
+				}
+			},
+			error : function(request, status, error) {
+				alert("request : "+  request);
+				alert("status : "+  status);
+				alert("에러코드 : "+  error);
+			}
+			
+		})
+	});
+	
+	$("#joinSubmit").on("click", function() {
+		let emailAuth = authCheck;
+		let policyCheck = $("#agreeform-chk").is(":checked");
+		console.log(policyCheck);
+		if(!emailAuth) {
+			alert("필수 값을 모두 입력해주세요.");
+			$("joinSubmit").attr("disabled","true");
+		}else if(policyCheck == null || policyCheck == "" || policyCheck == false) {
+			$("#joinSubmit").attr("disabled","true");
+			alert("개인정보 처리 방침을 체크해주세요.");
+		} else {
+			alert("dd")
+			$("#joinSubmit").attr("disabled","");
+			$("#joinSubmit").submit();
+		}
 	})
 })
 </script>
@@ -43,7 +105,7 @@ $(function() {
             필수입력사항
          </p>
     <!-- JOIN FORM   -->
-        <form id="join_form" method="post" action="${pageContext.request.contextPath}/joinController">
+        <form id="join_form" method="post" action="${pageContext.request.contextPath}/joinController.do">
           <table>
             <colgroup>
               <col width="30%"/>
@@ -72,8 +134,14 @@ $(function() {
                 <tr>
                   <th><span class="ico">이메일</span></th>
                   <td>
-                    <input class="email-text" type="email" placeholder="예:cit@cit.com" required id="email" name="email">
-                    <a href="" class="btn btn-confirm">이메일 인증</a>
+                    <input class="email-text" type="email" placeholder="예:cit@cit.com" required id="email" name="email" style="width:50%; margin-right:5%"
+                    >
+                    <a  class="btn btn-confirm" id="checkEmail">이메일 인증</a>
+                    <div id="emailAuthBox" style="display:none">
+                    	<input type="text" name="auth" id="authNum" placeholder="발송된 인증번호를 입력해 주세요." required>
+                    	<a  type="button" id="checkAuth" class="btn btn-confirm">인증하기</a>
+                    </div>
+                    
                   </td>
                 </tr>
                 <tr>
@@ -159,7 +227,7 @@ $(function() {
             <!-- 제출버튼 -->
             <div class="btn-group">
               <input type="reset" class="join reset" value="취소">
-              <input type="submit" class="join join" value="가입하기">
+              <input type="submit" class="join join" value="가입하기" id="joinSubmit">
             </div>    
         </form>  
      </div>
