@@ -20,58 +20,72 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 
+import com.cit.member.model.MemberDao;
+import com.cit.member.model.MemberDto;
+
 @WebServlet("/mailServlet.do")
 public class MailServlet extends HttpServlet {
    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	   String uEmail = request.getParameter("email");
-      String to =  "";
-      if (!uEmail.equals("")) to = uEmail;//change accordingly
+	  String uEmail = request.getParameter("email");
+	  JSONObject json = new JSONObject();
+	  MemberDto mdto = null;
+			  
+	  mdto = MemberDao.getInstance().getMember("email", uEmail);
 
-      String from = "esunbest@gmail.com";//change accordingly
-      final String username = "esunbest@gmail.com";//change accordingly
-      final String password = "whrwpql000";//change accordingly
+	  if(mdto == null) {
+		  json.put("isUsed", false);
+		  String to =  "";
+	      if (!uEmail.equals("")) to = uEmail;//change accordingly
 
-      String host = "smtp.gmail.com";
+	      String from = "esunbest@gmail.com";//change accordingly
+	      final String username = "esunbest@gmail.com";//change accordingly
+	      final String password = "whrwpql000";//change accordingly
 
-      Properties props = new Properties();
-      props.put("mail.smtp.auth", "true");
-      props.put("mail.smtp.starttls.enable", "true");
-      props.put("mail.smtp.host", host);
-      props.put("mail.smtp.port", "587");
+	      String host = "smtp.gmail.com";
 
-      Session session = Session.getInstance(props,
-      new javax.mail.Authenticator() {
-         protected PasswordAuthentication getPasswordAuthentication() {
-            return new PasswordAuthentication(username, password);
-         }
-      });
-      
-      String authNum = MakeAuthNum();
-      
-      
-      try {
-         Message message = new MimeMessage(session);
+	      Properties props = new Properties();
+	      props.put("mail.smtp.auth", "true");
+	      props.put("mail.smtp.starttls.enable", "true");
+	      props.put("mail.smtp.host", host);
+	      props.put("mail.smtp.port", "587");
 
-         message.setFrom(new InternetAddress(from));
+	      Session session = Session.getInstance(props,
+	      new javax.mail.Authenticator() {
+	         protected PasswordAuthentication getPasswordAuthentication() {
+	            return new PasswordAuthentication(username, password);
+	         }
+	      });
+	      
+	      String authNum = MakeAuthNum();
+	      
+	      
+	      try {
+	         Message message = new MimeMessage(session);
 
-         message.setRecipients(Message.RecipientType.TO,
-         InternetAddress.parse(to));
+	         message.setFrom(new InternetAddress(from));
 
-         message.setSubject("Testing Subject");
-         
-         message.setText("인증번호는"+authNum+"입니다.");
+	         message.setRecipients(Message.RecipientType.TO,
+	         InternetAddress.parse(to));
 
-         Transport.send(message);
-         JSONObject json = new JSONObject();
-         json.put("authNum", authNum);
-         response.getWriter().append(json.toJSONString());
-         
-        request.getSession().setAttribute("authNum", authNum);
-        
-      } catch (MessagingException e) {
-            throw new RuntimeException(e);
-      }
-      System.out.println("Sent message successfully....");
+	         message.setSubject("Testing Subject");
+	         
+	         message.setText("인증번호는"+authNum+"입니다.");
+
+	         Transport.send(message);
+	         
+	         json.put("authNum", authNum);
+	        request.getSession().setAttribute("authNum", authNum);
+	        
+	      } catch (MessagingException e) {
+	            throw new RuntimeException(e);
+	      }
+	  }else {
+		  System.out.println();
+		  json.put("isUsed", true);
+	  }
+	  
+	  response.getWriter().append(json.toJSONString());
+     
    }
    
    public String MakeAuthNum() {

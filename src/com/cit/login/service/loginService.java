@@ -10,7 +10,7 @@ public class loginService {
 	
 	public int loginCheck(String id,String pw) {
 		
-		MemberDto mdto = mDao.getMember(id);
+		MemberDto mdto = mDao.getMember("id",id);
 		int result = 0;
 		
 		String pass = mdto.getPw();
