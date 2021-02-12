@@ -13,7 +13,7 @@ import com.cit.member.model.MemberDao;
 import com.cit.member.model.MemberDto;
 import com.cit.search.service.SearchService;
 
-@WebServlet("/searchId")
+@WebServlet("/searchId.do")
 public class SearchIdController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 

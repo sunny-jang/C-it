@@ -5,6 +5,7 @@
 <script>
 $(function() {
 	let authCheck = false;
+	let idCheck = false;
 	$("#checkIdDup").on("click", function() {
 		let idVal = $("#id").val();
 		$.ajax({
@@ -16,8 +17,10 @@ $(function() {
 					alert("사용할 수 없는 아이디 입니다.");
 				}else if(data.id == "1") {
 					alert("사용할 수 있는 아이디 입니다.");
+					idCheck = true;
+					$("#checkIdDup").css({"background":"#20b8bc", "color": "white", "border": "none"});
 				}else if(data.id == "-1"){
-					alert("값을 입력해 주세요.")
+					alert("값을 입력해 주세요.");
 				}
 			},
 			error : function(request, status, error) {
@@ -29,12 +32,20 @@ $(function() {
 	
 	$("#checkEmail").on("click", function() {
 		let emailVal = $("#email").val();
-		$("#emailAuthBox").css("display","block");
 		$.ajax({
 			url: "/Cit/mailServlet.do",
 			dataType: "json",
 			data : {email: emailVal},
 			success: function(data) {
+				console.log(data);
+				if(data.isEmpty){
+					alert("이메일을 입력해 주세요.")
+				}else if(data.isUsed) {
+					alert("이미 사용중인 이메일 입니다.");
+				}else {
+					alert("이메일이 전송되었습니다.");
+					$("#emailAuthBox").css("display","block");
+				}
 			},
 			error : function(request, status, error) {
 				alert("에러코드 : "+  error);
@@ -44,18 +55,17 @@ $(function() {
 	});
 	
 	$("#checkAuth").on("click", function() {
-	alert("인증번호");
 		let authNumlVal = $("#authNum").val();
 		$.ajax({
 			url: "/Cit/checkAuth.do",
 			dataType: "json",
 			data : {authNum: authNumlVal},
 			success: function(data) {
-				console.log("다녀왔음");
 				if(data.check == "값 없음") {
 					alert("값을 입력해주세요.");
 				}else if(data.check ="일치") {
 					alert("이메일이 인증되었습니다!");
+					$("#checkAuth").css({"background":"#20b8bc", "color": "white", "border": "none"});
 					authCheck = true;
 					
 				}else {
@@ -75,18 +85,30 @@ $(function() {
 		let emailAuth = authCheck;
 		let policyCheck = $("#agreeform-chk").is(":checked");
 		console.log(policyCheck);
-		if(!emailAuth) {
-			alert("필수 값을 모두 입력해주세요.");
-			$("joinSubmit").attr("disabled","true");
+		if(!idCheck){
+			alert("아이디 중복 체크를 해주세요.");
+		}else if(!emailAuth) {
+			alert("이메일 인증을 해주세요.");
+			$("#join_form").attr("onsubmit","return false");
 		}else if(policyCheck == null || policyCheck == "" || policyCheck == false) {
-			$("#joinSubmit").attr("disabled","true");
+			$("#join_form").attr("onsubmit","return false");
 			alert("개인정보 처리 방침을 체크해주세요.");
 		} else {
-			alert("dd")
-			$("#joinSubmit").attr("disabled","");
+			$("#join_form").attr("onsubmit","return true");
 			$("#joinSubmit").submit();
 		}
-	})
+	});
+	
+	
+	$("#pw_check").change(function() {
+		let pw = $("#pw").val();
+		let pwChk = $("#pw_check").val();
+		$("#pwMsg").css("display","none");
+		
+		if(pw != pwChk) {
+			$("#pwMsg").css("display","block");
+		}
+	});
 })
 </script>
     <!-- SECTION -->
@@ -121,11 +143,14 @@ $(function() {
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호</span></th>
-                  <td><input type="text" placeholder="8자 이상의 영문+숫자+특수문자 조합" required id="pw" name="pw"></td>
+                  <td><input type="text" placeholder="8자 이상의 영문+숫자+특수문자 조합" required id="pw" name="pw" pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"></td>
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호 확인</span></th>
-                  <td><input type="text" placeholder="비밀번호를 한 번 더 입력해주세요." required id="pw_check" name="pw_check"></td>
+                  <td>
+                  <input type="text" placeholder="비밀번호를 한 번 더 입력해주세요." required id="pw_check" name="pw_check">
+                  <i style="display:none; color: red" id="pwMsg">비밀번호가 일치하지 않습니다. 다시 확인해주세요.</i>
+                  </td>
                 </tr>
                 <tr>
                   <th><span class="ico">이름</span></th>

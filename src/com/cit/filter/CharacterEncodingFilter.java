@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 
-@WebFilter("/*")
+@WebFilter("*.do")
 public class CharacterEncodingFilter implements Filter {
 	
 	public void destory() {

@@ -10,7 +10,7 @@ $(function() {
 		$.ajax({
 			type : 'get',
 			async : 'true',
-			url : "/Cit/signInCheck",
+			url : "/Cit/signInCheck.do",
 			data : {id: idVal, pw : pwVal}, 
 			dataType : 'json',
 			success : function(data){
@@ -41,7 +41,7 @@ $(function() {
             <div id="section_contents">
               	<div id="box-name">Welcome to C-it</div>
                	 <div id="box">
-               	 <form method="post" name="log" action="<%=request.getContextPath()%>/loginController" id="login_form">
+               	 <form method="post" name="log" action="<%=request.getContextPath()%>/loginController.do" id="login_form">
                     <div class="box-div input" id="fist"><input type="text" placeholder="아이디" name="id" id="id"></div>
                     <div class="box-div input"><input type="password" placeholder="비밀번호" name="pw" id="pw"></div>
                     <div class="box-div input" id="signin"><input type="button" value="Sign in" id="signCheck"></input></div>

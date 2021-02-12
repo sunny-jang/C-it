@@ -24,7 +24,7 @@ public class IdDupCheck extends HttpServlet {
 		if(id.equals("")) {
 			json.put("id", "-1");
 		}else {
-			MemberDto mdto = mdao.getMember(id);
+			MemberDto mdto = mdao.getMember("id",id);
 			if(mdto == null) {
 				json.put("id","1");
 			}else {

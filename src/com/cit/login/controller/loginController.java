@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cit.login.service.loginService;
 
-@WebServlet("/loginController")
+@WebServlet("/loginController.do")
 public class loginController extends HttpServlet{
 
 	@Override

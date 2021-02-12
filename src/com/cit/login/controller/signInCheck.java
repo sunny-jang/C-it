@@ -14,7 +14,7 @@ import com.cit.login.service.loginService;
 import com.cit.member.model.MemberDao;
 import com.cit.member.model.MemberDto;
 
-@WebServlet("/signInCheck")
+@WebServlet("/signInCheck.do")
 public class signInCheck extends HttpServlet{
 	
 	@Override
