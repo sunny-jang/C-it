@@ -30,7 +30,8 @@ public class loginController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			session.setAttribute("id", id);
 			session.setAttribute("pw", pw);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/main.jsp"); 
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/main/main.jsp"); 
+			dispatcher.forward(request,response);
 			System.out.println("로그인 성공");
 			
 			if(idStatus != null) {	// 로그인 유지하기 누르면 쿠키 생성
