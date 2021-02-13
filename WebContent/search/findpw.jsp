@@ -8,7 +8,7 @@
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
-	            <form action="<%=request.getContextPath()%>/searchPw" method="post">
+	            <form action="<%=request.getContextPath()%>/searchPw.do" method="post">
 	            <div id="box-name">비밀번호 찾기</div>
 		        	<div id="box">
 			            <div class="box-div" id="box-div-text">비밀번호는 가입시 입력하신 아이디,이메일을 통해 찾을 수 있습니다.</div>

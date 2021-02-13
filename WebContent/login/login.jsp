@@ -10,7 +10,7 @@ $(function() {
 		$.ajax({
 			type : 'get',
 			async : 'true',
-			url : "/Cit/signInCheck",
+			url : "/Cit/signInCheck.do",
 			data : {id: idVal, pw : pwVal}, 
 			dataType : 'json',
 			success : function(data){
@@ -31,31 +31,29 @@ $(function() {
 			}
 		})
 	})
-})
+})  
 </script>
-						<!-- 	location.href = "Cit/main.do";  -->
-    <section>
-        <!-- 제목 -->    
-        <div id="section_title">   
-            <h1 id="section-title-text">Sign in</h1>  
-        </div>       
-        <!-- 컨텐츠내용 --> 
-        <div id="section-contents-wrap"></div>
+	<section>
+        <!-- 제목 -->
+        <div id="section_title"><h1 id="section-title-text">Sign In</h1></div>
+        <!-- 컨텐츠내용 -->
+        <div id="section-contents-wrap">
             <div id="section_contents">
-                <div id="box-name">Welcome to C-it</div>
-                <div id="box">
-                <form method="post" name="log" action="<%=request.getContextPath()%>/loginController" id="login_form">
-                    <div class="box-div input" id="fist" ><input type="text" placeholder="아이디" name="id" id="id"></div>
+              	<div id="box-name">Welcome to C-it</div>
+               	 <div id="box">
+               	 <form method="post" name="log" action="<%=request.getContextPath()%>/loginController.do" id="login_form">
+                    <div class="box-div input" id="fist"><input type="text" placeholder="아이디" name="id" id="id"></div>
                     <div class="box-div input"><input type="password" placeholder="비밀번호" name="pw" id="pw"></div>
                     <div class="box-div input" id="signin"><input type="button" value="Sign in" id="signCheck"></input></div>
+                    <div class="box-div idck"><input type="checkbox" name="idStatus">아이디저장</div>
                 </form>    
                     <div class="box-text-out">
-                    <div class="box-text" id="id-text"><a href="#">아이디찾기</a></div>
-                    <div class="box-text" id="pw-text"><a href="#">/비밀번호찾기</a></div>
-                    <div class="box-text" id="join-text"><a href="#">회원가입</a></div>
+                        <div class="box-text" id="id-text"><a href="#">아이디찾기</a></div>
+                        <div class="box-text" id="pw-text"><a href="#">/비밀번호찾기</a></div>
+                        <div class="box-text" id="join-text"><a href="#">회원가입</a></div>
                     </div>
                 </div>  
-            </div>
-        </div>        
+            </div>   
+        </div>     
     </section>
- <%@ include file="/include/footer.jsp" %>
+<%@ include file="/include/footer.jsp" %>  

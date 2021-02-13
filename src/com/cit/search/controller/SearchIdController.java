@@ -13,19 +13,19 @@ import com.cit.member.model.MemberDao;
 import com.cit.member.model.MemberDto;
 import com.cit.search.service.SearchService;
 
-@WebServlet("/searchId")
+@WebServlet("/searchId.do")
 public class SearchIdController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAciont(request,response);
+		doAction(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAciont(request,response);
+		doAction(request,response);
 	}
 
-	protected void doAciont(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
@@ -36,11 +36,11 @@ public class SearchIdController extends HttpServlet{
 		
 		if(mdto != null) {
 			request.setAttribute("mdto", mdto);
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findIdSuccess.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findid_success.jsp");
 			rd.forward(request, response);
 		}else {
-			request.setAttribute("mdto", mdto);
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findIdFail.jsp");
+			request.setAttribute("msg", "입력하신 정보와 일치하는 아이디가 없습니다.");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findid_fail.jsp");
 			rd.forward(request, response);
 		}
 	}

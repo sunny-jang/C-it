@@ -68,13 +68,17 @@ public class MemberDao {
 	}
 
 	
-	public MemberDto getMember(String id) {
-		String query = "SELECT * FROM \"USER\" WHERE U_ID = ?";
+	public MemberDto getMember(String type, String value) {
+		switch(type) {
+		case "id" : type = "U_ID"; break;
+		case "email" : type = "U_EMAIL"; break;
+		}
 		
+		String query = "SELECT * FROM \"USER\" WHERE "+type+" = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, id);
+			pstmt.setString(1, value);
 			
 			rset = pstmt.executeQuery();
 			
@@ -106,14 +110,11 @@ public class MemberDao {
 	}
 	
 	public MemberDto searchId(String name, String email) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
 		MemberDto mdto = null;
 		try {
 			
 			conn = getConnection();
-			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_EMAIL\"=?";
+			query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_EMAIL\"=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, name);
 			pstmt.setString(2, email);
@@ -145,14 +146,11 @@ public class MemberDao {
 	}
 	
 	public MemberDto searchPw(String name, String id, String email) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
 		MemberDto mdto = null;
 		
 		try {
 			conn = getConnection();
-			String query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
+			query = "SELECT * FROM \"USER\" WHERE \"U_NAME\"=? AND \"U_ID\"=? AND \"U_EMAIL\"=?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, name);
