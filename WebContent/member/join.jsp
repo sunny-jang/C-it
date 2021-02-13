@@ -143,12 +143,12 @@ $(function() {
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호</span></th>
-                  <td><input type="text" placeholder="8자 이상의 영문+숫자+특수문자 조합" required id="pw" name="pw" pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"></td>
+                  <td><input type="password" placeholder="8자 이상의 영문+숫자+특수문자 조합" required id="pw" name="pw" pattern="^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,16}$"></td>
                 </tr>
                 <tr>
                   <th><span class="ico">비밀번호 확인</span></th>
                   <td>
-                  <input type="text" placeholder="비밀번호를 한 번 더 입력해주세요." required id="pw_check" name="pw_check">
+                  <input type="password" placeholder="비밀번호를 한 번 더 입력해주세요." required id="pw_check" name="pw_check">
                   <i style="display:none; color: red" id="pwMsg">비밀번호가 일치하지 않습니다. 다시 확인해주세요.</i>
                   </td>
                 </tr>
@@ -181,19 +181,19 @@ $(function() {
                   </td>      
                 </tr>   
                 <tr>
-                    <th><span>생년월일</span></th>
-                    <td>
-                      <div class="birth_day">
-                        <input type="text" name="year" id="birth_year" pattern="[0-9]*" label="생년월일" size="4" maxlength="4"
-                        placeholder="YYYY">
-                      <span class="bar"></span>   
-                        <input type="text" name="month" id="birth_month" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
-                        placeholder="MM">
-                      <span class="bar"></span>
-                        <input type="text" name="day" id="birth_day" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
-                        placeholder="DD">
-                      </div>
-                    </td>
+                   <th><span>생년월일</span></th>
+                   <td>
+                     <div class="birth_day">
+                       <input type="text" name="year" id="birth_year" pattern="[0-9]*" label="생년월일" size="4" maxlength="4"
+                       placeholder="YYYY">
+                     <span class="bar"></span>   
+                       <input type  ="text" name="month" id="birth_month" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
+                       placeholder="MM">
+                     <span class="bar"></span>
+                       <input type="text" name="day" id="birth_day" pattern="[0-9]*" label="생년월일" size="2" maxlength="2"
+                       placeholder="DD">
+                     </div>
+                   </td>
                 </tr>              
                 <tr>
                     <th><span>직업</span></th>
