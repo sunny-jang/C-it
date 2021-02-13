@@ -19,12 +19,7 @@ public class BoardController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-//		String title = request.getParameter("title");
-//		String date = request.getParameter("date");
-//		String views = request.getParameter("views");
-//		String id = request.getParameter("id");
-//		
+		//TODO bdto 사용하는 곳 없으면 삭제
 		BoardDto bdto = new BoardDto();
 		
 		BoardService bs = new BoardService();

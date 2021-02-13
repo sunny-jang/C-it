@@ -21,6 +21,8 @@
                         <th width="10%" class="view-count">조회수</th>
                       </tr>
                       </thead>
+                      
+                      <!-- TODO el jstl 코드로 변경  -->
                       <tbody> 
 						 <%
 						 	ArrayList<BoardDto> list = (ArrayList<BoardDto>)request.getAttribute("list");
