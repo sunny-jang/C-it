@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Board</title>
 </head>
 <body>     
@@ -29,83 +31,32 @@
     </header>    
     <section>
         <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">Board</h1></div>
+        <div id="section_title"><h1 id="section-title-text">Notice</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
                 <!-- 게시판 목록 -->
                 <form class=board-wrap action="" method="">
                   <table class="table-list">
-                      <thead>
-                      <tr>
-                        <th width="auto" class="subject">제목</th>
-                        <th width="20%" class="time">작성일</th>
-                        <th width="10%" class="writer">글쓴이</th>
-                        <th width="10%" class="view-count">조회수</th>
-                      </tr>
-                      </thead>
+                      <colgroup>
+                        <col width="10%"  />
+                        <col width="auto" />
+                        <col width="10%"  />
+                      </colgroup>
 
                       <tbody>
-                      <tr>
-                        <td><a href=""></a></td>
+                      <tr id="tr1">
+                        <td><div class="new-icon">new</div></td>
+                        <td>제목</td>
+                        <td><i class="fas fa-plus-square"></i>
+                        <i class="fas fa-minus-square" style="display:none;"></i></td>
+                      </tr>
+                      
+                      <tr id="tr2" style="display:none; background:#bcbcbc;">
                         <td></td>
-                        <td></td>
+                        <td>내용</td>
                         <td></td>
                       </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>   
                     </tbody>
                   </table>  
 
