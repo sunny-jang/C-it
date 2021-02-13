@@ -1,34 +1,9 @@
+<%@ page import="com.cit.board.model.BoardDao"%>
+<%@ page import="com.cit.board.model.BoardDto" %>
+<%@ page import=" java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/layout.css">
-    <link rel="stylesheet" href="./css/pages.css">
-    <title>Board</title>
-</head>
-<body>     
-    <header>       
-        <div class="header-wrap">   
-             <!-- LOGO -->            
-            <h1 class="logo"><a href="#">C-it</a></h1>   
-            <!-- 헤더왼쪽-flex -->            
-            <ul id="header_01">            
-                <li><a href="#" class="header_01_a">Notice</a></li>
-                <li><a href="#" class="header_01_a">News</a></li>
-                <li><a href="#" class="header_01_a">Board</a></li>
-                <li><a href="#" class="header_01_a">MeetUp</a></li> 
-            </ul> 
-            <!-- 헤더오른쪽-flex -->
-            <ul id="header_02">
-                <li><a href="" class="header_02_a">Sign in</a></li>
-                <li><a href="" class="header_02_a">Join us</a></li>
-            </ul>
-        </div>
-    </header>    
+<%@ include file="/include/header.jsp" %>
     <section>
         <!-- 제목 -->
         <div id="section_title"><h1 id="section-title-text">Board</h1></div>
@@ -46,69 +21,22 @@
                         <th width="10%" class="view-count">조회수</th>
                       </tr>
                       </thead>
-
-                      <tbody>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td><a href=""></a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>   
-                    </tbody>
+                      <tbody> 
+						 <%
+						 	ArrayList<BoardDto> list = (ArrayList<BoardDto>)request.getAttribute("list");
+							for(int i = 0; i<list.size(); i++) {
+						%>
+						<tr>
+							<td><%=list.get(i).getTitle() %></td>
+							<td><%=list.get(i).getDate() %></td>
+							<td><%=list.get(i).getViews() %></td>
+							<td><%=list.get(i).getId() %></td>	
+							</tr>
+						<%
+							}
+						%> 
+                      </tbody>
+                     
                   </table>  
 
                   <div class="bottom">
@@ -130,13 +58,4 @@
           </div>   
         </div>     
     </section>
-    <footer>
-        <!-- 하단 -->
-        <div class="footer">
-            <a id="logo">C-it</a>
-            <a>상호명:C-it| 대표명:김효신| 문의:Aaa@gmail.com</a>
-            <a>copyright 2021 ⓒHYOSHIN Corp. All Rights Reserve.</a>
-        </div>
-    </footer>
-</body>
-</html> 
+<%@ include file="/include/footer.jsp" %>  
