@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cit.notice.service.NoticeService;
 
-@WebServlet("/notice_list_admin.do")
+@WebServlet("/NoticeListAdmin.do")
 public class NoticeDelController extends HttpServlet{
 	
 	@Override
@@ -30,7 +30,7 @@ public class NoticeDelController extends HttpServlet{
 		num = new NoticeService().noticeDel(num);
 		
 		request.setAttribute("num", num);
-		RequestDispatcher rd = request.getRequestDispatcher("/notice/notice_list_admin.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/notice/noticeListAdmin.jsp");
 		rd.forward(request, response);
 	}
 
