@@ -216,11 +216,14 @@ color:#eee; font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: cen
 .accordion_container {width: 100%; height:600px;}
 .accordion_head {height:50px; color: #383736;cursor: pointer;margin: 0 0 1px 0;padding: 7px 11px;font-weight: bold;}
 .accordion_body {height:auto; background: lightgray;}
-.accordion_body p {width: 100%; padding: 18px 5px;margin: 0px;}
+.accordion_body p {width: 100%; padding: 18px 5px;margin: 0px; text-align:center;}
 #plus {float: right;}
  
 /* notice_list_admin */
-.new-icon{width:50px; height:50px; background-color:#383736; color:#eee; margin:0 auto;}
+.new-icon {width:70px; height:30px; background-color:#20bc20; color:#fcfcfc; border-radius:20px;}
+.accordion_head p {text-align:center; vertical-align:middle;}
+.btn.delete-btn{margin:0 20px 20px 0;}
+.btn.update-btn{margin:0 20px 20px 0;}
 
 /* meetup_main.html */
 /* 월별카테고리 */
