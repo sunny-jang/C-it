@@ -15,8 +15,11 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #section_contents{border-top: 0.5rem solid #383736; min-height: 800px; margin:0% 10% 0% 10%}
 .header_01_a:hover{border-bottom: 0.3rem solid #383736;}
 .header_02_a:hover{border-bottom: 0.3rem solid #383736;}
-.goup{width: 1279px; position:sticky; margin-left: 90%; margin-bottom: 5%;}
+.goup{width: 50px; height: 50px; position: fixed; right: 100px; bottom: 200px;}
 .material-icons.md-48 { font-size: 48px; }
+@media all and (max-width:1300px){
+.goup{display: none;}
+}
 
 /* log.css */
 /* 검정박스부분 */
