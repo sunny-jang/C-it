@@ -1,3 +1,4 @@
+@charset "UTF-8"; 
 /* layout.css */
 /* 레이아웃 */
 .header-wrap{ display: flex; width: 1279px; font-size: 2rem; margin:0 auto; font-family: 'Varela Round'; position: sticky; top:0;}  
