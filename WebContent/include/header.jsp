@@ -26,8 +26,23 @@
             </ul> 
             <!-- 헤더오른쪽-flex -->
             <ul id="header_02">
-                <li><a href="" class="header_02_a">Sign in</a></li>
-                <li><a href="" class="header_02_a">Join us</a></li>
+            	<c:choose>
+            	<c:when test="${id eq null}">
+            		<li><a href="${pageContext.request.contextPath}/login/login.jsp" class="header_02_a">Sign in</a></li>
+            	</c:when>
+            	<c:otherwise>
+            		<li><a href="${pageContext.request.contextPath}/login/login.jsp" class="header_02_a">Sign out</a></li>
+            	</c:otherwise>
+               </c:choose>
+               
+               <c:choose>
+            	<c:when test="${id eq null}">
+            		<li><a href="${pageContext.request.contextPath}/JoinController.do" class="header_02_a">Join us</a></li>
+            	</c:when>
+            	<c:otherwise>
+            		<li><a href="${pageContext.request.contextPath}/MemberUpdateController.do" class="header_02_a">My page</a></li>
+            	</c:otherwise>
+               </c:choose>
             </ul>
         </div>
     </header>
