@@ -15,13 +15,26 @@ public class MemberService {
 
 
 	public boolean join(MemberDto mt) {
-
-
 		boolean result = mDao.insert(mt) ==1 ? true : false;
 
 		return result;
 	}
+	
+	public int delete(String id) {
+		mDto = mDao.getMember("id", id);
+		
+		if(mDto != null) {
+			mDao.deleteMember(mDto);
+		}
+		return 0;
+	}
 
-
-
+	public void update(MemberDto mdto) {
+		String id = mdto.getId();
+		int result = 0;
+		
+		if(mDao.getMember("id", id)!= null) {
+			result = mDao.updateMember(mdto);
+		}
+	}
 }
