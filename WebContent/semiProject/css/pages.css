@@ -79,8 +79,8 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .sign-btn{width: 40%;height: 5%; background-color: #20b8bc; color: #f2ebe5; margin:0 auto;}
 
 /* news_main.css */
-.category{display: flex; margin-top: 2%; justify-content: space-between; width: 40%; }
-.all{margin-top:3%}
+.category{display: flex; margin-top: 2%; justify-content: space-between; width: 45%; font-size: 1.5rem;font-family:  'Varela Round'; }
+.all{margin-top:1%}
 .news_set{display: flex; width:100%; justify-content: space-between; margin-top: 1%; margin-bottom: 1.5%; }
 .news_set_box{width: 30%; }
 .news_pic{width: 100%; height: 300px; border: 1px solid black; }
@@ -252,3 +252,8 @@ section p.delete-content {font-size:1rem; font-weight:600;}
 
   /* notice_list_admin */
   .new-icon{width:50px; height:50px; background-color:#383736; color:#eee; margin:0 auto;}
+
+  /* meetup_main.html */
+  /* 월별카테고리 */
+  .month{display: flex; flex-direction: row; justify-content: space-between; font-size: 1.5rem; margin:1% 10% 1% 10%; }
+  .meetup-line{ width: 80%; margin:1% 10% 1% 10%; border-top: 0.5rem solid #383736;}
