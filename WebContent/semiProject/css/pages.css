@@ -190,8 +190,8 @@ section p.delete-content {font-size:1rem; font-weight:600;}
 .justify-content-center {justify-content: center; align-items: center;}
 
 /* 작성하기 버튼 */
-.btn-write {margin-bottom: 2%; height: 30%; background:#20b8bc; border: 0.2rem solid #20b8bc; display: inline-flex; align-items: center; padding: 0 3%;
-color:#eee; font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; float:right;}
+.btn-write {margin-bottom: 2%; height: 30%;  background: #eee linear-gradient(to bottom, #fcfcfc, #eee); border: 0.2rem solid #eee; display: inline-flex; align-items: center; padding: 0 3%;
+font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; float:right;}
 /* 페이징+버튼 */
 .bottom {padding: 3% 0;}
 
