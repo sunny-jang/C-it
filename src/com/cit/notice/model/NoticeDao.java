@@ -17,6 +17,7 @@ public class NoticeDao {
 	Connection conn = null;
 	Statement stmt =null;
 	PreparedStatement pstmt = null;
+	int result = 0;
 	ResultSet rset = null;
 	
 	private static NoticeDao instance;
@@ -55,5 +56,26 @@ public class NoticeDao {
 				e.printStackTrace();
 			}
 		} return list;
+    }
+
+    public int noticeDel(int num) {
+    	try {
+    		conn = getConnection();
+    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = 1";
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setInt(1, num);
+    		result = pstmt.executeUpdate();
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} return result;
     }
 }
