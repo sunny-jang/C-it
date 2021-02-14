@@ -5,7 +5,7 @@
 <%
 	MemberDto mdto = (MemberDto)request.getAttribute("mdto");
 %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/log.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/findId.css">
     <section>
         <!-- 제목 -->
         <div id="section_title"><h1 id="section-title-text">Find Id</h1></div>

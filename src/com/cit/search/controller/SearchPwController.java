@@ -36,11 +36,11 @@ public class SearchPwController extends HttpServlet{
 		
 		if(mdto != null) {
 			request.setAttribute("mdto", mdto);
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findpw_success.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findPwSuccess.jsp");
 			rd.forward(request, response);
 		}else {
 			request.setAttribute("msg", "입력하신 정보와 일치하는 아이디가 없습니다.");
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findpw_fail.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findPwFail.jsp");
 			rd.forward(request, response);
 		}
 	}
