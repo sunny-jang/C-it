@@ -7,12 +7,33 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/pages.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <!-- <script type="text/javascript" src="../js/style.js"></script> -->
-    
-    <script type="text/javascript" src="../js/style.js"></script>
-    <script type="text/javascript" src="../js/jquery.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Board</title>
+  <script>
+
+$(document).ready(function() {
+  $(".accordion_head").click(function() {
+      let icon = $(this).children('#plus');
+      let body = $(this).next(".accordion_body");
+      let minusClass = 'fa-minus-square';
+      let plusClass = 'fa-plus-square';
+      
+      icon.removeClass(minusClass);
+      icon.removeClass(plusClass);
+
+    if (body.is(':visible')) {
+      body.slideUp(300);
+      icon.addClass(plusClass);
+    } else {
+      body.slideDown(300);
+      icon.addClass(minusClass);
+    }
+  });
+});
+
+
+
+</script>
 </head>
 <body>     
     <header>       
@@ -47,22 +68,9 @@
                       </div>
                     <div class="accordion_body" style="display: none;">
                       <p>공지사항</p>
-                      <a href="">삭제하기</a>
-                      <a href="">수정하기</a>
-
-                    </div>
-                      <div class="accordion_head" width="auto">제목
-                    <i id="plus" class="fas fa-plus-square"></i></div>
-                    <div class="accordion_body" style="display: none;">
-                      <p>공지사항</p>
-                    </div>
-                    <div class="accordion_head" width="auto">제목
-                    <i id="plus" class="fas fa-plus-square"></i></div>
-                    <div class="accordion_body" style="display: none;">
-                      <p>공지사항</p>
-                    </div>
+                    </div>     
                   </div>
-                   
+                  
 
                   <div class="bottom">
                     <ul class="pagination justify-content-center">
@@ -74,10 +82,6 @@
                     <li class="page-item"><a class="page-link" href="#">5</a></li>
                     <li class="page-item"><a class="page-link" href="#">▷</a></li>
                     </ul>
-                    <!-- 작성하기 버튼 -->
-                    <p class="btn-write">
-                    <a href="">작성하기</a>
-                    </p>
                   </div>
           </form> 
           </div>   
