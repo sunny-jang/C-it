@@ -78,4 +78,5 @@ public class BoardDto {
 	public String toString() {
 		return num+title+date+views+cont+id+cate+rNum;
 	}
+
 }
