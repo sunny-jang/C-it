@@ -182,4 +182,71 @@ public class MemberDao {
 			}
 		} return mdto;
 	}
+	
+	public int deleteMember(MemberDto member) {
+		int result = 0;
+		try {
+			conn = getConnection();
+			query = "DELETE \"USER\" WHERE \"U_ID\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, member.getId());
+			
+			
+			result = pstmt.executeUpdate();
+			
+			if(result>0) {
+				System.out.println("성공");
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
+	public int updateMember(MemberDto member) {
+		int result = 0;
+		if(pstmt!=null)
+			try {
+				pstmt.close();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		try {
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","CIT","CITPASS");
+			query = "UPDATE \"USER\" SET \"U_PW\" = ?, \"U_NAME\" = ?, \"U_EMAIL\" = ?, \"U_BIRTH\" = ? WHERE \"U_ID\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, member.getPw());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getEmail());
+			pstmt.setDate(4, member.getBirth());
+			pstmt.setString(5, member.getId());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }
