@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cit.member.model.MemberDto;
 import com.cit.member.service.MemberService;
 
-@WebServlet("/joinController.do")
-public class joinController extends HttpServlet {
+@WebServlet("/JoinController.do")
+public class JoinController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/member/join.jsp");
@@ -50,7 +50,7 @@ public class joinController extends HttpServlet {
 		boolean result =  new MemberService().join(mDto);
 
 		if(result) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath() +"/member/login.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath() +"/login/login.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect(request.getContextPath() +"/member/join.jsp");
