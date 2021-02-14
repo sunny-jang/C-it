@@ -1,6 +1,7 @@
 $(function() {
 	let authCheck = false;
 	let idCheck = false;
+	let originEmail = $("#email").val();
 	$("#checkIdDup").on("click", function() {
 		let idVal = $("#id").val();
 		$.ajax({
@@ -21,7 +22,6 @@ $(function() {
 			error : function(request, status, error) {
 				alert("에러코드 : "+  error);
 			}
-			
 		})
 	});
 	
@@ -78,6 +78,7 @@ $(function() {
 	
 	$("#joinSubmit").on("click", function() {
 		let emailAuth = authCheck;
+		
 		let policyCheck = $("#agreeform-chk").is(":checked");
 		console.log(policyCheck);
 		if(!idCheck){
@@ -94,7 +95,6 @@ $(function() {
 		}
 	});
 	
-	
 	$("#pw_check").change(function() {
 		let pw = $("#pw").val();
 		let pwChk = $("#pw_check").val();
@@ -103,5 +103,18 @@ $(function() {
 		if(pw != pwChk) {
 			$("#pwMsg").css("display","block");
 		}
+	});
+	
+	$("#updateSubmit").on("click", function() {
+		let email = $("#email").val();
+		
+		if(email != originEmail) {
+			alert("이메일 인증을 진행해 주세요.")
+			$("#join_form").attr("onsubmit","return false");
+		}else {
+			$("#join_form").attr("onsubmit","return true");
+			$("#join_form").submit();
+		}
+		
 	});
 })
