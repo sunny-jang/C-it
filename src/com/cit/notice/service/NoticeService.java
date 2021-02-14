@@ -15,6 +15,6 @@ public class NoticeService {
 	
 	public int noticeDel(int num) {
 		int result = ndao.noticeDel(num);
-		return result;
+		return result; 
 	}
 }
