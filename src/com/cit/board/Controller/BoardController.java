@@ -19,13 +19,10 @@ public class BoardController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//TODO bdto 사용하는 곳 없으면 삭제
-		BoardDto bdto = new BoardDto();
 		
 		BoardService bs = new BoardService();
 		ArrayList<BoardDto> list = bs.List();
 		request.setAttribute("list", list);
-		System.out.println(list.toString());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/board.jsp");
 		dispatcher.forward(request, response);
