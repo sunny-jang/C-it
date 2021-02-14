@@ -1,9 +1,9 @@
 /* layout.css */
 /* 레이아웃 */
-.header-wrap{display: flex; width: 1279px; font-size: 2rem; margin:0 auto; font-family: 'Varela Round';}  
+.header-wrap{ display: flex; width: 1279px; font-size: 2rem; margin:0 auto; font-family: 'Varela Round'; position: sticky; top:0;}  
 .logo{float: left; width: 4.5%; margin-top: 3%;}
-#header_01{display: flex; width:35%; justify-content: space-between; margin-top: 3%; margin-left:5.5%;}
-#header_02{ display:flex; width:17%; justify-content: space-between; margin:3%; margin-left:auto;}
+#header_01{display: flex; width:35%; justify-content: space-between; margin-top: 3%; margin-left:5.5%; }
+#header_02{ display:flex; width:17%; justify-content: space-between; margin:3%; margin-left: auto;}
 .header_01_a{list-style: none; flex: 1;}
 .header_02_a{list-style: none; }
 footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: center; margin-top: 2%;}
@@ -12,6 +12,10 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #section-title-text{color:#383736; height: 100%; font-size: 2rem; font-family: 'Varela Round'; margin:0% 10% 0% 10%}
 #section-contents-wrap{width: 1279px; margin: 0 auto; }
 #section_contents{border-top: 0.5rem solid #383736; min-height: 800px; margin:0% 10% 0% 10%}
+.header_01_a:hover{border-bottom: 0.3rem solid #383736;}
+.header_02_a:hover{border-bottom: 0.3rem solid #383736;}
+.goup{width: 1279px; position:sticky; margin-left: 90%; margin-bottom: 5%;}
+.material-icons.md-48 { font-size: 48px; }
 
 /* log.css */
 /* 검정박스부분 */
@@ -257,3 +261,5 @@ section p.delete-content {font-size:1rem; font-weight:600;}
   /* 월별카테고리 */
   .month{display: flex; flex-direction: row; justify-content: space-between; font-size: 1.5rem; margin:1% 10% 1% 10%; }
   .meetup-line{ width: 80%; margin:1% 10% 1% 10%; border-top: 0.5rem solid #383736;}
+  .month>li:hover{background-color:#383736 ; color:#fcfcfc}
+
