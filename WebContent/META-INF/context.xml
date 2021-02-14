@@ -9,6 +9,7 @@
                   maxWait="5000"
                   username="CIT"
                   password="CITPASS"
-                  testOnBorrow="true">
+                  testOnBorrow="true"
+                  removeAbandoned="true">
        </Resource>
 </Context>
