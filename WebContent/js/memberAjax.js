@@ -117,4 +117,29 @@ $(function() {
 		}
 		
 	});
+	
+	function post_delete(url, id, pw) {
+		let checkDel = confirm("정말로 탈퇴 하시겠습니까?");
+		if(checkDel) {
+			let checkPw = prompt("본인 확인을 위해 비밀번호를 다시 한 번 입력해 주세요.");
+			
+			if(pw == checkPw) {
+				let form = document.createElement("form");
+				
+				form.action= url;
+				form.method= "post";
+				
+				let input = document.createElement("input");
+				input.setAttribute("type","hidden");
+				input.setAttribute("name", "u_id");
+				input.setAttribute("value", id);
+				form.appendChild(input);
+				
+				document.body.appendChild(form);
+				form.submit();
+			}else {
+				alert("비밀번호가 다릅니다. 다시 확인하시고 시도해주세요.")
+			}
+		}
+	}
 })
