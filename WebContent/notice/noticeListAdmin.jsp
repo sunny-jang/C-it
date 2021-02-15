@@ -44,15 +44,7 @@ $(document).ready(function() {
                   </div>
                  </c:forEach>
                   <div class="bottom">
-                    <ul class="pagination justify-content-center">
-                    <li class="page-item disabled"><a class="page-link" href="#">◁</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">▷</a></li>
-                    </ul>
+                   <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>
                     <!-- 작성하기 버튼 -->
                     <p class="btn-write">
                     <a href="">작성하기</a>
