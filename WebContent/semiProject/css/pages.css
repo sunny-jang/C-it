@@ -89,16 +89,21 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 /* news_main.css */
 .category{display: flex; margin-top: 2%; justify-content: space-between; width: 45%; font-size: 1.5rem;font-family:  'Varela Round'; }
 .all{margin-top:1%}
-.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 1%; margin-bottom: 1.5%; }
-.news_set_box{width: 30%; }
-.news_pic{width: 100%; height: 300px; border: 1px solid black; }
-.news_title{width: 100%; height: 30px; border: 1px solid black; margin-top: 3%;}
-.news_memo{width: 100%; height: 30px; border: 1px solid black; margin-top: 3%;}
+.news_set{display: flex; width:100%; justify-content: space-between; margin-top: 1%; margin-bottom: 1.5%;flex-wrap: wrap; }
+.news_set_box{width: 30%; margin-top: 3%; }
+.news_pic{width: 100%; height: 300px; background-size: cover; background-position: center; background-repeat: no-repeat;}
+.news_title{width: 100%; margin-top: 3%; font-size: 1rem; font-weight: bold; }
+.news_title_a{display: inline-block;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;white-space: normal; line-height: 1.2; height: 100%; text-align: left; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;font-size: 20px; }
+.news_memo{width: 100%; height: 32px;  margin-top: 3%;}
 .recruit{display: flex; align-items: center;}
 .company{display: flex; align-items: center;}
 .interview{display: flex; align-items: center;}
 .more-btn{width: 20%; margin:0 auto; }
 .more-btn-input{background-color: #20b8bc; color:#f2ebe5;} 
+.news_memo>a{ display: inline-block;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;white-space: normal; line-height: 1.2; height: 100%; text-align: left; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.news_cate{padding:2%}
+.news_cate.on,
+.news_cate:hover{background-color: #7bbc9b; color:#f2ebe5; border-radius: 10px; }
 
 /* news_view.css */
 /* 뉴스내용 */
@@ -112,14 +117,19 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
 
 /* news_write.css */
-.editor-title-set{display: flex; width: 100%; margin-top: 2%;}
+.editor-title-set{display: flex; width: 100%; }
 .editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
-.editor-title{border: 1px solid black; height: 30px; margin:0 auto; width: 80%} 
+.editor-title{height: 30px; margin:0 auto; width: 80%} 
+.editer-title-input{height: 100%;}
 .save-btn{width: 15%; margin: 0 auto; }
 .savebutton{background-color: #20b8bc; color:#f2ebe5;}
 .write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
 .reset-btn{width: 15%; margin: 0 auto; }
 .resetbutton{background-color: #20bc20; color:#f2ebe5;}
+.editor-writer-set{display: flex; width: 100%; height: 30px; }
+.editor-writer-1{width: 15%; height: 30px ;text-align: center; font-family: 'Varela Round'; padding-top:0.7%}
+.editor-writer-input{width:100%;height: 30px; padding: 0%}
+.originallink{width: 492px;}
 
 /* join */
 /* FLOAT CLEARFIX */

@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/layout.css">
-    <link rel="stylesheet" href="../css/pages.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@ include file="/include/header.jsp" %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Board</title>
-  <script>
-
+<script>
 $(document).ready(function() {
   $(".accordion_head").click(function() {
       let icon = $(this).children('#plus');
@@ -30,30 +23,7 @@ $(document).ready(function() {
     }
   });
 });
-
-
-
 </script>
-</head>
-<body>     
-    <header>       
-        <div class="header-wrap">   
-             <!-- LOGO -->            
-            <h1 class="logo"><a href="#">C-it</a></h1>   
-            <!-- 헤더왼쪽-flex -->            
-            <ul id="header_01">            
-                <li><a href="#" class="header_01_a">Notice</a></li>
-                <li><a href="#" class="header_01_a">News</a></li>
-                <li><a href="#" class="header_01_a">Board</a></li>
-                <li><a href="#" class="header_01_a">MeetUp</a></li> 
-            </ul> 
-            <!-- 헤더오른쪽-flex -->
-            <ul id="header_02">
-                <li><a href="" class="header_02_a">Sign in</a></li>
-                <li><a href="" class="header_02_a">Join us</a></li>
-            </ul>
-        </div>
-    </header>    
     <section>
         <!-- 제목 -->
         <div id="section_title"><h1 id="section-title-text">Notice</h1></div>
@@ -64,7 +34,6 @@ $(document).ready(function() {
                   <div class="accordion_container">
                     <div class="accordion_head" width="auto">제목
                       <i id="plus" class="fas fa-plus-square"></i>
-                      </li>
                       </div>
                     <div class="accordion_body" style="display: none;">
                       <p>공지사항</p>
@@ -83,17 +52,7 @@ $(document).ready(function() {
                     <li class="page-item"><a class="page-link" href="#">▷</a></li>
                     </ul>
                   </div>
-          </form> 
           </div>   
         </div>     
     </section>
-    <footer>
-        <!-- 하단 -->
-        <div class="footer">
-            <a id="logo">C-it</a>
-            <a>상호명:C-it| 대표명:김효신| 문의:Aaa@gmail.com</a>
-            <a>copyright 2021 ⓒHYOSHIN Corp. All Rights Reserve.</a>
-        </div>
-    </footer>
-</body>
-</html> 
+<%@ include file="/include/footer.jsp" %>

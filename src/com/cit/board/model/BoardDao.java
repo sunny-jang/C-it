@@ -35,9 +35,11 @@ public class BoardDao {
 		return ds.getConnection();
 	}
     
+
     // boardList 보기
     public ArrayList<BoardDto> getList() {
-    
+
+ 
     	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
 		
     	try {
@@ -47,7 +49,8 @@ public class BoardDao {
 			rset = stmt.executeQuery(query);
 			
 			while(rset.next()) {
-				list.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
+				list.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),
+							rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
