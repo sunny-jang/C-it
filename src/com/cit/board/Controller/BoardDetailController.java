@@ -19,12 +19,14 @@ public class BoardDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
+	
 		BoardDetailService bds = new BoardDetailService();
-		ArrayList<BoardDto> BoardDetail = bds.List(num);
+		BoardDto BDetail = bds.getBoard(num);
+		request.setAttribute("BoardDetail", BDetail);
 		
-		request.setAttribute("BoardDetail", BoardDetail);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/boardView.jsp");
+		dispatcher.forward(request, response);
 		
-		request.getRequestDispatcher("/board/boardView.jsp").forward(request, response);
 	
 		
 	}

@@ -44,7 +44,7 @@ public class BoardDao {
 		
     	try {
 			conn = getConnection();
-			query = "SELECT * FROM \"F_BOARD\"";
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '사는얘기' OR \"B_CTGORY\" ='고민' OR \"B_CTGORY\"= '면접후기' OR \"B_CTGORY\" ='국비교육' OR \"B_CTGORY\" = '스터디모집'";
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
@@ -67,9 +67,9 @@ public class BoardDao {
     }
 
     // boardDetail 보기
-    public ArrayList<BoardDto> getBoardDetail(int num){
+    public BoardDto getBoardDetail(int num){
     	
-    	ArrayList<BoardDto> boardDetail = new ArrayList<BoardDto>();
+    	BoardDto boardDetail = null;
     	
     	try {
 			conn = getConnection();
@@ -79,7 +79,7 @@ public class BoardDao {
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-				boardDetail.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
+				boardDetail = new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8));
 			}
     	} catch (Exception e) {
 			System.out.println("상세보기 조회 오류");

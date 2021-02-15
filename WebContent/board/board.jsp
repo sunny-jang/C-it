@@ -20,13 +20,6 @@
                         <th width="10%" class="writer">글쓴이</th>
                         <th width="10%" class="view-count">조회수</th>
                       </tr>
-                      </thead>
-						<tr>
-							<th width="auto" class="subject">제목</th>
-							<th width="20%" class="time">작성일</th>
-							<th width="10%" class="writer">글쓴이</th>
-							<th width="10%" class="view-count">조회수</th>
-						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var="n" items="${list}" begin="0" end="9">

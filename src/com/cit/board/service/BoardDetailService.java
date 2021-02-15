@@ -10,9 +10,9 @@ public class BoardDetailService {
 	BoardDao bdao = BoardDao.getInstance();
 	BoardDto bdto = new BoardDto();
 	
-	public ArrayList<BoardDto> List(int num) {
-		ArrayList<BoardDto> list = (ArrayList<BoardDto>) bdao.getBoardDetail(num);
-		return list;
-		
+	public BoardDto getBoard(int num) {
+		BoardDto BDetail = bdao.getBoardDetail(num);
+	
+		return BDetail;
 	}
 }
