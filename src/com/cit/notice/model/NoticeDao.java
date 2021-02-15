@@ -39,7 +39,7 @@ public class NoticeDao {
     	List<BoardDto> list = new ArrayList<BoardDto>();
     	try {
     		conn = getConnection();
-    		String query = "SELECT * FROM \"F_BOARD\"";
+    		String query = "SELECT * FROM \"F_BOARD\" ORDER BY BOARD_NUM DESC";
     		pstmt = conn.prepareStatement(query);
     		rset = pstmt.executeQuery();
     		while(rset.next()) {
@@ -56,7 +56,7 @@ public class NoticeDao {
 				e.printStackTrace();
 			}
 		} return list;
-    }
+    }  
 
     public int noticeDel(int num) {
     	try {
