@@ -37,7 +37,6 @@ public class NewsListController extends HttpServlet {
 			endNum = request.getParameter("pageEnd");
 			request.setAttribute("endNum", Integer.parseInt(endNum));
 		}else {
-			System.out.println(endNum);
 			request.setAttribute("endNum", 2);
 		}
 	}
