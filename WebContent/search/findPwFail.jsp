@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/log.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/findpw.css">
     <section>
         <!-- 제목 -->
         <div id="section_title"><h1 id="section-title-text">Find Password</h1></div>
