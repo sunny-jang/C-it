@@ -261,7 +261,16 @@ section p.delete-content {font-size:1rem; font-weight:600;}
   .mypage-title-total {font-size:1.5rem; font-weight:600;}
 
   /* notice_list_admin */
-  .new-icon{width:50px; height:50px; background-color:#383736; color:#eee; margin:0 auto;}
+.new-icon {width:70px; height:30px; background-color:#20bc20; color:#fcfcfc; border-radius:20px;}
+.accordion_head p {text-align:center; vertical-align:center; }
+.btn.delete-btn{margin:0 20px 20px 0;}
+.btn.update-btn{margin:0 20px 20px 0;}
+.title-wrap1 {display:inline-block;}
+.title-wrap2 {display:flex; margin:10px 0 0 10px;}
+.notice-title {text-align:auto; margin-left:10px;}
+.notice-category {width:auto; }
+.notice-category:after {content:'|'; color:#bcbcbc;}
+.notice-date {width:auto;}
 
   /* meetup_main.html */
   /* 월별카테고리 */

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cit.notice.service.NoticeService;
 
-@WebServlet("/NoticeListAdmin.do")
+@WebServlet("/NoticeDelAdmin.do")
 public class NoticeDelController extends HttpServlet{
 	
 	@Override
@@ -27,11 +27,9 @@ public class NoticeDelController extends HttpServlet{
 	
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int num = Integer.parseInt(request.getParameter("num"));
-		num = new NoticeService().noticeDel(num);
+		int result = new NoticeService().noticeDel(num);
 		
-		request.setAttribute("num", num);
-		RequestDispatcher rd = request.getRequestDispatcher("/notice/noticeListAdmin.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(request.getContextPath()+"/notice/noticeListAdmin.jsp");
 		rd.forward(request, response);
 	}
-
 }
