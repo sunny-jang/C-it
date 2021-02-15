@@ -117,14 +117,19 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
 
 /* news_write.css */
-.editor-title-set{display: flex; width: 100%; margin-top: 2%;}
+.editor-title-set{display: flex; width: 100%; }
 .editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
-.editor-title{border: 1px solid black; height: 30px; margin:0 auto; width: 80%} 
+.editor-title{height: 30px; margin:0 auto; width: 80%} 
+.editer-title-input{height: 100%;}
 .save-btn{width: 15%; margin: 0 auto; }
 .savebutton{background-color: #20b8bc; color:#f2ebe5;}
 .write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
 .reset-btn{width: 15%; margin: 0 auto; }
 .resetbutton{background-color: #20bc20; color:#f2ebe5;}
+.editor-writer-set{display: flex; width: 100%; height: 30px; }
+.editor-writer-1{width: 15%; height: 30px ;text-align: center; font-family: 'Varela Round'; padding-top:0.7%}
+.editor-writer-input{width:100%;height: 30px; padding: 0%}
+.originallink{width: 492px;}
 
 /* join */
 /* FLOAT CLEARFIX */
