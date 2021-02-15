@@ -12,34 +12,11 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/pages.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/style2.js"></script>
     <title>Board</title>
-  <script>
-
-$(document).ready(function() {
-  $(".accordion_head").click(function() {
-      let icon = $(this).children('#plus');
-      let body = $(this).next(".accordion_body");
-      let minusClass = 'fa-minus-square';
-      let plusClass = 'fa-plus-square';
-      
-      icon.removeClass(minusClass);
-      icon.removeClass(plusClass);
-
-    if (body.is(':visible')) {
-      body.slideUp(300);
-      icon.addClass(plusClass);
-    } else {
-      body.slideDown(300);
-      icon.addClass(minusClass);
-    }
-  });
-});
-
-
-
-</script>
 </head>
+
 <body>     
     <header>       
         <div class="header-wrap">   
@@ -69,12 +46,15 @@ $(document).ready(function() {
                 <c:forEach var="n" items="${list}">
                   <div class="accordion_container">
                     <div class="accordion_head" width="auto">${n.title}
+                    <div class="new-icon float--left"><p>new</p></div>
                       <i id="plus" class="fas fa-plus-square"></i>
                     </div>
                     <div class="accordion_body" style="display: none;">
                       <p>${n.cont}</p>
-                      <a href="">삭제하기</a>
-                      <a href="">수정하기</a>
+                      <div class="notice-btn-set clearfix">
+                      <a class="btn delete-btn float--right" href="">삭제하기</a>
+                      <a class="btn update-btn float--right"href="">수정하기</a>
+                      </div>
                     </div>
                   </div>
                  </c:forEach>

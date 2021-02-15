@@ -17,25 +17,26 @@
                     <div class="interview"><span class="material-icons">chat_bubble</span>인터뷰</div>
                 </div>
                 <div class="news_set">
-                <%--<c:forEach var="list" items="${list}">--%>
                     <div class="news_set_box">
                         <div class="news_pic"><a src="" href="#"></a></div>
-                        <div class="news_title"><a href="#"></a><%=request.getAttribute("title")%></div>
+                        <div class="news_title"><a href="#"></a></div>
                         <div class="news_memo"><a href="#"><p></p></a></div>
+                        <div class="">20101</div>
                     </div>    
                     <div class="news_set_box">
                         <div class="news_pic"><a src="" href="#"></a></div>
                         <div class="news_title"><a href="#"></a></div>
                         <div class="news_memo"><a href="#"><p></p></a></div>
+                        <div class="">20101</div>
                     </div> 
                     <div class="news_set_box">
                         <div class="news_pic"><a src="" href="#"></a></div>
                         <div class="news_title"><a href="#"></a></div>
                         <div class="news_memo"><a href="#"><p></p></a></div>
-                    </div>
-                   <%--</c:forEach>--%>
+                        <div class="">20101</div>
+                    </div>                     
                 </div> 
-                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>
+                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>              
             </div>  
         </div>     
     </section>

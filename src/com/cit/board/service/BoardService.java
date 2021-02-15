@@ -14,7 +14,6 @@ public class BoardService {
 	public ArrayList<BoardDto> List () {
 		
 		ArrayList<BoardDto> list = (ArrayList<BoardDto>) bdao.getList();
-		return list;
-		
+		return list;		
 	}
 }

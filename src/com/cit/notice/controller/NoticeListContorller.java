@@ -10,17 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cit.board.model.BoardDto;
-import com.cit.notice.model.NoticeDao;
+import com.cit.notice.service.NoticeService;
 
 
-@WebServlet("/notice")
-public class NoticeContorller extends HttpServlet{
+@WebServlet("/NoticeListAdmin.do")
+public class NoticeListContorller extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		NoticeDao ndao = NoticeDao.getInstance();
-		List<BoardDto> list = ndao.noticeList();
+		List<BoardDto> list = new NoticeService().noticeList();
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/notice/notice_list_admin.jsp").forward(request, response);
+		request.getRequestDispatcher("/notice/noticeListAdmin.jsp").forward(request, response);
 	}
 }

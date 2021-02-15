@@ -34,19 +34,18 @@ public class BoardDao {
 		return ds.getConnection();
 	}
     
-    public List<BoardDto> getList() {
+    public ArrayList<BoardDto> getList() {
     
     	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
 		
     	try {
 			conn = getConnection();
-			query = "SELECT \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\", \"U_ID\" FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '인터뷰'";
+			query = "SELECT * FROM \"F_BOARD\"";
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
 			while(rset.next()) {
-				list.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),
-							rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
+				list.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,5 +60,13 @@ public class BoardDao {
 		}
     	return list;  	
     }
-    
+
+//    public void insertBoard() {
+//    	try {
+//			conn = getConnection();
+//			query = "";
+//		} catch (Exception e) {
+//			System.out.println("삽입오류");
+//		}
+//    }
 }
