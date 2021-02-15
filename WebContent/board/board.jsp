@@ -20,23 +20,17 @@
                         <th width="10%" class="writer">글쓴이</th>
                         <th width="10%" class="view-count">조회수</th>
                       </tr>
-                      </thead>
-                      
-                      <!-- TODO el jstl 코드로 변경  -->
-                      <tbody> 
-						 <%
-						 	ArrayList<BoardDto> list = (ArrayList<BoardDto>)request.getAttribute("list");
-							for(int i = 0; i<list.size(); i++) {
-						%>
-						<tr>
-							<td><%=list.get(i).getTitle() %></td>
-							<td><%=list.get(i).getDate() %></td>
-							<td><%=list.get(i).getViews() %></td>
-							<td><%=list.get(i).getId() %></td>	
+					</thead>
+					<tbody>
+						<c:forEach var="n" items="${list}" begin="0" end="9">
+							<tr>
+							<%-- 	<td><a href="BoardList.do?num=${n.num }">${n.title}</a></td> --%>
+								<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a></td>
+								<td>${n.date }</td>
+								<td>${n.id }</td>
+								<td>${n.views }</td>
 							</tr>
-						<%
-							}
-						%> 
+						</c:forEach>
                       </tbody>
                      
                   </table>  

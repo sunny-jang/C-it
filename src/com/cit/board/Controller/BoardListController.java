@@ -12,23 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cit.board.model.BoardDto;
-import com.cit.board.service.BoardService;
+import com.cit.board.service.BoardListService;
 
-@WebServlet("/board.do")
-public class BoardController extends HttpServlet {
+@WebServlet("/BoardList.do")
+public class BoardListController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//TODO bdto 사용하는 곳 없으면 삭제
-		BoardDto bdto = new BoardDto();
-		
-		BoardService bs = new BoardService();
+		// board 목록 
+		BoardListService bs = new BoardListService();
 		ArrayList<BoardDto> list = bs.List();
 		request.setAttribute("list", list);
-		System.out.println(list.toString());
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/board.jsp");
 		dispatcher.forward(request, response);
-		
+	
 	}
 }

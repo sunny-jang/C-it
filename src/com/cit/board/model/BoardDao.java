@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +35,16 @@ public class BoardDao {
 		return ds.getConnection();
 	}
     
-    public List<BoardDto> getList() {
-    
+
+    // boardList 보기
+    public ArrayList<BoardDto> getList() {
+
+ 
     	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
 		
     	try {
 			conn = getConnection();
-			query = "SELECT \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\", \"U_ID\" FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '인터뷰'";
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '사는얘기' OR \"B_CTGORY\" ='고민' OR \"B_CTGORY\"= '면접후기' OR \"B_CTGORY\" ='국비교육' OR \"B_CTGORY\" = '스터디모집'";
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
@@ -52,14 +56,44 @@ public class BoardDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				rset.close();
-				stmt.close();
-				conn.close();
+				if(rset != null) rset.close();
+				if(stmt != null) stmt.close();
+				if(conn != null) conn.close();
 			} catch (Exception e2) {
 				System.out.println("연결오류");
 			}
 		}
     	return list;  	
     }
-    
+
+    // boardDetail 보기
+    public BoardDto getBoardDetail(int num){
+    	
+    	BoardDto boardDetail = null;
+    	
+    	try {
+			conn = getConnection();
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, num);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				boardDetail = new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8));
+			}
+    	} catch (Exception e) {
+			System.out.println("상세보기 조회 오류");
+		}finally {
+			try {
+				 if(rset != null) rset.close();
+				 if(pstmt != null) pstmt.close();
+				 if(conn != null) conn.close();
+			} catch (Exception e2) {
+				
+			}
+		}
+    	
+		return boardDetail;
+    	
+    }
 }
