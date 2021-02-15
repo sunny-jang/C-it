@@ -149,7 +149,7 @@ section #join_form {width:100%; height:100%;}
 section #join_form span {font-weight:700; text-align:center; font-size:1.5rem;}
 :placeholder {color:#bcbcbc;}
 #etc {width:43%;}
-#join_form input[type='text'] {width:50%; font-size:1rem; margin:0 5% 2% 0;}
+#join_form input[type='text'], #join_form input[type='password'] {width:50%; font-size:1rem; margin:0 5% 2% 0;}
 /* *표시 */
 .ico:after {content:'*'; color:#f95427; font-size:1rem; font-weight:700;}
 /* 생년월일 */
