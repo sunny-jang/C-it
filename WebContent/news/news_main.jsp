@@ -7,9 +7,17 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script>
-function addMore(num) {
-		location.href ="/Cit/NewsListController.do?pageEnd="+num;
+function addMore(num, category) {
+		if(category != "") {
+			location.href="/Cit/NewsListController.do?pageEnd="+num +"&category="+category;
+		}else {
+			location.href ="/Cit/NewsListController.do?pageEnd="+num;
+		}
 	}
+	
+function setCategory() {
+	console.log(getParam("category"));
+}
 </script>
 <section>
         <!-- 제목 -->
@@ -18,10 +26,10 @@ function addMore(num) {
         <div id="section-contents-wrap">
             <div id="section_contents">
                 <div class="category">
-                    <div class="all news_cate on"><a href="#">전체</a></div>
-                    <div class="recruit news_cate"><a href="#"><span class="material-icons">supervisor_account</span>채용</a></div>
-                    <div class="company news_cate"><a href="#"><span class="material-icons">business</span>기업</a></div>
-                    <div class="interview news_cate"><a href="#"><span class="material-icons">chat_bubble</span>인터뷰</a></div>
+                    <div class="all news_cate on"><a href="/Cit/NewsListController.do">전체</a></div>
+                    <div class="recruit news_cate"><a href="/Cit/NewsListController.do?category=채용"><span class="material-icons">supervisor_account</span>채용</a></div>
+                    <div class="company news_cate"><a href="/Cit/NewsListController.do?category=기업"><span class="material-icons">business</span>기업</a></div>
+                    <div class="interview news_cate"><a href="/Cit/NewsListController.do?category=인터뷰"><span class="material-icons">chat_bubble</span>인터뷰</a></div>
                 </div>
                 <div class="news_set">
                 <c:forEach var="news" items="${list}" begin="${pageStart}" end="${endNum}">
@@ -37,7 +45,7 @@ function addMore(num) {
                     </div>   
                 </c:forEach>
                 </div> 
-                <div class="more-btn"><input class="more-btn-input" type="button" value="+더보기" id="btnMoreNews" onclick="addMore(${endNum+3})"></div>              
+                <div class="more-btn"><input class="more-btn-input" type="button" value="+더보기" id="btnMoreNews" onclick="addMore(${endNum+3}, '${param.category}')"></div>              
             </div>  
         </div>     
     </section>

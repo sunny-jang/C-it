@@ -35,12 +35,6 @@ public class NewsDao {
     	ArrayList<NewsDto> newsList = new ArrayList();
     	try {
 			conn = getConnection();
-//			query = "SELECT * FROM \"F_BOARD\"" + 
-//					" JOIN \"NEWS\" USING(\"BOARD_NUM\")"
-//					+ " WHERE \"F_BOARD\".\"B_CTGORY\" = '채용'"
-//					+ " OR \"F_BOARD\".\"B_CTGORY\" = '기업'"
-//					+ " OR \"F_BOARD\".\"B_CTGORY\" = '인터뷰'";
-			
 			
 			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\", SUBSTR(\"B_CONTENTS\", 1, 60) as \"B_CONTENTS\", \"U_ID\", " + 
 					"\"B_CTGORY\", \"REF_NUM\", \"AUTHOR\", \"NEWS_LINK\"  from \"F_BOARD\" JOIN \"NEWS\""
