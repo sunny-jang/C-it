@@ -61,7 +61,7 @@ public class NoticeDao {
     public int noticeDel(int num) {
     	try {
     		conn = getConnection();
-    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = 1";
+    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();

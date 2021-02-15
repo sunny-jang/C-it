@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css"> 
-
     <!-- 스마트에디터 -->    
     <script type="text/javascript" src="../../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8" src="../../js/s/1/1-1.js"></script>
@@ -33,27 +34,16 @@
     </header>    
     <section>
         <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">NEWS</h1></div>
+        <div id="section_title"><h1 id="section-title-text">Notice</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
                 <div class="editor-title-set">
-                    <select name="board_category" id="board_category">
-                        <option value="daily">채용</option>
-                        <option value="problem">기업</option>
-                        <option value="interview">인터뷰</option>                     
-                    </select>
                     <div class="editor-title-text">제목</div>
-                    <div class="editor-title"><input class="editer-title-input" type="text"></div>                    
-                </div>
-                <div class="editor-writer-set">
-                    <div class="editor-writer-1">작성자</div>
-                    <div class="editor-writer"><input class="editor-writer-input" type="text"></div>
-                    <div class="editor-writer-1">원문링크</div>
-                    <div class="editor-writer"><input class="editor-writer-input originallink" type="url"></div>
+                    <div class="editor-title"></div>
                 </div>
                 <form action="send.jsp" method="post" id="frm">
-                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; "></textarea>
+                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; mar"></textarea>
                     <div class="write-btn-set">
                         <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
                         <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
@@ -62,13 +52,4 @@
             </div>   
         </div>     
     </section>
-    <footer>
-        <!-- 하단 -->
-        <div class="footer">
-            <a id="logo">C-it</a>
-            <a>상호명:C-it| 대표명:김효신| 문의:Aaa@gmail.com</a>
-            <a>copyright 2021 ⓒHYOSHIN Corp. All Rights Reserve.</a>
-        </div>
-    </footer>
-</body>
-</html> 
+<%@ include file="/include/footer.jsp" %>
