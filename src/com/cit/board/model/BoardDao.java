@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class BoardDao {
 		return ds.getConnection();
 	}
     
+    // boardList 보기
     public ArrayList<BoardDto> getList() {
     
     	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
@@ -51,9 +53,9 @@ public class BoardDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				rset.close();
-				stmt.close();
-				conn.close();
+				if(rset != null) rset.close();
+				if(stmt != null) stmt.close();
+				if(conn != null) conn.close();
 			} catch (Exception e2) {
 				System.out.println("연결오류");
 			}
@@ -61,12 +63,34 @@ public class BoardDao {
     	return list;  	
     }
 
-//    public void insertBoard() {
-//    	try {
-//			conn = getConnection();
-//			query = "";
-//		} catch (Exception e) {
-//			System.out.println("삽입오류");
-//		}
-//    }
+    // boardDetail 보기
+    public ArrayList<BoardDto> getBoardDetail(int num){
+    	
+    	ArrayList<BoardDto> boardDetail = new ArrayList<BoardDto>();
+    	
+    	try {
+			conn = getConnection();
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, num);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				boardDetail.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
+			}
+    	} catch (Exception e) {
+			System.out.println("상세보기 조회 오류");
+		}finally {
+			try {
+				 if(rset != null) rset.close();
+				 if(pstmt != null) pstmt.close();
+				 if(conn != null) conn.close();
+			} catch (Exception e2) {
+				
+			}
+		}
+    	
+		return boardDetail;
+    	
+    }
 }

@@ -23,9 +23,10 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="n" items="${list}" begin="0" end="3">
+						<c:forEach var="n" items="${list}" begin="0" end="9">
 							<tr>
-								<td><a href="#">${n.title}</a></td>
+							<%-- 	<td><a href="BoardList.do?num=${n.num }">${n.title}</a></td> --%>
+								<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a></td>
 								<td>${n.date }</td>
 								<td>${n.id }</td>
 								<td>${n.views }</td>
