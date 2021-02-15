@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cit.notice.service.NoticeService;
 
-@WebServlet("/NoticeListAdmin.do")
+@WebServlet("/NoticeDelController.do")
 public class NoticeDelController extends HttpServlet{
 	
 	@Override

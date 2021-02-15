@@ -23,9 +23,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="n" items="${list}">
+						<c:forEach var="n" items="${list}" begin="0" end="3">
 							<tr>
-								<td>${n.title}</td>
+								<td><a href="#">${n.title}</a></td>
 								<td>${n.date }</td>
 								<td>${n.id }</td>
 								<td>${n.views }</td>

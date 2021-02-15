@@ -61,5 +61,12 @@ public class BoardDao {
     	return list;  	
     }
 
-    
+//    public void insertBoard() {
+//    	try {
+//			conn = getConnection();
+//			query = "";
+//		} catch (Exception e) {
+//			System.out.println("삽입오류");
+//		}
+//    }
 }
