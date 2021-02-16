@@ -18,13 +18,11 @@
 			</div>
 			<div class="board-view-info-box">
 				<div class="board-view-info wrt">
-					작성자 :
-					${BoardDetail.getId()}</div>	
+					작성자 : ${BoardDetail.getId()}</div>	
 				<div class="board-view-info date">
-					작성일 :${BoardDetail.getDate()}</div>
+					작성일 : ${BoardDetail.getDate()}</div>
 				<div class="board-view-info viewnum">
-					조회수 :
-					${BoardDetail.getViews()}</div>
+					조회수 : ${BoardDetail.getViews()}</div>
 				<div class="board-view-info num"></div>
 			</div>
 			<div class="board-view-text">${BoardDetail.getCont()}
@@ -33,11 +31,10 @@
 
 			<div class="write-btn-set">
 				<div class="reset-btn">
-					<input class="resetbutton" type="button" id="resetbutton"
-						value="수정" />
+					<input class="resetbutton" type="button" id="resetbutton" value="수정" />
 				</div>
 				<div class="save-btn">
-					<input class="savebutton" type="button" id="savebutton" value="목록" />
+					<input class="savebutton" type="button" id="savebutton" value="목록" onclick="location.href='/Cit/BoardList.do'"/>
 				</div>
 			</div>
 		</div>
