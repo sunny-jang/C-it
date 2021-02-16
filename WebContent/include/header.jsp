@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hotfix.css" type="text/css">
     <script src="${pageContext.request.contextPath}/js/jquery.js" type="application/javascript"></script>
@@ -20,9 +19,9 @@
             <h1 class="logo"><a href="#">C-it</a></h1>   
             <!-- 헤더왼쪽-flex -->            
             <ul id="header_01">            
-                <li><a href="#" class="header_01_a">Notice</a></li>
-                <li><a href="#" class="header_01_a">News</a></li>
-                <li><a href="#" class="header_01_a">Board</a></li>
+                <li><a href="${pageContext.request.contextPath}/noticeListAdmin.do" class="header_01_a">Notice</a></li>
+                <li><a href="${pageContext.request.contextPath}/NewsListController.do" class="header_01_a">News</a></li>
+                <li><a href="${pageContext.request.contextPath}/BoardList.do" class="header_01_a">Board</a></li>
                 <li><a href="#" class="header_01_a">MeetUp</a></li> 
             </ul> 
             <!-- 헤더오른쪽-flex -->
