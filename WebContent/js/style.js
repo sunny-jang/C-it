@@ -45,4 +45,16 @@ $(document).ready(function() {
 			icon.addClass(minusClass);
 		}
 	});
+
+	//메뉴모바일
+	const toggleBtn = document.querySelector('.mobil_menu_icon');
+	const menu = document.querySelector('#header_01');
+	const mymenu = document.querySelector('#header_02');
+	const header = document.querySelector('.header-wrap')
+
+	toggleBtn.addEventListener('click', () => {
+		menu.classList.toggle('active');
+		mymenu.classList.toggle('active');
+		header.classList.toggle('active');
+	});
 })
