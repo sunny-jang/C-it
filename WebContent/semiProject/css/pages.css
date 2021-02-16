@@ -281,4 +281,4 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 /* news_main_admin.html */
 /* 관리자용"뉴스작성버튼추가" */
 .more-btn-news{display: flex; flex-direction: row; width: 40%; justify-content: space-between; margin: 0 auto;}
-.news-write-btn{background-color:  #7bbc9b; color: #fcfcfc;}
+.news-write-btn{background-color:  #7bbc9b; color: #fcfcfc;} 
