@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css"> 
-
-    <!-- 스마트에디터 -->    
-    <script type="text/javascript" src="../../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8" src="../../js/s/1/1-1.js"></script>
-    <!-- 게시판 작성 화면 -->
+    <!-- 로그인 회원용 게시판 보기 화면 -->
     <title>Board</title>
 </head>
 <body>     
@@ -33,28 +29,35 @@
     </header>    
     <section>
         <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">BOARD</h1></div>
+        <div id="section_title"><h1 id="section-title-text">Board</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
-            <div id="section_contents">
-                <div class="editor-title-set">
-                    <select name="board_category" id="board_category">
-                        <option value="daily">사는얘기</option>
-                        <option value="problem">고민</option>
-                        <option value="interview">면접후기</option>
-                        <option value="academy">국비교육</option>
-                        <option value="study">스터디모집</option>
-                    </select>
-                    <div class="editor-title-text">제목</div>
-                    <input class="editor-title"></input>
+            <div id="section_contents">    
+
+                <div class="board-view-info-box clearfix">
+                    <div class="board-view-info viewnum float--right">&nbsp;조회수: </div> 
+                    <div class="board-view-info num float--right"></div>
+                    <div class="board-view-info wrt float--right">&nbsp;작성자: </div>
+                    <div class="board-view-info date float--right">날짜: </div>                   
                 </div>
-                <form action="send.jsp" method="post" id="frm">
-                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%;"></textarea>
-                    <div class="write-btn-set">
-                        <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
-                        <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
-                    </div>       
-                </form>
+
+                 <div class="board-view-title-box clearfix">
+                    <div class="board-view-category float--left"></div>
+                    <div><h2 class="board-view-title float--left"></h2></div>
+                </div>
+                     
+                 <div class="board-view-text">
+                    <p></p>
+                 </div>  
+
+                 <div class="board-btn-set1">
+                    <a class="listbutton" href="">목록</a>
+                  <div class="board-btn-set2">  
+                    <a class="updatebutton" href="">수정</a>
+                    <a class="deletebutton" href="">삭제</a>
+                  </div>
+                </div> 
+
             </div>   
         </div>     
     </section>

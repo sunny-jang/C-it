@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.cit.notice.model.NoticeDao" %>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Date" %>
 <%@ include file="/include/header.jsp" %>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 <script>
 $(document).ready(function() {
@@ -33,13 +36,21 @@ $(document).ready(function() {
                 <!-- 게시판 목록 -->
                 <c:forEach var="n" items="${list}">
                   <div class="accordion_container">
-                    <div class="accordion_head" width="auto">${n.title}
-                      <i id="plus" class="fas fa-plus-square"></i>
+                      <div class="accordion_head" width="auto">
+	                      <div class="new-icon float--left"><p>new</p></div>
+	                      <div class="title-wrap1">
+		                      <p class="notice-title">${n.title}</p>
+		                      <div class="title-wrap2">
+			                      <p class="notice-category">${n.cate}</p>
+			                      <p class="notice-date">${n.date}</p>
+		                      </div>
+	                      </div>
+	                      <i id="plus" class="fas fa-plus-square"></i> 
                     </div>
                     <div class="accordion_body" style="display: none;">
                       <p>${n.cont}</p>
-                      <a href="">삭제하기</a>
-                      <a href="">수정하기</a>
+                      <a class="btn delete-btn float--right" onclick="return confirm('정말 삭제 하시겠습니까?')" href="NoticeDelAdmin.do?num=${n.num}">삭제하기</a>
+                      <a class="btn update-btn float--right" href="">수정하기</a>
                     </div>
                   </div>
                  </c:forEach>

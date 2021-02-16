@@ -18,9 +18,14 @@ public class NoticeListContorller extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//int admin = Integer.parseInt(request.getParameter("admin"));
+		int admin = Integer.parseInt(request.getParameter("admin"));
 		List<BoardDto> list = new NoticeService().noticeList();
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/notice/noticeListAdmin.jsp").forward(request, response);
+         
+		if(admin == 1) {
+			request.getRequestDispatcher("/notice/noticeListAdmin.jsp").forward(request, response);
+		}else {
+			request.getRequestDispatcher("/notice/noticeListUser.jsp").forward(request, response);
+		}
 	}
 }
