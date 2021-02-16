@@ -4,11 +4,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ include file="/include/header.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
 <script>
 function addMore(num, category) {
 		if(category != "") {
@@ -67,12 +69,17 @@ function setCategory() {
 						</div>
 					</div>
 				</c:forEach>
+				<c:if test="${empty list}">
+					<div class="news_null">등록된 뉴스가 없습니다.</div>
+				</c:if>
 			</div>
-			<div class="more-btn">
-				<input class="more-btn-input" type="button" value="+더보기"
-					id="btnMoreNews"
-					onclick="addMore(${endNum+9}, '${param.category}')">
-			</div>
+			<c:if test="${fn:length(list) > 10}">
+				<div class="more-btn">
+					<input class="more-btn-input" type="button" value="+더보기"
+						id="btnMoreNews"
+						onclick="addMore(${endNum+9}, '${param.category}')">
+				</div>
+			</c:if>
 			<c:if test="${isAdmin eq 1}">
 				<a href="/Cit/NewsWriteController.do" class="btn-write">글쓰기</a>
 			</c:if>
@@ -80,3 +87,4 @@ function setCategory() {
 		</div>
 	</div>
 </section>
+<%@ include file="/include/footer.jsp"%>
