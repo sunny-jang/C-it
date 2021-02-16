@@ -10,5 +10,10 @@ public class NewsService {
 		NewsDao ndao = NewsDao.getInstance();
 		return ndao.getNewsList();
 		
+	}
+
+	public int insert(NewsDto ndto) {
+		NewsDao ndao = NewsDao.getInstance();
+		return ndao.insertNews(ndto);
 	};
 }

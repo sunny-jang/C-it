@@ -47,7 +47,7 @@ public class NewsListController extends HttpServlet {
 			ArrayList<NewsDto> list_ = new ArrayList<NewsDto>();
 			
 			for(NewsDto item : list) {
-				String category = item.getCategory();
+				String category = item.getCate();
 				if(paramCategory.equals(category)) {
 					list_.add(item);
 				}
