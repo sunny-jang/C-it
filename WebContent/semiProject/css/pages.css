@@ -194,16 +194,18 @@ section p.delete-content {font-size:1rem; font-weight:600;}
 /* board_list */
 /* 게시판 목록 테이블 */
 .subject {width:auto; text-align:left;}
-.date {width:20%;}
+.time {width:20%;}
 .writer {width:10%;}
 .view-count {width:10%;}
 .board-wrap table {width:100%; margin-top:-2px;}
 .board-wrap td {border-top: 1px solid #bcbcbc; text-align: center; padding:2% 0 2% 0;}
 .board-wrap th {text-align:center; padding:1% 0; font-weight:900; background:#7bbc9b; color:#fcfcfc;}
+.board-category {width:10%;}
 /* 페이징 */
 .pagination {display:flex;}
 .pagination li {font-size:2rem;}
 .justify-content-center {justify-content: center; align-items: center;}
+.ctgr {width:70px; height:30px; text-align:center; padding-top:10px; background-color:#a9daaa; color:#fcfcfc; border-radius:20px; font-weight:700;}
 
 /* 작성하기 버튼 */
 .btn-write {color:#fcfcfc; margin-bottom: 2%; height: 30%;  background:#7bbc9b; display: inline-flex; align-items: center; padding: 0 3%;
@@ -247,14 +249,13 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 /* notice_list_admin/user */
 /* 아코디언 목록 */
 .accordion_container {width: 100%; height:auto;}
-.accordion_head {color: #383736;cursor: pointer;margin: 0 0 1px 0;padding: 7px 11px;font-weight: bold;}
+.accordion_head {color: #383736;cursor: pointer;margin: 0 0 1px 0; padding: 20px 11px 20px;font-weight: bold;}
 .accordion_body {height:auto; background: lightgray;}
-.accordion_body p {width: 100%; padding: 18px 5px;margin: 0px; text-align:center;}
+.accordion_body p {width: 80%; padding: 30px 10px; margin: 0px; text-align:center;}
 #plus {float: right;}
  
 /* notice_list_admin */
 .new-icon {width:70px; height:30px; text-align:center; padding-top:5px; background-color:#a9daaa; color:#fcfcfc; border-radius:20px;}
-.accordion_head {padding-top:20px;}
 .btncustom {color:#fcfcfc; height: 30%; display: inline-flex; align-items: center; padding: 0 3%; font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; margin:0 20px 20px 0;}
 .delete-btn {background-color:#bcbcbc;}
 .update-btn {background-color:#7bbc9b;}
