@@ -118,14 +118,14 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 
 /* news_write.css */
 .editor-title-set{display: flex; width: 100%; }
-.editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
+.editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round';}
 .editor-title{height: 30px; margin:0 auto; width: 80%} 
 .editer-title-input{height: 100%;}
 .save-btn{width: 15%; margin: 0 auto; }
 .savebutton{background-color: #3e8685; color:#f2ebe5;}
 .write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
 .reset-btn{width: 15%; margin: 0 auto; }
-.resetbutton{background-color: #20bc20; color:#f2ebe5;}
+.resetbutton{background-color: #bcbcbc; color:#f2ebe5;}
 .editor-writer-set{display: flex; width: 100%; height: 30px; }
 .editor-writer-1{width: 15%; height: 30px ;text-align: center; font-family: 'Varela Round'; padding-top:0.7%}
 .editor-writer-input{width:100%;height: 30px; padding: 0%}
@@ -205,21 +205,29 @@ section p.delete-content {font-size:1rem; font-weight:600;}
 .justify-content-center {justify-content: center; align-items: center;}
 
 /* 작성하기 버튼 */
-.btn-write {color:#fcfcfc; margin-bottom: 2%; height: 30%;  background:#3e8685; display: inline-flex; align-items: center; padding: 0 3%;
-font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; float:right;}
+.btn-write {color:#fcfcfc; margin-bottom: 2%; height: 30%;  background:#7bbc9b; display: inline-flex; align-items: center; padding: 0 3%;
+font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; float:right;}
 /* 페이징+버튼 */
 .bottom {padding: 3% 0;}
 
 /* board_view */
 /* 게시판 말머리 */
-.board-view-category {display:inline; width:10%; color:#bcbcbc; text-align: left; padding-top: 1%;}
-.board-view-category:before {content:"["; color:#bcbcbc;}
-.board-view-category:after {content:"]"; color:#bcbcbc;}
-.board-view-title{display:inline; width: auto; height: 10%; text-align: left; color:#383736; font-size: 2rem; margin-top: 2%;}
-.board-view-info-box{width: 40%; height:5%;  color:#383736; margin-top: 1%;}
-.board-view-info{display: inline-block; width:auto;}
-.board-view-pic{margin-top: 3%; text-align: center;}
-.board-view-text{width: 100%; height: 30%; border: 1px solid black; margin-top:2%}
+.board-view-title-box {display:flex; padding-top:20px; color:#383736; font-size:2rem; font-weight:700;}
+.board-view-category {text-align: left;}
+.board-view-category:before {content:"[";}
+.board-view-category:after {content:"]";}
+.board-view-title {width: auto; text-align: left; color:#383736; font-size: 2rem; margin-top: 2%;}
+.board-view-info-box {width: 100%; height:5%;  color:#bcbcbc; margin-top: 1%; font-weight:600;}
+.board-view-info {display: inline-block; width:auto;}
+.board-view-pic {margin-top: 3%; text-align: center;}
+.board-view-text {width: 100%; height:600px; margin-top:2%}
+.board-btn-set1 {display:flex; width:100%; font-weight:700;}
+.board-btn-set2 {margin-left: 215px;}
+.listbutton {display:inline-block; padding:15px 30px; margin-left:50%; background-color:#3e8685; color:#f2ebe5; }
+.deletebutton {display:inline-block; padding:15px 30px; background-color:#bcbcbc; color:#f2ebe5;}
+.updatebutton {display:inline-block; padding:15px 30px; margin-right: 20px; background-color:#7bbc9b; color:#f2ebe5;}
+
+
 
 /* mypage_main */
 .mypage-wrap {width:100%; height:80%; margin-top:3%;}
@@ -238,22 +246,25 @@ font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor:
 /* notice_list_admin/user */
 /* 아코디언 목록 */
 .accordion_container {width: 100%; height:auto;}
-.accordion_head {height:80px; color: #383736;cursor: pointer;margin: 0 0 1px 0;padding: 7px 11px;font-weight: bold;}
+.accordion_head {color: #383736;cursor: pointer;margin: 0 0 1px 0;padding: 7px 11px;font-weight: bold;}
 .accordion_body {height:auto; background: lightgray;}
 .accordion_body p {width: 100%; padding: 18px 5px;margin: 0px; text-align:center;}
 #plus {float: right;}
  
 /* notice_list_admin */
-.new-icon {width:70px; height:30px; background-color:#20bc20; color:#fcfcfc; border-radius:20px;}
-.accordion_head p {text-align:center; vertical-align:center; }
-.btn.delete-btn{margin:0 20px 20px 0;}
-.btn.update-btn{margin:0 20px 20px 0;}
+.new-icon {width:70px; height:30px; text-align:center; padding-top:5px; background-color:#a9daaa; color:#fcfcfc; border-radius:20px;}
+.accordion_head {padding-top:20px;}
+.btncustom {color:#fcfcfc; height: 30%; display: inline-flex; align-items: center; padding: 0 3%; font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; margin:0 20px 20px 0;}
+.delete-btn {background-color:#bcbcbc;}
+.update-btn {background-color:#7bbc9b;}
 .title-wrap1 {display:inline-block;}
 .title-wrap2 {display:flex; margin:10px 0 0 10px;}
-.notice-title {text-align:auto; margin-left:10px;}
+.notice-title {text-align:left; margin-left:10px;}
 .notice-category {width:auto; }
 .notice-category:after {content:'|'; color:#bcbcbc;}
 .notice-date {width:auto;}
+.accordion_body p {margin-left:85px; text-align:left;}
+.accordion_head.normal {margin-left:70px;}
 
 /* meetup_main.html */
 /* 월별카테고리 */
