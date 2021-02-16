@@ -11,13 +11,13 @@ public class MemberDto {
 	private Date birth;
 	private String job;
 	private String path;
-
+	private int isAdmin;
 
 	public MemberDto() {
 
 	}
 
-	public MemberDto(String id,String pw, String name, String email, String gender, Date birth, String job, String path) {
+	public MemberDto(String id,String pw, String name, String email, String gender, Date birth, String job, String path, int isAdmin) {
 		this.id=id;
 		this.pw=pw;
 		this.name=name;
@@ -26,6 +26,7 @@ public class MemberDto {
 		this.birth=birth;
 		this.job=job;
 		this.path=path;
+		this.isAdmin=isAdmin;
 	}
 
 	public String getId() {
@@ -92,9 +93,16 @@ public class MemberDto {
 		this.path = path;
 	}
 
+	public void setIsAdmin(int isAdmin) {
+		this.isAdmin=isAdmin;
+	}
+	
+	public int getIsAdmin() {
+		return isAdmin;
+	}
 	@Override
 	public String toString() {
 
-		return id+pw+name+email+gender+birth+job+path;
+		return id+pw+name+email+gender+birth+job+path+isAdmin;
 	}
 }

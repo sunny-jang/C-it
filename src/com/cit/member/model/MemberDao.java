@@ -91,8 +91,9 @@ public class MemberDao {
 				java.sql.Date birth = rset.getDate("U_BIRTH");
 				String job = rset.getString("U_JOB");
 				String path = rset.getString("JOIN_PATH");
+				int isAdmin = rset.getInt("IS_ADMIN");
 				
-				MemberDto mdto = new MemberDto(u_id, u_pw, name, email, gender, birth, job, path);
+				MemberDto mdto = new MemberDto(u_id, u_pw, name, email, gender, birth, job, path, isAdmin);
 				return mdto;
 			}
 			
@@ -129,7 +130,8 @@ public class MemberDao {
 					rset.getString("U_GENDER"),
 					rset.getDate("U_BIRTH"),
 					rset.getString("U_JOB"),
-					rset.getString("JOIN_PATH")
+					rset.getString("JOIN_PATH"),
+					rset.getInt("IS_ADMIN")
 				);
 			}
 		} catch (Exception e) {
@@ -167,7 +169,8 @@ public class MemberDao {
 						rset.getString("U_GENDER"),
 						rset.getDate("U_BIRTH"),
 						rset.getString("U_JOB"),
-						rset.getString("JOIN_PATH")
+						rset.getString("JOIN_PATH"),
+						rset.getInt("IS_ADMIN")
 						);
 			}
 		} catch (Exception e) {

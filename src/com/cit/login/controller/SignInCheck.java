@@ -15,10 +15,10 @@ import com.cit.member.model.MemberDao;
 import com.cit.member.model.MemberDto;
 
 @WebServlet("/signInCheck.do")
-public class signInCheck extends HttpServlet{
+public class SignInCheck extends HttpServlet{
 	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		MemberDao mdao = MemberDao.getInstance();
 		String id = request.getParameter("id");
@@ -42,5 +42,9 @@ public class signInCheck extends HttpServlet{
 			}
 		}
 		response.getWriter().append(json.toJSONString());
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	}
 }
