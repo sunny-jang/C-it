@@ -46,6 +46,10 @@ function setCategory() {
                 </c:forEach>
                 </div> 
                 <div class="more-btn"><input class="more-btn-input" type="button" value="+더보기" id="btnMoreNews" onclick="addMore(${endNum+3}, '${param.category}')"></div>              
+            	<c:if test="${isAdmin eq 1}">
+            		<a href="/Cit/NewsWriteController.do" style="font-size:20px">글쓰기</a>
+            	</c:if>
+            	
             </div>  
         </div>     
     </section>

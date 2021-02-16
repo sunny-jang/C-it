@@ -35,7 +35,7 @@
                     </div>       
                 </form>
             </div>   
-        </div>     
+        </div>
     </section>
 
 <script type="text/javascript">
@@ -58,6 +58,8 @@
 	    const author = frm.author.value;
 	    const newsLink = frm.newsLink.value;
 	    
+	    frm.ir1.getElementby
+	    
 	    if(category == '' || title == '' || contents == '<br>' ||author == '' || newsLink == '') {
 	    	alert("값을 입력하세요.");
 	    } else {
@@ -65,7 +67,6 @@
 		       elClickedObj.form.submit();
 		    } catch(e) {}
 	    }
-	    
 	}
 </script>
 <%@ include file="/include/footer.jsp"%>
