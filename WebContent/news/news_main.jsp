@@ -38,9 +38,9 @@ function setCategory() {
                 	<div class="news_pic" style="background-image: url(${image}); background-size: cover; background-position: center; background-repeat: no-repeat;"><a src="" href="#"></a></div>
                 	</c:forEach>
                         <div class="news_title"><a href="#">${news.title}</a></div>
-                        <div class="news_memo"><a href="#"><p class="ellipsis-2">${news.content}</p></a></div>
+                        <div class="news_memo"><a href="#"><p class="ellipsis-2">${news.cont}</p></a></div>
                         <div style="margin-top:5px">
-                        	<fmt:formatDate value="${news.enrollDate}" pattern="yyyy-MM-dd"/>
+                        	<%-- <fmt:formatDate value="${news.enrollDate}" pattern="yyyy-MM-dd"/> --%>
                         </div>
                     </div>   
                 </c:forEach>
