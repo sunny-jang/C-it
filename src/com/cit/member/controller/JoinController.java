@@ -46,7 +46,7 @@ public class JoinController extends HttpServlet {
 		textPath = checkJoinPath(path);
 		birth = checkBirthDate(bd);
 
-		MemberDto mDto = new MemberDto(id,pw,name,email,gender,birth,job,textPath);
+		MemberDto mDto = new MemberDto(id,pw,name,email,gender,birth,job,textPath,0);
 		boolean result =  new MemberService().join(mDto);
 
 		if(result) {

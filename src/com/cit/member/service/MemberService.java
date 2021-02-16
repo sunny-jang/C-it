@@ -37,4 +37,9 @@ public class MemberService {
 			result = mDao.updateMember(mdto);
 		}
 	}
+	
+	public MemberDto get(String id) {
+		mDto = mDao.getMember("id", id);
+		return mDto;
+	}
 }

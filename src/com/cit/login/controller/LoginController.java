@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cit.login.service.loginService;
+import com.cit.member.model.MemberDto;
+import com.cit.member.service.MemberService;
 
 @WebServlet("/loginController.do")
 public class LoginController extends HttpServlet{
@@ -30,6 +32,9 @@ public class LoginController extends HttpServlet{
 			HttpSession session = request.getSession(true);
 			session.setAttribute("id", id);
 			session.setAttribute("pw", pw);
+			MemberService ms = new MemberService();
+			MemberDto md = ms.get(id);
+			session.setAttribute("isAdmin", md.getIsAdmin());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/main/main.jsp"); 
 			dispatcher.forward(request,response);
 			System.out.println("로그인 성공");
