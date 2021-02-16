@@ -18,29 +18,23 @@ public class SearchIdController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
+		doPost(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
-	}
-
-	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		
 		SearchService ss = new SearchService();
 		MemberDto mdto = ss.seachId(name, email);
 		
-		
 		if(mdto != null) {
 			request.setAttribute("mdto", mdto);
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findidSuccess.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findIdSuccess.jsp");
 			rd.forward(request, response);
 		}else {
 			request.setAttribute("msg", "입력하신 정보와 일치하는 아이디가 없습니다.");
-			RequestDispatcher rd = request.getRequestDispatcher("/search/findidFail.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/search/findIdFail.jsp");
 			rd.forward(request, response);
 		}
 	}

@@ -8,7 +8,6 @@ public class SearchService {
 	
 	public MemberDto seachId(String name, String email) {
 		MemberDto mdto = mdao.searchId(name, email);
-		
 		return mdto;
 	}
 	
