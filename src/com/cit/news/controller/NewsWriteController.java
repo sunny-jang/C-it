@@ -68,7 +68,6 @@ public class NewsWriteController extends HttpServlet {
 		
 		
 		String id = (String) request.getSession().getAttribute("id");
-		System.out.println("path : "+ request.getAttribute("path"));
 		ndto.setId(id);
 		List<String> imagePath = extractImageSrc(content, "<img[^>]*src=[\\\"']?([^>\\\"']+)[\\\"']?[^>]*>");
 		List<String> imageName = extracImageName(imagePath);
@@ -81,9 +80,6 @@ public class NewsWriteController extends HttpServlet {
 			
 			fList.add(fdto);
 		}
-		
-		System.out.println(fList.toString());
-		
 		ns.insert(ndto, fList);
 		
 	

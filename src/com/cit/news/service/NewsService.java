@@ -21,10 +21,8 @@ public class NewsService {
 		
 		int newsRs = ndao.insertNews(ndto, fList);
 		if( newsRs ==1) {
-			System.out.println("뉴스 정상 삽입");
 			return 1;
 		}else {
-			System.out.println("뉴스 오류");
 			return 0;
 		}
 		
