@@ -32,7 +32,7 @@
             		<li><a href="${pageContext.request.contextPath}/login/login.jsp" class="header_02_a">Sign in</a></li>
             	</c:when>
             	<c:otherwise>
-            		<li><a href="${pageContext.request.contextPath}/login/login.jsp" class="header_02_a">Sign out</a></li>
+            		<li><a href="${pageContext.request.contextPath}/logout.do" class="header_02_a">Sign out</a></li>
             	</c:otherwise>
                </c:choose>
                
