@@ -29,7 +29,6 @@ public class NewsListController extends HttpServlet {
 			try {
 				content = removeTag(content);
 				list.get(i).setCont(content);
-				System.out.println(content);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -49,7 +48,7 @@ public class NewsListController extends HttpServlet {
 			endNum = request.getParameter("pageEnd");
 			request.setAttribute("endNum", Integer.parseInt(endNum));
 		}else {
-			request.setAttribute("endNum", 2);
+			request.setAttribute("endNum", 9);
 		}
 	}
 	
