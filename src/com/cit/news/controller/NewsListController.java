@@ -24,6 +24,18 @@ public class NewsListController extends HttpServlet {
 		NewsService ns = new NewsService();
 		ArrayList<NewsDto> list = ns.getList();
 		
+		for(int i=0; i<list.size(); i++) {
+			String content = list.get(i).getCont();
+			try {
+				content = removeTag(content);
+				list.get(i).setCont(content);
+				System.out.println(content);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
 		list = setCategory(request, response, list);
 		setPage(request, response);
 		
@@ -47,7 +59,7 @@ public class NewsListController extends HttpServlet {
 			ArrayList<NewsDto> list_ = new ArrayList<NewsDto>();
 			
 			for(NewsDto item : list) {
-				String category = item.getCategory();
+				String category = item.getCate();
 				if(paramCategory.equals(category)) {
 					list_.add(item);
 				}
@@ -57,5 +69,9 @@ public class NewsListController extends HttpServlet {
 		}
 		
 		return list;
+	}
+	
+	public String removeTag(String html) throws Exception {
+		return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 	}
 }

@@ -12,35 +12,34 @@
 	<!-- 컨텐츠내용 -->
 	<div id="section-contents-wrap">
 		<div id="section_contents">
-
 			<div class="board-view-info-box clearfix">
-				<div class="board-view-info viewnum float--right">
-					&nbsp;조회수 :
+				<div class="board-view-info viewnum float--right">&nbsp;조회수 :
 					${BoardDetail.getViews()}</div>
 				<div class="board-view-info num"></div>
-				<div class="board-view-info wrt float--right">
-					&nbsp;작성자 :
-					${BoardDetail.getId()}</div>	
-				<div class="board-view-info date float--right">
-					작성일 :${BoardDetail.getDate()}</div>
+				<div class="board-view-info wrt float--right">&nbsp;작성자 :
+					${BoardDetail.getId()}</div>
+				<div class="board-view-info date float--right">작성일
+					:${BoardDetail.getDate()}</div>
 			</div>
-
 			<div class="board-view-title-box clearfix">
 				<div class="board-view-category float--left">${BoardDetail.getCate()}</div>
-				<div><h2 class="board-view-title float--left"></h2></div>
+				<div>
+					<h2 class="board-view-title float--left"></h2>
+				</div>
 			</div>
-			
 			<div class="board-view-text">${BoardDetail.getCont()}
 				<p></p>
 			</div>
 
 			<div class="board-btn-set1">
-                    <a class="listbutton" href="">목록</a>
-                  <div class="board-btn-set2">  
-                    <a class="updatebutton" href="">수정</a>
-                    <a class="deletebutton" href="">삭제</a>
-                  </div>
-            </div> 
+
+				<a class="listbutton" type="button" id="listbutton"  onclick="location.href='/Cit/BoardList.do'" >목록</a>
+				<div class="board-btn-set2">
+					<a class="updatebutton" type="button" id="resetbutton" >수정</a>
+					<a class="deletebutton" type="button" id="deletebutton" >삭제</a>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </section>

@@ -19,6 +19,7 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .header_02_a:hover{border-bottom: 0.3rem solid #383736;}
 .goup{width: 50px; height: 50px; position: fixed; right: 100px; bottom: 200px;}
 .material-icons.md-48 { font-size: 48px; }
+.mobil_menu_icon{display: none;}
 @media all and (max-width:1300px){
 .goup{display: none;}
 }
@@ -26,9 +27,8 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 /* log.css */
 /* 검정박스부분 */
 #box{width: 40%; height: 60%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.8rem; background-color: #383736; color: #eee; padding-bottom:3%}
-#box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%;}
 .box-div{margin-top:-2%}
-.input{width: 80%; height: 10%; margin: 0 auto; margin:0; border:none;} 
+.input{width: 80%; height: 10%; margin: 0 auto;  border:none;} 
 #box-div-text{font-size: 0.8rem; margin-top:-7%;}
 
 /* signin-box안아이디찾기/비밀번호찾기/회원가입/아이디저장 */
@@ -39,49 +39,37 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 #pw-text{float: left;}
 #join-text{float: right;margin-right: 10%;}
 
-
 /* findid.css */
 /* 검정박스부분 */
-#box{width: 40%; height: 55%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.8rem; background-color: #383736; color: #eee }
 #box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%; font-weight: bolder;}
 .box-div{padding:3%}
+.findid-btn{background-color: #7bbc9b; color: #f2ebe5;}
 
 /* findpw.css */
 /* 컨텐츠-박스 */
-#box{width: 40%; height: 5%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.5rem; background-color: #383736; color: #eee }
-#box-name{text-align: center; font-size: 2rem; margin: 0 auto; padding-top: 2%;padding-bottom: 2%;}
+/* #box{width: 40%; height: 5%; margin: 0 auto; padding-top: 3%; text-align: center;font-size: 0.5rem; background-color: #383736; color: #eee } */
 .box-div{padding:3%}
-
-
 
 /* findid_fail.css */
 /* 결과 */
-.show-id{display: flex; width:45%; margin: 0 auto; font-size: 1.5rem; margin-top: 5%;}
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
-
-
 
 /* findid_success.css */
 /* 찾은아이디 보여주기 */
-.show-id{display: flex; width:50%; margin: 0 auto; font-size: 1.5rem; margin-top: 5%;}
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
-.btn-set{display: flex; width: 40%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%;}
 .fid-btn{width: 40%; height: 5%; background-color: #7bbc9b; color: #f2ebe5;}
-.sign-btn{width: 40%;height: 5%; background-color: #3e8685; color: #f2ebe5;}
 
 /* findpw_fail.css */
 /* 결과 */
-.show-id{display: flex; width:45%; margin: 0 auto; font-size: 1.5rem; margin-top: 5%; padding-left: 10%;}
+.show-id{display: flex; width:45%; margin: 0 auto; font-size: 1.5rem; margin-top: 5%;}
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
-
 .join-btn{width: 100%;height: 5%;background-color: #3e8685; color: #f2ebe5;}
 
 
 /* findpw_success.css */
 /* 찾은비밀번호 보여주기 */
-.show-id{display: flex; width:50%; margin: 0 auto; font-size: 1.5rem; margin-top: 5%;}
 #foundid{ width: 40%; height: 10%; font-weight: bold;}
 /* 버튼 */
 .btn-set{display: flex; width: 40%; height: 3%; margin: 0 auto;justify-content: space-between; margin-top: 8%; }
@@ -112,25 +100,27 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .news-view-info-box{width: 40%; height:5%;  color:#383736; margin-top: 1%;}
 .news-view-info{display: inline-block;}
 .news-view-pic{ margin-top: 3%; text-align: center;}
-.news-view-text{width: 100%; height: 30%; border: 1px solid black; margin-top:2%}
+.news-view-text{width: 100%; height: 30%;  margin-top:2%}
+.tolist-btn{width: 20%; margin:0 auto; }
+.tolist-btn-input{background-color: #f95427; color:#f2ebe5; border:none; margin-top: 5%;} 
 
 /* main.css */
 .main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
 
 /* news_write.css */
-.editor-title-set{display: flex; width: 100%; }
-.editor-title-text{width: 20%; text-align: center; padding-top: 1%; font-family: 'Varela Round'}
-.editor-title{margin:0 auto; width: 80%} 
-.editer-title-input{height: 30px; border:none;}
+.editor-title-text{width: 100%; text-align: center; font-family: 'Varela Round'}
+.editor-title{margin:0 auto; width: 100%} 
+.editer-title-input{width:100%;height: 30px; border:none;}
 .save-btn{width: 15%; margin: 0 auto; }
 .savebutton{background-color: #3e8685; color:#f2ebe5;}
 .write-btn-set{display: flex;justify-content: space-between; width: 60%; margin: 0 auto;}
 .reset-btn{width: 15%; margin: 0 auto; }
 .resetbutton{background-color: #bcbcbc; color:#f2ebe5;}
-.editor-writer-set{display: flex; width: 100%; height: 30px; }
-.editor-writer-1{width: 15%; height: 30px ;text-align: center; font-family: 'Varela Round'; padding-top:0.7%}
-.editor-writer-input{width:100%;height: 30px; padding: 0%;border:none;}
-.originallink{width: 492px;}
+.editor-writer-set{width: 100%; height: 30px; }
+.editor-writer-1{height: 30px ;text-align: center; font-family: 'Varela Round';}
+.editor-writer-input{width:100%;height: 30px; border:none; }
+.news-write-table{width: 100%;}
+.news_category{text-align: center;}
 
 
 /* join */
@@ -171,6 +161,7 @@ section div.btn-group {display:flex; align-items:center; justify-content:center;
 section .join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; font-size: 1.5rem; font-weight:700; margin-bottom:10%;}
 #join_form input[type="reset"] {background:#bcbcbc; margin-right:10%; border:none;}
 #join_form input[type="submit"] {background:#3e8685; color:#eee; border:none;}
+
 /* BUTTON 공통 */
 .btn {height: 30%; background: #eee linear-gradient(to bottom, #fcfcfc, #eee); border: 0.2rem solid #eee; display: inline-flex;
 align-items: center; padding: 0 3%; font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; }
@@ -195,6 +186,7 @@ section p.delete-content {font-size:1rem; font-weight:600;}
 /* 게시판 목록 테이블 */
 .subject {width:auto; text-align:left;}
 .time {width:20%;}
+
 .writer {width:10%;}
 .view-count {width:10%;}
 .board-wrap table {width:100%; margin-top:-2px;}
