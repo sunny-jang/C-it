@@ -24,10 +24,7 @@ public class BoardDetailController extends HttpServlet {
 		BoardDto BDetail = bds.getBoard(num);
 		request.setAttribute("BoardDetail", BDetail);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/board/boardView.jsp");
-		dispatcher.forward(request, response);
-		
-	
+		request.getRequestDispatcher("/board/boardView.jsp").forward(request, response);
 		
 	}
 }
