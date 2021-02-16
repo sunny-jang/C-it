@@ -1,15 +1,20 @@
 package com.cit.news.model;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
+import com.cit.file.model.FileDao;
+import com.cit.file.model.FileDto;
 
 public class NewsDao {
 	Connection conn = null;
@@ -40,7 +45,7 @@ public class NewsDao {
 		try {
 			conn = getConnection();
 
-			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\", SUBSTR(\"B_CONTENTS\", 1, 60) as \"B_CONTENTS\", \"U_ID\", "
+			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\",\"B_CONTENTS\", \"U_ID\", "
 					+ "\"B_CTGORY\", \"REF_NUM\", \"AUTHOR\", \"NEWS_LINK\"  from \"F_BOARD\" JOIN \"NEWS\""
 					+ " USING (\"BOARD_NUM\") WHERE \"B_CTGORY\" = '채용' OR \"B_CTGORY\" = '기업' OR \"B_CTGORY\" = '인터뷰'";
 			pstmt = conn.prepareStatement(query);
@@ -60,7 +65,7 @@ public class NewsDao {
 				int views = rset.getInt("B_VIEWS");
 				NewsDto ndto = new NewsDto(bNum, title, content, uId, category, author, newsLink, enrollDate, views,
 						refNum);
-				ndto.setImagePathList(getFiles(bNum));
+				ndto.setImagePathList(FileDao.getInstance().getFiles(bNum));
 
 				newsList.add(ndto);
 			}
@@ -81,48 +86,47 @@ public class NewsDao {
 		return newsList;
 	}
 
-	public ArrayList<String> getFiles(int boardNum) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
+	
 
-		ArrayList<String> images = new ArrayList<String>();
+	public int insertNews(NewsDto ndto, List<FileDto> fList) {
 		try {
-			query = "SELECT * FROM \"B_FILE\" WHERE \"BOARD_NUM\"= ?";
 			conn = getConnection();
-
+			conn.setAutoCommit(false);
+			query = "insert into \"F_BOARD\" values(BOARD_SEQ.nextval, ?, sysdate, 0, ?, ?, ?, BOARD_SEQ.currval)";
+			String query1 = "insert into \"NEWS\" values(BOARD_SEQ.currval, ?, ?)";
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, boardNum);
+			
+			
+			pstmt.setString(1, ndto.getTitle());
+			pstmt.setString(2, ndto.getCont());
+			pstmt.setString(3, ndto.getId());
+			pstmt.setString(4, ndto.getCate());
+			
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			
+			pstmt = conn.prepareStatement(query1);
 
-			rset = pstmt.executeQuery();
-
-			while (rset.next()) {
-				images.add(rset.getString("PATH"));
+			pstmt.setString(1, ndto.getAuthor());
+			pstmt.setString(2, ndto.getNewsLink());
+			
+//			CallableStatement cstmt = conn.prepareCall("{call INSERT_NEWS(?,?,?,?,?,?)}"); 
+//
+//			cstmt.setString(1,ndto.getId()); 
+//			cstmt.setString(2,ndto.getCate()); 
+//			cstmt.setString(3,ndto.getTitle()); 
+//			cstmt.setString(4,ndto.getAuthor()); 
+//			cstmt.setString(5,ndto.getNewsLink()); 
+//			cstmt.setString(6,ndto.getCont()); 
+//			cstmt.executeQuery();
+			pstmt.executeUpdate();
+			
+			int fileRs = FileDao.getInstance().insertFile(fList, conn);
+			if(fileRs>0) {
+				conn.commit();
 			}
-
-			return images;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rset != null)
-					rset.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e2) {
-			}
-		}
-		return images;
-	}
-
-	public int insertNews(NewsDto ndto) {
-		try {
-			query = "insert into board values()";
-			conn = getConnection();
-			pstmt = conn.prepareStatement(query);
+			System.out.println("실행");
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -137,7 +141,6 @@ public class NewsDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 		}
 
 		return 0;

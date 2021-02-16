@@ -18,15 +18,10 @@ public class SearchPwController extends HttpServlet{
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
+		doPost(request,response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
-	}
-
-	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
 		String name = request.getParameter("name");
 		String id = request.getParameter("id");
 		String email = request.getParameter("email");

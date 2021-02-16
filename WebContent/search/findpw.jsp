@@ -2,6 +2,31 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/findpw.css">
+<script>
+$(function() {
+	$("#searchCheck").on("click", function() {
+		let nameVal = $("#name").val();
+		let emailVal = $("#email").val();
+		$.ajax({
+			type : 'post',
+			async : 'true',
+			url : "/Cit/searchCheck.do",
+			data : {name: nameVal, email : emailVal}, 
+			dataType : 'json',
+			success : function(data){
+						if(data.name == "-1" || data.email == "-1") {
+							alert("이름 또는 이메일을 입력해주세요")
+						}else {
+							$("#search_form").submit();
+						}
+					},
+			error : function(request, status, error) {
+				alert("에러코드 : "+  error);			
+			}
+		})
+	})
+})
+</script>
     <section>
         <!-- 제목 -->
         <div id="section_title"><h1>Find Password</h1></div>
