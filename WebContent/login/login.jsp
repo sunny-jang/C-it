@@ -8,7 +8,7 @@ $(function() {
 		let idVal = $("#id").val();
 		let pwVal = $("#pw").val();
 		$.ajax({
-			type : 'get',
+			type : 'post',
 			async : 'true',
 			url : "/Cit/signInCheck.do",
 			data : {id: idVal, pw : pwVal}, 
