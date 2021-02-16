@@ -88,7 +88,7 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .company{display: flex; align-items: center;}
 .interview{display: flex; align-items: center;}
 .more-btn{width: 20%; margin:0 auto; }
-.more-btn-input{background-color: #20b8bc; color:#f2ebe5; border:none;} 
+.more-btn-input{background-color: #3e8685; color:#f2ebe5; border:none;} 
 .news_memo>a{ display: inline-block;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;white-space: normal; line-height: 1.2; height: 100%; text-align: left; word-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 .news_cate{padding:2%;}
 .news_cate >a{display: flex; align-items: center;}
@@ -156,6 +156,8 @@ section .agreeform-wrap {width:50%; padding:3%;}
 section .agreeform-wrap span.required {color:#bcbcbc;}
 section .agreeform-wrap p.title {margin-left:-5%; margin-bottom:2%; font-size:1.5rem; font-weight:700; display:inline-block;}
 section .agreeform-wrap p.text {margin-left:-6%; width:90%; height:200px; border:0.1rem solid #bcbcbc; overflow:auto;} 
+/* 중복확인 */
+.btn-chk, .btn-confirm {background-color:#a9daaa;}
 /* 제출버튼 */
 section div.btn-group {display:flex; align-items:center; justify-content:center;}
 section .join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; font-size: 1.5rem; font-weight:700; margin-bottom:10%;}
@@ -163,13 +165,13 @@ section .join {width:20%; box-sizing:border-box; margin-top:5%; cursor:pointer; 
 #join_form input[type="submit"] {background:#3e8685; color:#eee; border:none;}
 
 /* BUTTON 공통 */
-.btn {height: 30%; background: #eee linear-gradient(to bottom, #fcfcfc, #eee); border: 0.2rem solid #eee; display: inline-flex;
+.btn {height: 30%; display: inline-flex;
 align-items: center; padding: 0 3%; font-size: 1rem; font-weight: 500; line-height: 1.5; text-align: center; cursor: pointer; box-sizing: border-box; }
 
 /* member_update */
 /* 수정완료버튼 */
 section .complete-btn-wrap {display:flex; align-items:center; justify-content:center; width:100%; border-top:solid #bcbcbc; border-width:0.2rem 0 0; margin-top:5%;}
-.complete-btn-wrap input[type="submit"] {background:#20b8bc; color:#eee; width:20%; box-sizing:border-box; cursor:pointer; font-size: 1.5rem; font-weight:700; display:flex; justify-content: center; align-items: center; margin: 7% 0 3%; min-height:70%;}
+.complete-btn-wrap input[type="submit"] {background:#3e8685; color:#eee; width:20%; box-sizing:border-box; cursor:pointer; font-size: 1.5rem; font-weight:700; display:flex; justify-content: center; align-items: center; margin: 7% 0 3%; min-height:70%;}
 /* 이메일인증버튼 */
 .btn.btn-confirm {margin-left:5%;}
 /* 회원탈퇴버튼 */
@@ -177,10 +179,10 @@ section .complete-btn-wrap {display:flex; align-items:center; justify-content:ce
 
 /* member_delete */
 /* 회원탈퇴 */
-section div.delete-wrap {width:100%; font-size:1rem; text-align:center; margin:7% auto; min-height:70%;}
+section div.delete-wrap {width:100%; margin-top:25%; text-align:center; vertical-align: center; min-height:70%;}
 section i.far.fa-check-circle {font-size:5rem;}
-section p.delete-title {font-size:1.8rem; font-weight:900; margin:1% 0 1%;}
-section p.delete-content {font-size:1rem; font-weight:600;}
+section p.delete-title {font-size:1.8rem; font-weight:900; margin:2% 0 2%;}
+section p.delete-content {font-size:1.4rem; font-weight:600;}
 
 /* board_list */
 /* 게시판 목록 테이블 */
