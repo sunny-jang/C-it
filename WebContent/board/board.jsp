@@ -1,6 +1,8 @@
 <%@ page import="com.cit.board.model.BoardDao"%>
 <%@ page import="com.cit.board.model.BoardDto" %>
 <%@ page import=" java.util.ArrayList" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
@@ -27,9 +29,10 @@
 						<c:choose>
 							<c:when test="${empty list}"> <tr><td colspan="4"> 등록된 게시물이 없습니다. </td></tr></c:when>
 							<c:otherwise>
-								<c:forEach var="n" items="${list}" begin="0" end="9">
+								<c:forEach var="n" items="${list}" begin="0" end="2">								
 									<tr>
-										<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a></td>
+										<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a>
+										</td>
 										<td>${n.date }</td>
 										<td>${n.id }</td>
 										<td>${n.views }</td>
