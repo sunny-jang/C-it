@@ -1,5 +1,5 @@
 # C-it
-![로고](https://user-images.githubusercontent.com/54854166/108253898-a95a3e80-719d-11eb-9098-05287335e155.png)
+![image](https://user-images.githubusercontent.com/54854166/108254372-47e69f80-719e-11eb-880a-b3624cd8b9f6.png)
 IT 취준생을 위한 IT 뉴스 커뮤니티
 
 ## 소개
