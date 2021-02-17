@@ -103,10 +103,14 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .news-view-pic{ margin-top: 3%; text-align: center;}
 .news-view-text{width: 100%; height: 30%;  margin-top:2%}
 .tolist-btn{width: 20%; margin:0 auto; }
-.tolist-btn-input{background-color:  #3e8685; color:#f2ebe5; border:none; margin-top: 5%;} 
+.tolist-btn-input{background-color:  #3e8685; color:#f2ebe5; border:none; margin-top: 10%;} 
+.news_edit{text-align: end; margin-top: 3%;}
+.editbtn{background-color: #7bbc9b; color:#f2ebe5; padding:1.5%; margin-right:2% ;}
+.tolistbtn{background-color: #3e8685;; color:#f2ebe5;padding:1.5%;}
 
 /* main.css */
-.main_news_set{display: flex; width:100%; justify-content: space-between; margin-top: 2%; margin-bottom: 1.5%; }
+.main_news_set{display: flex; flex-wrap: wrap;width:100%;  margin-top: 2%; margin-bottom: 1.5%; }
+.main_news_set_box{margin:2.5%; width:45%;margin-top: 4%; }
 
 /* news_write.css */
 .editor-title-text{width: 100%; text-align: center; font-family: 'Varela Round'}
@@ -124,6 +128,7 @@ footer{min-height: 15%; background-color: #383736; color: #f2ebe5; text-align: c
 .news_category{text-align: center;}
 .news_category_select{width: 100%; height: 30px;}
 .news-write-table input{border:1px solid #ccc; margin-top:1%}
+
 
 
 /* join */
@@ -225,7 +230,7 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 .board-view-text {width: 100%; height:600px; margin-top:2%;}
 .board-btn-set1 {display:flex; width:100%; font-weight:700;}
 .board-btn-set2 {margin-left: 215px;}
-.listbutton {display:inline-block; padding:15px 30px; margin-left:50%; background-color:#3e8685; color:#f2ebe5; }
+.listbutton {display:inline-block; padding:15px 30px; margin:0 auto; background-color:#3e8685; color:#f2ebe5; }
 .deletebutton {display:inline-block; padding:15px 30px; background-color:#bcbcbc; color:#f2ebe5;}
 .updatebutton {display:inline-block; padding:15px 30px; margin-right: 20px; background-color:#7bbc9b; color:#f2ebe5;}
 
