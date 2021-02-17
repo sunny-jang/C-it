@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
 <%@ page import="com.cit.member.model.MemberDto" %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/findId.css">
 <%
 	MemberDto mdto = (MemberDto)request.getAttribute("mdto");
 %>

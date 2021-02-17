@@ -235,7 +235,7 @@ public class NewsDao {
 	public int delNews(int num) {
 		int rs = 0;
 		try {
-			FileDao.getInstance().delNews(num);
+			FileDao.getInstance().delFile(num);
 			conn = getConnection();
 			conn.setAutoCommit(false);
 			query = "DELETE \"NEWS\" WHERE \"BOARD_NUM\" = ?";

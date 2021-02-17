@@ -100,12 +100,15 @@ public class BoardDao {
     // board 삭제
     public int delPost(int num) {
     	int result =0;
-    	
     	try {
+    		conn = getConnection();
+    		conn.setAutoCommit(false);
+    		FileDao.getInstance().delFile(num);
     		String query = "DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
+    		conn.commit();
     		
 		} catch (Exception e) {
 			e.printStackTrace();

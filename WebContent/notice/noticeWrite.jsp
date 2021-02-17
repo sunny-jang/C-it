@@ -9,7 +9,7 @@
         <!-- 컨텐츠내용 -->
 	        <div id="section-contents-wrap">
 		            <div id="section_contents">
-			            	<form action="/Cit/NoticeWrite.do" method="post" id="frm" name="noticeWriteForm">
+			            	<form action="/Cit/NoticeWrite.do" method="get" id="frm" name="noticeWriteForm">
 			                    <div class="title-set">
 			                    	<div class="title-text"><p class="ed-title">제목<p></div>
 			                    <c:choose>

@@ -24,7 +24,7 @@
 					<h2 class="board-view-title float--left"></h2>
 				</div>
 			</div>
-			<div class="board-view-text" style="white-space : pre; height:auto;">${BoardDetail.getCont()}
+			<div class="board-view-text" style="white-space : pre; height:auto; white-space: break-spaces;">${BoardDetail.getCont()}
 				<p></p>
 			</div>
 
