@@ -26,7 +26,10 @@
 							<%-- <fmt:formatDate value="${news.enrollDate}" pattern="yyyy-MM-dd"/> --%>
 						</div>
 					</div>
-				</c:forEach>         
+				</c:forEach>
+				<c:if test="${empty list}">
+					<div class="null_MSG">등록된 뉴스가 없습니다.</div>
+				</c:if>         
                 </div> 
             	<div id="section_title" class="main-section-title">
 					<h1 id="section-title-text">Board</h1>
@@ -46,7 +49,9 @@
 						<c:choose>
 							<c:when test="${empty bList}">
 								<tr>
-									<td colspan="4">등록된 게시물이 없습니다.</td>
+									<td colspan="4">
+										<div class="null_MSG">등록된 게시물이 없습니다.</div>
+									</td>
 								</tr>
 							</c:when>
 							<c:otherwise>
