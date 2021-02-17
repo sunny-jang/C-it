@@ -11,7 +11,7 @@ $(function() {
 		$.ajax({
 			type : 'post',
 			async : 'true',
-			url : "/Cit/searchPwCheck.do",
+			url : "/Cit/SearchPwCheck.do",
 			data : {name: nameVal, email : emailVal, id : idVal}, 
 			dataType : 'json',
 			success : function(data){

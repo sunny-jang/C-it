@@ -17,4 +17,9 @@ public class NoticeService {
 		int result = ndao.noticeDel(num);
 		return result; 
 	}
+	
+	public int insertNotice(String title, String cont, String id) {
+		int result = ndao.insertNotice(title, cont, id);
+		return result;
+	}
 }

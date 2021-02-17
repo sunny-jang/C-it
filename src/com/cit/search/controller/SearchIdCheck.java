@@ -12,8 +12,8 @@ import org.json.simple.JSONObject;
 
 import com.cit.member.model.MemberDao;
 
-@WebServlet("/searchCheck.do")
-public class SearchCheck extends HttpServlet{
+@WebServlet("/SearchIdCheck.do")
+public class SearchIdCheck extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -22,10 +22,14 @@ public class SearchCheck extends HttpServlet{
 		String email = request.getParameter("email");
 		JSONObject json = new JSONObject();
 		
-		if(name.equals("") || email.equals("")) {
+		if(name.equals("") && email.equals("")) {
+			json.put("name", "1");
+		}else if(name.equals("")) {
 			json.put("name", "-1");
-			json.put("email", "-1");
+		}else if(email.equals("")) {
+			json.put("email", "-1");     
 		}
+		   
 		response.getWriter().append(json.toJSONString());
 	}
 	

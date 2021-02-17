@@ -80,4 +80,28 @@ public class NoticeDao {
 			}
 		} return result;
     }
+    
+    //글 등록
+    public int insertNotice(String title, String cont, String id) {
+    	BoardDto bdto = new BoardDto();
+    	try {
+    		conn = getConnection();
+    		String query = "INSERT INTO \"F_BOARD\" VALUES (board_seq2.nextval, ?, sysdate, 0, ?, ?, '공지사항', board_seq2.currval)";
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setString(1, title);
+    		pstmt.setString(2, cont);
+    		pstmt.setString(3, id);
+    		result = pstmt.executeUpdate();
+    	}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} return result;
+    }
 }

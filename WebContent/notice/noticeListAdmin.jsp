@@ -66,7 +66,7 @@ function moreList(num) {
                    <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
                     <!-- 작성하기 버튼 -->
                     <p class="btn-write">
-                    <a href="">작성하기</a>
+                    <a href="${pageContext.request.contextPath}/notice/noticeWrite.jsp">작성하기</a>
                     </p>
                   </div>
          </div>

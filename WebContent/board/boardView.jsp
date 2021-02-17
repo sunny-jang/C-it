@@ -36,7 +36,7 @@
 				<a class="listbutton" type="button" id="listbutton"  onclick="location.href='/Cit/BoardList.do'" >목록</a>
 				<div class="board-btn-set2">
 					<a class="updatebutton" type="button" id="resetbutton" >수정</a>
-					<a class="deletebutton" type="button" id="deletebutton" >삭제</a>
+					<a class="deletebutton" type="button" id="deletebutton" onclick = "return confirm('삭제하시겠습니까?')" href="BoardDel.do?num=${BoardDetail.getNum()}" >삭제</a>
 				</div>
 			</div>
 
