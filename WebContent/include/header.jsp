@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/layout.css" type="text/css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages.css" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/pages.css?version=1" type="text/css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mobile.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hotfix.css" type="text/css">
     <script src="${pageContext.request.contextPath}/js/jquery.js" type="application/javascript"></script>
     <title>C-it</title>
