@@ -59,12 +59,10 @@ $(document).ready(function() {
 	});
 	
 	//뉴스카테고리
-	const category=document.querySelector('.news_cate');
-
-	category.addEventListener('click',()=>{
-		category.classList.toggle('active');
-	});
-
+	const category = $(".news_cate");
 	
-
+	category.on("click", function() {
+		category.removeClass("active");
+		$(this).addClass("active");
+	});
 })
