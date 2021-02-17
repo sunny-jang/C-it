@@ -17,6 +17,13 @@ import com.cit.member.service.MemberService;
 
 @WebServlet("/loginController.do")
 public class LoginController extends HttpServlet{
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/login/login.jsp");
+		rd.forward(request, response);
+		
+	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,9 +41,7 @@ public class LoginController extends HttpServlet{
 			MemberService ms = new MemberService();
 			MemberDto md = ms.get(id);
 			session.setAttribute("isAdmin", md.getIsAdmin());
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/main/main.jsp"); 
-			dispatcher.forward(request,response);
-			System.out.println("로그인 성공");
+			response.sendRedirect(request.getContextPath()+"/MainViewController.do"); 
 			
 			if (idStatus != null) { // 로그인 유지하기 누르면 쿠키 생성
 				Cookie c = new Cookie("id", id);

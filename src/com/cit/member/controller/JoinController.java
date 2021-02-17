@@ -50,8 +50,7 @@ public class JoinController extends HttpServlet {
 		boolean result =  new MemberService().join(mDto);
 
 		if(result) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher(request.getContextPath() +"/login/login.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect(request.getContextPath() +"/login/login.jsp");
 		} else {
 			response.sendRedirect(request.getContextPath() +"/member/join.jsp");
 		}

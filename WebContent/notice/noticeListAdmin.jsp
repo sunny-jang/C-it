@@ -7,7 +7,7 @@
 <%@ include file="/include/header.jsp" %>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-<script src="${pageContext.request.contextPath}/js/style.js"></script>
+
 
 <script>
 function moreList(num) {
@@ -23,7 +23,7 @@ function moreList(num) {
                 <!-- 게시판 목록 -->
                   <div class="accordion_container">
                   <c:choose>
-                    <c:when test="${empty list}"><div class="unwritten">등록된 게시물이 없습니다.</div></c:when>
+                    <c:when test="${empty list}"><div class="null_msg">등록된 게시물이 없습니다.</div></c:when>
                     <c:otherwise>
                     <c:forEach var="n" items="${list}" begin="0" end="${endNum}" >
                     <div class="accordion_head" width="auto">
@@ -39,7 +39,7 @@ function moreList(num) {
                       </div>
                       <div class="title-wrap1">
                       <!-- 제목 -->
-                      <p class="notice-title">${n.title}</p>
+                      <p class="notice-title" name="title">${n.title}</p>
                       <div class="title-wrap2">
                       <!-- 카테고리 -->
                       <p class="notice-category">${n.cate}</p>
@@ -51,11 +51,11 @@ function moreList(num) {
                     </div>
                     <div class="accordion_body" style="display: none;">
                     <!-- 내용 -->
-                      <p>${n.cont}</p>
+                      <p name="cont"> ${n.cont}</p>
                     <c:if test="${isAdmin eq 1}"> 
 			            <div class="clearfix">
 				            <a class="btncustom delete-btn float--right" onclick="return confirm('삭제 하시겠습니까?')" href="NoticeDelAdmin.do?num=${n.num}">삭제하기</a>
-				            <a class="btncustom update-btn float--right" href="">수정하기</a>
+				            <a class="btncustom update-btn float--right" href="NoticUpdate.do?num=${n.num}">수정하기</a>
 			            </div>
 			        </c:if>
                     </div>
@@ -63,11 +63,15 @@ function moreList(num) {
                   </c:otherwise>
                   </c:choose>
                    <div class="bottom">
-                   <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
+                   <c:if test="${!empty list}">
+					<div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
+					</c:if>>
                     <!-- 작성하기 버튼 -->
-                    <p class="btn-write">
-                    <a href="${pageContext.request.contextPath}/notice/noticeWrite.jsp">작성하기</a>
-                    </p>
+                    <c:if test="${isAdmin eq 1}">
+	                    <p class="btn-write">
+	                    <a href="${pageContext.request.contextPath}/notice/noticeWrite.jsp">작성하기</a>
+	                    </p>
+                    </c:if>
                   </div>
          </div>
           </div>   

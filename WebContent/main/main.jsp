@@ -7,10 +7,10 @@
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">                
-                <div class="news_set">
+                <div class="main_news_set">
                     <c:forEach var="news" items="${nList}" begin="${pageStart}"
-					end="${endNum}">
-					<div class="news_set_box">
+					end="3">
+					<div class="main_news_set_box">
 						<div class="news_pic">
 							<a href="/Cit/NewsViewController.do?num=${news.num}" href="#"
 								style="background-image: url(${news.imagePathList[0]}); background-size: cover; background-position: center; background-repeat: no-repeat;"></a>
@@ -26,9 +26,11 @@
 							<%-- <fmt:formatDate value="${news.enrollDate}" pattern="yyyy-MM-dd"/> --%>
 						</div>
 					</div>
-				</c:forEach>         
+				</c:forEach>
+				<c:if test="${empty nList}">
+					<div class="null_msg">등록된 뉴스가 없습니다.</div>
+				</c:if>         
                 </div> 
-                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>
             	<div id="section_title" class="main-section-title">
 					<h1 id="section-title-text">Board</h1>
 				</div>
@@ -47,7 +49,9 @@
 						<c:choose>
 							<c:when test="${empty bList}">
 								<tr>
-									<td colspan="4">등록된 게시물이 없습니다.</td>
+									<td colspan="5">
+										<div class="null_msg">등록된 게시물이 없습니다.</div>
+									</td>
 								</tr>
 							</c:when>
 							<c:otherwise>
