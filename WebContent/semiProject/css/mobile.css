@@ -61,4 +61,6 @@
     /* 메인 */
     .main_news_set_box{width:100%; margin-top: 10%;}    
     
-    
+    .complete-btn-wrap input{width: 40%;}
+    .board-wrap th{font-size: 0.7rem;}
+}
