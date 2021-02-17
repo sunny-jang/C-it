@@ -17,15 +17,11 @@ public class NoticeDelController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
+		doPost(request,response);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doAction(request,response);
-	}
-	
-	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int num = Integer.parseInt(request.getParameter("num"));
 		int result = new NoticeService().noticeDel(num);
 		
