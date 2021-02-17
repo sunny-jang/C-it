@@ -38,9 +38,9 @@ public class MailServlet extends HttpServlet {
 		  String to =  "";
 	      if (!uEmail.equals("")) to = uEmail;//change accordingly
 
-	      String from = "esunbest@gmail.com";//change accordingly
-	      final String username = "esunbest@gmail.com";//change accordingly
-	      final String password = "whrwpql000";//change accordingly
+	      String from = "noreplycit76@gmail.com";//change accordingly
+	      final String username = "noreplycit76@gmail.com";//change accordingly
+	      final String password = "cittester1111!";//change accordingly
 
 	      String host = "smtp.gmail.com";
 
