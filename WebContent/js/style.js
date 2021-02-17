@@ -42,7 +42,7 @@ $(document).ready(function() {
 			icon.addClass(plusClass);
 		} else {
 			body.slideDown(300);
-			icon.addClass(minusClass);
+			icon.addClass(minusClass); 
 		}
 	});
 
