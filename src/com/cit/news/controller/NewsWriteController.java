@@ -17,11 +17,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cit.board.Controller.ExtractFiles;
 import com.cit.file.model.FileDto;
 import com.cit.news.model.NewsDto;
 import com.cit.news.service.NewsService;
-
-import oracle.net.aso.i;
 
 /**
  * Servlet implementation class NewsWriteController
