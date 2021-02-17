@@ -19,6 +19,6 @@ public class LogoutController extends HttpServlet{
 	
 	public static void sessionOut(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		request.getSession().invalidate();
-		response.sendRedirect(request.getContextPath()+"/main/main.jsp"); 
+		response.sendRedirect(request.getContextPath()+"/MainViewController.do"); 
 	}
 }
