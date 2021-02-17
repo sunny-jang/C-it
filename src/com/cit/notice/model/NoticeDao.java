@@ -87,7 +87,7 @@ public class NoticeDao {
     public int insertNotice(String title, String cont, String id) {
     	try {
     		conn = getConnection();
-    		String query = "INSERT INTO \"F_BOARD\" VALUES (board_seq2.nextval, ?, sysdate, 0, ?, ?, '공지사항', board_seq2.currval)";
+    		String query = "INSERT INTO \"F_BOARD\" VALUES (board_seq.nextval, ?, sysdate, 0, ?, ?, '공지사항', board_seq.currval)";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setString(1, title);
     		pstmt.setString(2, cont);
