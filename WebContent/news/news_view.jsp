@@ -4,7 +4,10 @@
 <script>
 
 function delNews(number) {
-		location.href = "/Cit/NewsDelController.do?num="+number;
+		let delCheck = confirm("정말 삭제하시겠습니까?");
+		if(delCheck) {
+			location.href = "/Cit/NewsDelController.do?num="+number;
+		}
 	}
 	
 function updateNews(number) {
