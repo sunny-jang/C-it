@@ -20,10 +20,10 @@
             <h1 class="logo"><a href="#">C-it</a></h1>   
             <!-- 헤더왼쪽-flex -->            
             <ul id="header_01">            
-                <li><a href="#" class="header_01_a">Notice</a></li>
-                <li><a href="#" class="header_01_a">News</a></li>
-                <li><a href="#" class="header_01_a">Board</a></li>
-                <li><a href="#" class="header_01_a">MeetUp</a></li> 
+                <li><a href="${pageContext.request.contextPath}/NoticeListAdmin.do" class="header_01_a">Notice</a></li>
+                <li><a href="${pageContext.request.contextPath}/NewsListController.do" class="header_01_a">News</a></li>
+                <li><a href="${pageContext.request.contextPath}/BoardList.do" class="header_01_a">Board</a></li>
+                <li><a href="${pageContext.request.contextPath}/notice/noticeListAdmin.jsp" class="header_01_a">MeetUp</a></li> 
             </ul> 
             <!-- 헤더오른쪽-flex -->
             <ul id="header_02">
