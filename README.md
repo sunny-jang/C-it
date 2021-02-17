@@ -1,6 +1,6 @@
 # C-it
-![image](https://user-images.githubusercontent.com/54854166/108254372-47e69f80-719e-11eb-880a-b3624cd8b9f6.png)
 IT 취준생을 위한 IT 뉴스 커뮤니티
+![image](https://user-images.githubusercontent.com/54854166/108254372-47e69f80-719e-11eb-880a-b3624cd8b9f6.png)
 
 ## 소개
 **C-it**은 개발자를 꿈꾸는 이들에게 **it 업계의 각종 최신 소식과 인터뷰를 실시간으로 전달**하고 **소통의 장을 마련**하고자 합니다. 
