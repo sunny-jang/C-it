@@ -13,14 +13,21 @@
             <div id="section_contents">
             <form action="/Cit/NewsWriteController.do" method="post" id="frm" name="newsWriteForm">
                 <table class="news-write-table">
+                 <colgroup>
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 20%">
+                        <col style="width: 40%">                        
+                    </colgroup>
                     <tr>
+                    <td><div class="editor-title-text">카테고리</div></td>
                         <td class="news_category" >
                         	<c:choose>
                         		<c:when test="${update}">
                         		<select name="category" id="categovvvry" value="${post.cate}">
                         		</c:when>
                         		<c:otherwise>
-                        		<select name="category" id="category" value="${post.cate}">
+                        		<select name="category" id="category">
                         		</c:otherwise>
                         	</c:choose>
                                 <option value="채용">채용</option>
@@ -105,7 +112,7 @@
 	function submitContents(elClickedObj, status) {
 	    // 에디터의 내용이 textarea에 적용됩니다.
 	    oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);
-	    const frm = document.forms['newsWriteForm']
+	    const frm = document.forms['newsWriteForm'];
 	    const category = frm.category.value;
 	    const title = frm.title.value;
 	    const contents = frm.ir1.value;

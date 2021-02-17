@@ -1,6 +1,7 @@
 package com.cit.board.model;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class BoardDto {
 	private int num;
@@ -11,6 +12,7 @@ public class BoardDto {
 	private String id;
 	private String cate;
 	private int rNum;
+	private ArrayList<String> imagePathList;
 	
 	public BoardDto() {}
 	
@@ -73,10 +75,19 @@ public class BoardDto {
 	public void setrNum(int rNum) {
 		this.rNum = rNum;
 	}
-	
+	public ArrayList<String> getImagePathList() {
+		return imagePathList;
+	}
+
+	public void setImagePathList(ArrayList<String> imagePathList) {
+		this.imagePathList = imagePathList;
+	}
+
 	@Override
 	public String toString() {
 		return num+title+date+views+cont+id+cate+rNum;
 	}
+
+	
 
 }

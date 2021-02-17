@@ -13,6 +13,10 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.cit.file.model.FileDao;
+import com.cit.file.model.FileDto;
+import com.cit.news.model.NewsDto;
+
 public class BoardDao {
 	Connection conn = null;
 	String query = null;
@@ -94,12 +98,11 @@ public class BoardDao {
     }
     
     // board 삭제
-    public int boardDel(int num) {
+    public int delPost(int num) {
     	int result =0;
     	
     	try {
-    		conn = getConnection();
-    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		String query = "DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
@@ -108,12 +111,129 @@ public class BoardDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(rset!=null) rset.close();
 				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
+				if(conn != null) conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		} return result;
     }
+       
+    public int insertPost(BoardDto bdto, List<FileDto> fList) {
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			query = "insert into \"F_BOARD\" values(BOARD_SEQ.nextval, ?, sysdate, 0, ?, ?, ?, BOARD_SEQ.currval)";
+			pstmt = conn.prepareStatement(query);
+		
+			pstmt.setString(1, bdto.getTitle());
+			pstmt.setString(2, bdto.getCont());
+			pstmt.setString(3, bdto.getId());
+			pstmt.setString(4, bdto.getCate());
+			
+			pstmt.executeUpdate();
+			
+			int fileRs = FileDao.getInstance().insertFile(fList, conn);
+			if(fileRs>0) {
+				conn.commit();
+			}
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+	}
+    
+    public BoardDto getPost(int boardNum) {
+		BoardDto bdto = null;
+		
+		try {
+			conn = getConnection();
+
+			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\",\"B_CONTENTS\", \"U_ID\", "
+					+ "\"B_CTGORY\", \"REF_NUM\" from \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNum);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				int bNum = rset.getInt("BOARD_NUM");
+				String title = rset.getString("B_TITLE");
+				String content = rset.getString("B_CONTENTS");
+				String uId = rset.getString("U_ID");
+				String category = rset.getString("B_CTGORY");
+				java.sql.Date enrollDate = rset.getDate("B_ENROLLED_DATE");
+				int refNum = rset.getInt("REF_NUM");
+				int views = rset.getInt("B_VIEWS");
+				bdto = new BoardDto(bNum, title, enrollDate, views, content, uId, category, refNum);
+				bdto.setImagePathList(FileDao.getInstance().getFiles(bNum));
+			}
+			return bdto;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rset != null)
+					rset.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+		}
+		return bdto;
+	}
+    public int updatePost(BoardDto bdto, List<FileDto> fList) {
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			query = "UPDATE \"F_BOARD\" SET \"B_TITLE\" = ? , \"B_CTGORY\" = ? ,\"B_CONTENTS\" = ? WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+		
+			pstmt.setString(1, bdto.getTitle());
+			pstmt.setString(2, bdto.getCate());
+			pstmt.setString(3, bdto.getCont());
+			pstmt.setInt(4, bdto.getNum());
+			
+			pstmt.executeUpdate();
+			System.out.println("성공1");
+			
+			int fileRs = FileDao.getInstance().updateFile(fList,bdto.getNum(), conn);
+			System.out.println("성공2");
+			if(fileRs>0) {
+				conn.commit();
+			}
+			
+			return 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return 0;	
+	}
 }

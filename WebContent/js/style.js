@@ -57,4 +57,12 @@ $(document).ready(function() {
 		mymenu.classList.toggle('active');
 		header.classList.toggle('active');
 	});
+	
+	//뉴스카테고리
+	const category = $(".news_cate");
+	
+	category.on("click", function() {
+		category.removeClass("active");
+		$(this).addClass("active");
+	});
 })

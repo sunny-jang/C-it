@@ -65,9 +65,9 @@ public class NewsWriteController extends HttpServlet {
 		
 		String content = newsParams.get("contents")[0];
 		
-		
 		String id = (String) request.getSession().getAttribute("id");
 		ndto.setId(id);
+		
 		List<FileDto> fList = ExtractFiles.makeFileList(content);
 		ns.insert(ndto, fList);
 		

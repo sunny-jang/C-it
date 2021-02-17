@@ -17,7 +17,7 @@ public class BoardDetailService {
 	}
 	
 	public int boardDel(int num) {
-		int result = bdao.boardDel(num);
+		int result = bdao.delPost(num);
 		return result; 
 	}
 }

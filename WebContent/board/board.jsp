@@ -60,20 +60,19 @@
 					<c:set var="startNum" value="${page-(page-1)%3}"></c:set>
 					<c:set var="lastNum" value="18"></c:set>
 					
-					<div>
-						<ul class="pagination justify-content-center">
+					<div class="page_wrap">
+						<div class="pagination justify-content-center">
 							<c:if test="${startNum> 1}">
 								<a href="?p=${startNum-1}" class="btn btn-prev"></a>
 							</c:if>
 							<c:if test="${startNum <= 1}">
-								<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">◁</span>
+								<a class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">◁</a>
 							</c:if>
 					
 					<c:forEach var="i" begin="0" end="${maxPage}" >
 						<c:if test="${(startNum+i) <= lastNum }">
-							<li><a
-								class="text ${(page == (startNum+i))? 'blue' :''}  bold"
-								href="?p=${startNum+i}">${startNum+i}</a></li>
+							<a class="text ${(page == (startNum+i))? 'blue' :''}  bold"
+								href="?p=${startNum+i}">${startNum+i}</a>
 						</c:if>
 					</c:forEach>
 					
@@ -81,14 +80,15 @@
 							<a href="?p=${startNum+3}" class="btn btn-next"></a>
 						</c:if>
 						<c:if test="${startNum+2 >= lastNum}">
-							<span class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">▷</span>
+							<a class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">▷</a>
 						</c:if>
 					
-					</ul>
+					</div>	
+                </div>
 					</div>
 					<!-- 작성하기 버튼 -->
 					<p class="btn-write">
-						<a href="${pageContext.request.contextPath}/boardWrite.do">작성하기</a>
+						<a href="${pageContext.request.contextPath}/BoardWrite.do">작성하기</a>
 					</p>
 				</div>
 			</form>

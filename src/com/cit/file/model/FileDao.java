@@ -3,6 +3,7 @@ package com.cit.file.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,8 +56,6 @@ public class FileDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rset != null)
-					rset.close();
 				if (pstmt != null)
 					pstmt.close();
 				
@@ -136,5 +135,64 @@ public class FileDao {
 			}
 		}
 		return images;
+	}
+	
+	
+	public int delNews(int boardNum) {
+		int rs =0;
+		try {
+			conn = getConnection();
+			query = "DELETE \"B_FILE\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNum);
+			
+			return rs;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return rs;
+	}
+	
+	public int delPost(int boardNum) {
+		int rs =0;
+		try {
+			conn = getConnection();
+			query = "DELETE \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNum);
+			rs = pstmt.executeUpdate();
+			
+			return rs;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return rs;
+		
 	}
 }

@@ -57,7 +57,7 @@
 							<th><span class="ico">이메일</span></th>
 							<td><input class="email-text" type="email"
 								placeholder="예:cit@cit.com" required id="email" name="email"
-								style="width: 50%; margin-right: 5%">
+								style="width: 50%;">
 								<a class="btn btn-confirm" id="checkEmail">이메일 인증</a>
 								<div id="emailAuthBox" style="display: none">
 									<input type="text" name="auth" id="authNum"

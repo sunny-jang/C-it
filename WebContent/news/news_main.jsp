@@ -70,7 +70,7 @@ function setCategory() {
 					</div>
 				</c:forEach>
 				<c:if test="${empty list}">
-					<div class="news_null">등록된 뉴스가 없습니다.</div>
+					<div class="null_msg">등록된 뉴스가 없습니다.</div>
 				</c:if>
 			</div>
 			<c:if test="${fn:length(list) > 10}">

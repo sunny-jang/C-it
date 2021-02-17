@@ -13,6 +13,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.cit.board.model.BoardDao;
 import com.cit.file.model.FileDao;
 import com.cit.file.model.FileDto;
 
@@ -212,7 +213,6 @@ public class NewsDao {
 			if(fileRs>0) {
 				conn.commit();
 			}
-			
 			return 1;
 
 		} catch (Exception e) {
@@ -229,8 +229,40 @@ public class NewsDao {
 				e.printStackTrace();
 			}
 		}
-
 		return 0;
+	}
+	
+	public int delNews(int num) {
+		int rs = 0;
+		try {
+			FileDao.getInstance().delNews(num);
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			query = "DELETE \"NEWS\" WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, num);
+			rs = pstmt.executeUpdate();
+			
+			BoardDao.getInstance().delPost(num);
+			conn.commit();
+			return rs;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return rs;
 		
 	}
 
