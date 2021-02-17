@@ -138,7 +138,7 @@ public class FileDao {
 	}
 	
 	
-	public int delNews(int boardNum) {
+	public int delFile(int boardNum) {
 		int rs =0;
 		try {
 			conn = getConnection();
