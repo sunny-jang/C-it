@@ -19,7 +19,7 @@
                     <div>입니다.</div>
                 </div> 
                 <div class="btn-set">
-                    <input type="button" class="fid-btn" name="fid-btn" value="Find Id">
+                    <input type="button" class="fpw-btn" name="fpw-btn" value="Find Pw">
                     <input type="button" class="sign-btn" name="sign-btn" value="Sign In">
                 </div> 
             </div>   
