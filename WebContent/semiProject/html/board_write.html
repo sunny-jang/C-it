@@ -12,10 +12,10 @@
     
 
     <!-- 스마트에디터 -->    
-    <script type="text/javascript" src="../../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8" src="../../js/s/1/1-1.js"></script>
+   <script type="text/javascript"
+	src="/Cit/sm/js/HuskyEZCreator.js" charset="utf-8"></script>
     <!-- 게시판 작성 화면 -->
-    <title>Board</title>
+    <title>Board 작성</title>
 </head>
 <body>     
     <header>       
@@ -43,24 +43,24 @@
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
-                <div class="editor-title-set">
-                    <select name="board_category" id="board_category">
-                        <option value="daily">사는얘기</option>
-                        <option value="problem">고민</option>
-                        <option value="interview">면접후기</option>
-                        <option value="academy">국비교육</option>
-                        <option value="study">스터디모집</option>
-                    </select>
-                    <div class="editor-title-text">제목</div>
-                    <input class="editor-title"></input>
-                </div>
-                <form action="send.jsp" method="post" id="frm">
-                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%;"></textarea>
-                    <div class="write-btn-set">
-                        <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
-                        <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
-                    </div>       
-                </form>
+              <form action="/Cit/.do" method="post" id="" name=""> 
+                    <div class="title-set">
+                        <select name="board_category" id="board_category">
+                            <option value="daily">사는얘기</option>
+                            <option value="problem">고민</option>
+                            <option value="interview">면접후기</option>
+                            <option value="academy">국비교육</option>
+                            <option value="study">스터디모집</option>
+                        </select>
+                        <div class="board-title-text">제목</div>
+                        <div class="board-title-input"><input class="editer-title-input" type="text"></div>
+                    </div>
+                        <textarea name="contents" id="ir1" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; "></textarea>
+                        <div class="write-btn-set">
+                            <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
+                            <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
+                        </div>       
+               </form>
             </div>   
         </div>     
     </section>

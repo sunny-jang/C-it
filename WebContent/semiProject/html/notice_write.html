@@ -10,11 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- 스마트에디터 -->    
-    <script type="text/javascript" src="../../smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8" src="../../js/s/1/1-1.js"></script>
-       
-    <title>notice 작성</title>
+    <script type="text/javascript"
+	src="/Cit/sm/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <title>Notice 작성</title>
 </head>
+
 <body>     
     <header>       
         <div class="header-wrap">   
@@ -36,22 +36,22 @@
         </div>
     </header>    
     <section>
-        <!-- 제목 -->
-        <div id="section_title"><h1 id="section-title-text">Notice</h1></div>
+      <!-- 제목 -->
+      <div id="section_title"><h1 id="section-title-text">Notice</h1></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">
-                <div class="editor-title-set">
-                    <div class="editor-title-text">제목</div>
-                    <div class="editor-title"><input class="editer-title-input" type="text"></div>
-                </div>
-                <form action="send.jsp" method="post" id="frm">
-                    <textarea name="smarteditor" id="smarteditor" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; mar"></textarea>
+              <form action="/Cit/.do" method="post" id="" name="">
+                    <div class="title-set">
+                        <div class="title-text"><p class="ed-title">제목<p></div>
+                        <div class="title-input"><input class="editer-title-input" type="text"></div>
+                    </div>
+                    <textarea name="contents" id="ir1" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; "></textarea>
                     <div class="write-btn-set">
                         <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" /></div>
                         <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" /></div>
                     </div>       
-                </form>
+              </form>
             </div>   
         </div>     
     </section>
