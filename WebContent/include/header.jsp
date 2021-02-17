@@ -17,7 +17,7 @@
     <header>
         <div class="header-wrap">   
              <!-- LOGO -->            
-            <h1 class="logo"><a href="#">C-it</a></h1>   
+            <h1 class="logo"><a href="${pageContext.request.contextPath}/MainViewController.do">C-it</a></h1>   
             <!-- 헤더왼쪽-flex -->            
             <ul id="header_01">            
                 <li><a href="${pageContext.request.contextPath}/NoticeListAdmin.do" class="header_01_a">Notice</a></li>

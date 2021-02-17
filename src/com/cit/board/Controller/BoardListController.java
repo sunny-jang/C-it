@@ -42,7 +42,7 @@ public class BoardListController extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	public ArrayList<BoardDto> makeList(ArrayList<BoardDto> list, int[] listSizeSet) {	
+	public static ArrayList<BoardDto> makeList(ArrayList<BoardDto> list, int[] listSizeSet) {	
 		ArrayList<BoardDto> list_ = new ArrayList<BoardDto>();
 		
 		int page = listSizeSet[0];
