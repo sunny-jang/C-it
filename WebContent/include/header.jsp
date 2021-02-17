@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mobile.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hotfix.css" type="text/css">
     <script src="${pageContext.request.contextPath}/js/jquery.js" type="application/javascript"></script>
+    <script src="${pageContext.request.contextPath}/js/style.js" type="application/javascript"></script>
     <title>C-it</title>
 </head>
 <body>     
@@ -45,6 +46,7 @@
             	</c:otherwise>
                </c:choose>
             </ul>
+            <a href="#" class="mobil_menu_icon"><span class="material-icons">menu</span></a>
         </div>
     </header>
 
