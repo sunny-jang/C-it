@@ -35,11 +35,12 @@ public class NoticeDao {
 		return ds.getConnection();
 	}
     
+    //전체 글 목록 가져오기xxx`
     public List<BoardDto> noticeList(){
     	List<BoardDto> list = new ArrayList<BoardDto>();
     	try {
     		conn = getConnection();
-    		String query = "SELECT * FROM \"F_BOARD\" ORDER BY BOARD_NUM DESC";
+    		String query = "SELECT * FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '공지사항' ORDER BY \"B_ENROLLED_DATE\" DESC";
     		pstmt = conn.prepareStatement(query);
     		rset = pstmt.executeQuery();
     		while(rset.next()) {
@@ -57,11 +58,12 @@ public class NoticeDao {
 			}
 		} return list;
     }  
-
+    
+    //글 삭제하기
     public int noticeDel(int num) {
     	try {
     		conn = getConnection();
-    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		String query =" DELETE FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
