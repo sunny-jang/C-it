@@ -98,12 +98,11 @@ public class BoardDao {
     }
     
     // board 삭제
-    public int boardDel(int num) {
+    public int delPost(int num) {
     	int result =0;
     	
     	try {
-    		conn = getConnection();
-    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		String query = "DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
     		pstmt = conn.prepareStatement(query);
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
@@ -112,9 +111,8 @@ public class BoardDao {
 			e.printStackTrace();
 		}finally {
 			try {
-				if(rset!=null) rset.close();
 				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
+				if(conn != null) conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
