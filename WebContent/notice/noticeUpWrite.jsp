@@ -9,36 +9,30 @@
         <!-- 컨텐츠내용 -->
 	        <div id="section-contents-wrap">
 		            <div id="section_contents">
-			            	<form action="/Cit/NoticeWrite.do" method="post" id="frm" name="noticeWriteForm">
+			            	<form action="/Cit/NoticeWrite.do" method="get" id="frm" name="noticeWriteForm">
 			                    <div class="title-set">
-			                    	<div class="title-text"><p class="ed-title">제목<p></div>
 			                    <c:choose>
 			                    <c:when test="${update}">
-			                        <div class="title-input"><input class="editer-title-input" name="title" type="text" value="${post.title}"/></div>
+			                    	<div class="title-text"><p class="ed-title">제목<p></div>
+			                        <div class="title-input"><input class="editer-title-input" type="text" value="${bdto.title}"/></div>
 			                    </c:when>
 			                    <c:otherwise>
-			                        <div class="title-input"><input class="editer-title-input" name="title" type="text" /></div>
+			                        <div class="title-text"><p class="ed-title">제목<p></div>
+			                        <div class="title-input"><input class="editer-title-input" type="text" /></div>
 			                    </c:otherwise>
 			                    </c:choose>
 			                    </div>
 			                    <c:choose>
-				                    <c:when test="${update}">
-				                    	<textarea name="contents" id="ir1" name="cont" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; ">${post.cont}</textarea>
-									</c:when>
-									<c:otherwise>
-										<textarea name="contents" id="ir1" name="cont" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; "></textarea>
-				                    </c:otherwise>
+			                    <c:when test="${update}">
+			                    <textarea name="contents" id="ir1" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; ">${bdto.cont}</textarea>
+								</c:when>
+								<c:otherwise>
+								<textarea name="contents" id="ir1" rows="10" cols="100" style="width:100%; height:412px; margin-bottom: 2%; "></textarea>
+			                    </c:otherwise>
 			                    </c:choose> 
 			                        <div class="write-btn-set">
 			                        <div class="reset-btn"><input class="resetbutton" type="button" id="resetbutton" value="취소" onclick="location.href='${pageContext.request.contextPath}/NoticeListAdmin.do'"/></div>
-			                        <c:choose>
-			                    		<c:when test="${update}">
-			                    			<div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" onclick="submitContents(this, 'update','${post.num}')"/></div>
-			                    		</c:when>
-			                    		<c:otherwise>
-			                    			<div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" onclick="submitContents(this)" /></div>
-			                    		</c:otherwise>
-		                    		</c:choose>
+			                        <div class="save-btn"><input class="savebutton" type="button" id="savebutton" value="완료" onclick="submitContents(this)" /></div>
 			                    </div>
 			                 </form>
 		            </div>

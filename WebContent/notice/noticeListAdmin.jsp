@@ -39,7 +39,7 @@ function moreList(num) {
                       </div>
                       <div class="title-wrap1">
                       <!-- 제목 -->
-                      <p class="notice-title">${n.title}</p>
+                      <p class="notice-title" name="title">${n.title}</p>
                       <div class="title-wrap2">
                       <!-- 카테고리 -->
                       <p class="notice-category">${n.cate}</p>
@@ -51,11 +51,11 @@ function moreList(num) {
                     </div>
                     <div class="accordion_body" style="display: none;">
                     <!-- 내용 -->
-                      <p>${n.cont}</p>
+                      <p name="cont"> ${n.cont}</p>
                     <c:if test="${isAdmin eq 1}"> 
 			            <div class="clearfix">
 				            <a class="btncustom delete-btn float--right" onclick="return confirm('삭제 하시겠습니까?')" href="NoticeDelAdmin.do?num=${n.num}">삭제하기</a>
-				            <a class="btncustom update-btn float--right" href="">수정하기</a>
+				            <a class="btncustom update-btn float--right" href="NoticUpdate.do?num=${n.num}">수정하기</a>
 			            </div>
 			        </c:if>
                     </div>
@@ -65,9 +65,11 @@ function moreList(num) {
                    <div class="bottom">
                    <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
                     <!-- 작성하기 버튼 -->
-                    <p class="btn-write">
-                    <a href="${pageContext.request.contextPath}/notice/noticeWrite.jsp">작성하기</a>
-                    </p>
+                    <c:if test="${isAdmin eq 1}">
+	                    <p class="btn-write">
+	                    <a href="${pageContext.request.contextPath}/notice/noticeWrite.jsp">작성하기</a>
+	                    </p>
+                    </c:if>
                   </div>
          </div>
           </div>   
