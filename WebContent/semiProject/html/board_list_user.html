@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <script src="../../js/style.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <!-- 로그인 회원용 게시판 목록 화면 -->
     <title>Board</title>
 </head>
@@ -66,7 +70,7 @@
                   </table>  
 
                   <div class="bottom">
-                    <ul class="pagination justify-content-center">
+                    <!-- <ul class="pagination justify-content-center">
                     <li class="page-item disabled"><a class="page-link" href="#">◁</a></li>
                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -74,7 +78,18 @@
                     <li class="page-item"><a class="page-link" href="#">4</a></li>
                     <li class="page-item"><a class="page-link" href="#">5</a></li>
                     <li class="page-item"><a class="page-link" href="#">▷</a></li>
-                    </ul>
+                    </ul> -->
+                  <div class="page_wrap">
+                    <div class="page_nation">
+                     <a class="btn-prev" onclick="alert('이전 페이지가 없습니다.');">◁</a></li>
+                     <a href="#">1</a>
+                     <a href="#">2</a>
+                     <a href="#">3</a>
+                     <a href="#">4</a>
+                     <a href="#">5</a>
+                     <a class="btn-next" onclick="alert('다음 페이지가 없습니다.');">▷</a></li>
+                  </div>  
+                </div>
                     <!-- 작성하기 버튼 -->
                     <p class="btn-write">
                     <a href="">작성하기</a>

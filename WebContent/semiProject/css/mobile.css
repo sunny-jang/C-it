@@ -53,9 +53,17 @@
     .month{font-size: 15px; margin: 1% 5% 1% 5%; flex-wrap: wrap;}
     .month li {width:16%; text-align: center;}
 
-    /* member_delete */
     /* 회원탈퇴 */
-    section p.delete-title {font-size:1.5rem; }
-    section p.delete-content {font-size:0.9rem; font-weight:600;}
+    section p.delete-title {font-size: 1.5rem; }
+    section p.delete-content {font-size: 0.9rem; font-weight: 600;}
 
+    /* 회원가입 */
+    section #join_form span {font-size: 1rem;}
+    #join_form input[type="text"] {padding:0.5rem;}
+    #join_form .chk-group {line-height: 1rem;}
+    #join_form input[type="radio"],#join_form input[type="checkbox"] {width: 5%;}
+    .btn.btn-confirm {margin-left: 0;}
+    section .agreeform-wrap p.title {font-size:1rem;}
+    #join_form .agreeform-chk-wrap {float:none; margin-left:45%;}
+    
 }

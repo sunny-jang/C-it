@@ -190,7 +190,6 @@ section p.delete-content {font-size:1.4rem; font-weight:600;}
 /* 게시판 목록 테이블 */
 .subject {width:auto; text-align:left;}
 .time {width:20%;}
-
 .writer {width:10%;}
 .view-count {width:10%;}
 .board-wrap table {width:100%; margin-top:-2px;}
@@ -198,11 +197,17 @@ section p.delete-content {font-size:1.4rem; font-weight:600;}
 .board-wrap th {text-align:center; padding:1% 0; font-weight:900; background:#7bbc9b; color:#fcfcfc;}
 .board-category {width:10%;}
 /* 페이징 */
-.pagination {display:flex; padding:5%;}
+/* .pagination {display:flex; padding:5%;}
 .pagination ul {display:inline-block; margin: 5%; justify-content: center; align-items: center;}
 .pagination li {font-size:2rem;}
 .pagination li:hover {color:#fcfcfc; background:#3e8685; width:3rem; height:3rem;}
-.justify-content-center {justify-content: center; align-items: center;}
+.justify-content-center {justify-content: center; align-items: center;} */
+.page_wrap {text-align:center;}
+.page_nation {display:inline-block;}
+.page_nation a {display:block; margin:0 3px; float:left; border:1px solid #bcbcbc; width:2rem;
+ height:2rem; line-height:2rem; text-align:center; background-color:#fff; font-size:2rem; color:#999999; text-decoration:none;}
+.page_nation a:hover {cursor:pointer;}    
+.page_nation a:active {background-color:#3e8685; color:#fff; border:1px solid #323836;}
 .ctgr {width:70px; height:30px; margin-left:10px; text-align:center; padding-top:10px; background-color:#a9daaa; color:#fcfcfc; border-radius:20px; font-weight:700;}
 
 /* 작성하기 버튼 */
@@ -221,12 +226,12 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 .board-view-info-box {width: 100%; height:5%;  color:#bcbcbc; margin-top: 1%; font-weight:600;}
 .board-view-info {display: inline-block; width:auto;}
 .board-view-pic {margin-top: 3%; text-align: center;}
-.board-view-text {width: 100%; height:600px; margin-top:2%;}
-.board-btn-set1 {display:flex; width:100%; font-weight:700;}
+.board-view-text {width: 100%; height:auto; margin-top:2%;}
+.board-btn-set1 {display:inline-block; width:100%; font-weight:700;}
 .board-btn-set2 {margin-left: 215px;}
-.listbutton {display:inline-block; padding:15px 30px; margin-left:50%; background-color:#3e8685; color:#f2ebe5; }
-.deletebutton {display:inline-block; padding:15px 30px; background-color:#bcbcbc; color:#f2ebe5;}
-.updatebutton {display:inline-block; padding:15px 30px; margin-right: 20px; background-color:#7bbc9b; color:#f2ebe5;}
+.listbutton {display:inline-block; padding:1rem; margin-left:50%; background-color:#3e8685; color:#f2ebe5; }
+.deletebutton {display:inline-block; padding:1rem; background-color:#bcbcbc; color:#f2ebe5;}
+.updatebutton {display:inline-block; padding:1rem; margin-right: 20px; background-color:#7bbc9b; color:#f2ebe5;}
 
 /* mypage_main */
 .mypage-title {font-size:1.5rem; font-weight:600; margin-bottom:1.5%;}
@@ -237,12 +242,6 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 .board-wrap {width:100%;}
 .board-contents {margin-top:1.5%;}
 .myboard {width:100%; margin-top:1.5%; padding-bottom:3%;}
-
-
-/* 책갈피 */
-/* .bookmark-wrap {width:100%; height:450px; border:1px solid #fcfcfc; margin-top:3%;}
-.bookmark-contents {width:100%; height:400px; border:1px solid #383736; margin-top:5%;} */
-
 
 /* notice_list_admin/user */
 /* 아코디언 목록 */
@@ -283,8 +282,8 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 
 /* notice_write */
 /* 공지사항 작성 페이지 */
-.title-text {width: 10%; border-right: 3px solid #eee; padding: 3px;}
 .title-set {display:flex;}
+.title-text {width: 10%; border-right: 3px solid #eee; padding: 3px;}
 .title-input {width:90%;}
 .ed-title {text-align:center; margin-top: 3px;}
 
