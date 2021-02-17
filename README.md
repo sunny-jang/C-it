@@ -1,4 +1,4 @@
-# it를 바라보다, C-it
+# C-it
 ![image](https://user-images.githubusercontent.com/54854166/108254372-47e69f80-719e-11eb-880a-b3624cd8b9f6.png)
 
 ## 소개
