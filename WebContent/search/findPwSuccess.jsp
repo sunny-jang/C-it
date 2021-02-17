@@ -19,7 +19,6 @@
                     <div>입니다.</div>
                 </div> 
                 <div class="btn-set">
-                    <input type="button" class="fpw-btn" name="fpw-btn" value="Find Password">
                     <input type="button" class="sign-btn" name="sign-btn" value="Sign In" onClick="location.href='${pageContext.request.contextPath}/login/login.jsp'">
                 </div> 
             </div>   

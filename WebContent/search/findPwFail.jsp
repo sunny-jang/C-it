@@ -13,6 +13,7 @@
                     <div id="nofoundid"><%=request.getAttribute("msg")%></div>
                 </div> 
                 <div class="btn-set">
+                	<input type="button" class="fpw-btn" name="fpw-btn" value="Find Password">
                     <input type="button" class="join-btn" name="join-btn" value="Sign In" onClick="location.href='${pageContext.request.contextPath}/member/join.jsp'">
                 </div> 
             </div>   
