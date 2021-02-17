@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cit.login.controller.LogoutController;
 import com.cit.member.model.MemberDto;
 import com.cit.member.service.MemberService;
 
@@ -22,6 +23,7 @@ public class MemberDelController extends HttpServlet {
 		String id = request.getParameter("u_id");
 		System.out.println(id);
 		ms.delete(id);
+		
+		LogoutController.sessionOut(request, response);
 	}
-
 }

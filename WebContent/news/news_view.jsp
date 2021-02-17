@@ -6,6 +6,10 @@
 function delNews(number) {
 		location.href = "/Cit/NewsDelController.do?num="+number;
 	}
+	
+function updateNews(number) {
+	location.href = "/Cit/NewsUpdateController.do?num="+number;
+}
 </script>
     <section>
         <!-- 제목 -->
@@ -29,6 +33,9 @@ function delNews(number) {
             
             <c:if test="${isAdmin eq 1}">
             	<div class="tolist-btn"><input class="btn-del btn-input" type="button" value="삭제" onclick="delNews(${news.num})"></input></div>
+            </c:if>
+            <c:if test="${id eq news.id}">
+            	<div class="tolist-btn"><input class="btn-del btn-input" type="button" value="수정" onclick="updateNews(${news.num})"></input></div>
             </c:if>
            
         </div> 

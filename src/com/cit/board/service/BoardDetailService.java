@@ -15,4 +15,9 @@ public class BoardDetailService {
 	
 		return BDetail;
 	}
+	
+	public int boardDel(int num) {
+		int result = bdao.boardDel(num);
+		return result; 
+	}
 }

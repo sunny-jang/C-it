@@ -28,8 +28,7 @@ public class NoticeDelController extends HttpServlet{
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int num = Integer.parseInt(request.getParameter("num"));
 		int result = new NoticeService().noticeDel(num);
-		System.out.println(num);
 		
-		response.sendRedirect(request.getContextPath() + "/noticeListAdmin.do");
+		response.sendRedirect(request.getContextPath() + "/NoticeListAdmin.do");
 	}
 }

@@ -50,6 +50,8 @@ public class MemberUpdateController extends HttpServlet {
 		mdto.setBirth(birth);
 		ms.update(mdto);
 		System.out.println("업데이트 완료");
+		RequestDispatcher rd = request.getRequestDispatcher("/MemberUpdateController.do");
+		rd.forward(request, response);
 	}
 	
 	public java.sql.Date checkBirthDate(String bd) {
