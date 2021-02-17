@@ -28,7 +28,50 @@
 					</div>
 				</c:forEach>         
                 </div> 
-                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>              
+                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>
+            	<div id="section_title" class="main-section-title">
+					<h1 id="section-title-text">Board</h1>
+				</div>
+            	<div class="board-wrap">
+                    <table class="table-list">
+					<thead>
+						<tr>
+							<th width="10%" class="board-category"></th>
+							<th width="auto" class="subject">제목</th>
+							<th width="20%" class="time">작성일</th>
+							<th width="10%" class="writer">글쓴이</th>
+							<th width="10%" class="view-count">조회수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:choose>
+							<c:when test="${empty bList}">
+								<tr>
+									<td colspan="4">등록된 게시물이 없습니다.</td>
+								</tr>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="n" items="${bList}" begin="0" end="2">
+									<tr>
+										<td><c:if test="${today-wd le 5}">
+										<div class="new-icon"><jsp:useBean id="now" class="java.util.Date" />
+												<fmt:formatDate value="${now}" pattern="yyyyMMdd" var="today" />
+												<fmt:parseNumber value="${today}" integerOnly="true" var="today" />
+												<fmt:formatDate value="${n.date}" pattern="yyyyMMdd" var="write_dt" />
+												<fmt:parseNumber value="${write_dt}" integerOnly="true" var="wd" />
+													<c:out value="new" />	
+											</div></c:if></td>
+										<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a></td>
+										<td>${n.date }</td>
+										<td>${n.id }</td>
+										<td>${n.views }</td>
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+					</tbody>
+				</table> 
+				</div>             
             </div>  
         </div>     
     </section>

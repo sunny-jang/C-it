@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.cit.board.Controller.BoardListController;
+import com.cit.board.model.BoardDto;
+import com.cit.board.service.BoardListService;
+import com.cit.board.service.BoardService;
 import com.cit.news.controller.NewsListController;
 import com.cit.news.model.NewsDto;
 
@@ -30,6 +34,10 @@ public class MainViewController extends HttpServlet {
 		System.out.println(nList.toString());
 		request.setAttribute("nList", nList);
 		NewsListController.setPage(request, response);
+		
+		BoardListService bls = new BoardListService();
+		ArrayList<BoardDto> bList = bls.List();
+		request.setAttribute("bList", bList);
 		RequestDispatcher rd = request.getRequestDispatcher("/main/main.jsp");
 		rd.forward(request, response);
 	}
