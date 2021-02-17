@@ -10,7 +10,7 @@ $(function() {
 		$.ajax({
 			type : 'post',
 			async : 'true',
-			url : "/Cit/searchIdCheck.do",
+			url : "/Cit/SearchIdCheck.do",
 			data : {name: nameVal, email : emailVal}, 
 			dataType : 'json',
 			success : function(data){

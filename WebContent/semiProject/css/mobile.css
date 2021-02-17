@@ -56,6 +56,6 @@
     /* member_delete */
     /* 회원탈퇴 */
     section p.delete-title {font-size:1.5rem; }
-    section p.delete-content {font-size:1rem; font-weight:600;}
+    section p.delete-content {font-size:0.9rem; font-weight:600;}
 
 }

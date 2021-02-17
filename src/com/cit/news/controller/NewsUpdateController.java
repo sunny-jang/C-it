@@ -1,14 +1,11 @@
 package com.cit.news.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,28 +20,35 @@ import com.cit.news.model.NewsDto;
 import com.cit.news.service.NewsService;
 
 /**
- * Servlet implementation class NewsWriteController
+ * Servlet implementation class NewsUpdateController
  */
-@WebServlet("/NewsWriteController.do")
-public class NewsWriteController extends HttpServlet {
+@WebServlet("/NewsUpdateController.do")
+public class NewsUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int num = Integer.parseInt(request.getParameter("num"));
+		NewsService ns = new NewsService();
+		NewsDto ndto = ns.getNews(num);
+		
+		request.setAttribute("post", ndto);
+		request.setAttribute("update", true);
 		RequestDispatcher rd = request.getRequestDispatcher("/news/news_write.jsp");
 		rd.forward(request, response);
+		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		NewsService ns = new NewsService();
+		
 		Map<String, String[]> newsParams = new HashMap<String, String[]>();
 		newsParams = request.getParameterMap();
 		NewsDto ndto = new NewsDto();
-		NewsService ns = new NewsService();
 		Set<String> keys = newsParams.keySet();
 
 		Iterator<String> it = keys.iterator();
-
+		
+		//TODO class reflection으로 바꾸기
 		while (it.hasNext()) {
 			String key = it.next();
 			String value = newsParams.get(key)[0];
@@ -60,21 +64,14 @@ public class NewsWriteController extends HttpServlet {
 				break;
 			case "contents": ndto.setCont(value);
 				break;
+			case "num": ndto.setNum(Integer.parseInt(value));
+			break;
 			}
 		}
 		
-		String content = newsParams.get("contents")[0];
-		
-		
-		String id = (String) request.getSession().getAttribute("id");
-		ndto.setId(id);
-		List<FileDto> fList = ExtractFiles.makeFileList(content);
-		ns.insert(ndto, fList);
-		
-	
+		List<FileDto> fList = ExtractFiles.makeFileList(ndto.getCont());
+		ns.updateNews(ndto, fList);
 		response.sendRedirect(request.getContextPath()+"/NewsListController.do");
 	}
-	
-	
 
 }

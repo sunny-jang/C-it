@@ -182,4 +182,56 @@ public class NewsDao {
 		return 0;
 	}
 
+	public int updateNews(NewsDto ndto, List<FileDto> fList) {
+		try {
+			conn = getConnection();
+			conn.setAutoCommit(false);
+			query = "UPDATE \"F_BOARD\" SET \"B_TITLE\" = ? , \"B_CTGORY\" = ? ,\"B_CONTENTS\" = ? WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+		
+			pstmt.setString(1, ndto.getTitle());
+			pstmt.setString(2, ndto.getCate());
+			pstmt.setString(3, ndto.getCont());
+			pstmt.setInt(4, ndto.getNum());
+			
+			pstmt.executeUpdate();
+			System.out.println("성공1");
+			pstmt.close();
+			
+			String newsQuery = "UPDATE \"NEWS\" SET \"AUTHOR\" = ?, \"NEWS_LINK\" = ? WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(newsQuery);
+
+			pstmt.setString(1, ndto.getAuthor());
+			pstmt.setString(2, ndto.getNewsLink());
+			pstmt.setInt(3, ndto.getNum());
+			pstmt.executeUpdate();
+			System.out.println("성공2");
+			
+			int fileRs = FileDao.getInstance().updateFile(fList,ndto.getNum(), conn);
+			System.out.println("성공3");
+			if(fileRs>0) {
+				conn.commit();
+			}
+			
+			return 1;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+		
+	}
+
 }

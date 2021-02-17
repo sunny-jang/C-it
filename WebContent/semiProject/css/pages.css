@@ -280,5 +280,17 @@ font-size: 1rem; font-weight: 700; line-height: 1.5; text-align: center; cursor:
 /* news_main_admin.html */
 /* 관리자용"뉴스작성버튼추가" */
 .more-btn-news{display: flex; flex-direction: row; width: 40%; justify-content: space-between; margin: 0 auto;}
-.news-write-btn{background-color:  #7bbc9b; color: #fcfcfc;}
+.news-write-btn{background-color:  #7bbc9b; color: #fcfcfc;} 
+
+/* notice_write */
+/* 공지사항 작성 페이지 */
+.title-text {width: 10%; border-right: 3px solid #eee; padding: 3px;}
+.title-set {display:flex;}
+.title-input {width:90%;}
+.ed-title {text-align:center; margin-top: 3px;}
+
+/* board_write */
+.board_category {width: 5%;}
+.board-title-text {width: 15%; border-right: 3px solid #eee; padding: 3px; text-align:center; margin-top: 5px;}
+.board-title-input {width: 80%;}
 

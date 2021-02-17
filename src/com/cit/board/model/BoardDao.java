@@ -35,16 +35,14 @@ public class BoardDao {
 		return ds.getConnection();
 	}
     
-
     // boardList 보기
     public ArrayList<BoardDto> getList() {
 
- 
     	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
 		
     	try {
 			conn = getConnection();
-			query = "SELECT * FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '사는얘기' OR \"B_CTGORY\" ='고민' OR \"B_CTGORY\"= '면접후기' OR \"B_CTGORY\" ='국비교육' OR \"B_CTGORY\" = '스터디모집'";
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"B_CTGORY\" = '사는얘기' OR \"B_CTGORY\" ='고민' OR \"B_CTGORY\"= '면접후기' OR \"B_CTGORY\" ='국비교육' OR \"B_CTGORY\" = '스터디모집' ORDER BY \"B_ENROLLED_DATE\" DESC";
 			stmt = conn.createStatement();
 			rset = stmt.executeQuery(query);
 			
@@ -92,8 +90,30 @@ public class BoardDao {
 				
 			}
 		}
+		return boardDetail;	
+    }
+    
+    // board 삭제
+    public int boardDel(int num) {
+    	int result =0;
     	
-		return boardDetail;
-    	
+    	try {
+    		conn = getConnection();
+    		String query =" DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		pstmt = conn.prepareStatement(query);
+    		pstmt.setInt(1, num);
+    		result = pstmt.executeUpdate();
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} return result;
     }
 }

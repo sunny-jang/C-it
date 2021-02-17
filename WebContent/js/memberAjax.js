@@ -62,7 +62,7 @@ $(function() {
 					alert("이메일이 인증되었습니다!");
 					$("#checkAuth").css({"background":"#20b8bc", "color": "white", "border": "none"});
 					authCheck = true;
-					
+					console.log(authCheck);
 				}else {
 					alert("인증번호를 확인해주세요.");
 				}
@@ -84,6 +84,7 @@ $(function() {
 		if(!idCheck){
 			alert("아이디 중복 체크를 해주세요.");
 		}else if(!emailAuth) {
+			console.log(authCheck);
 			alert("이메일 인증을 해주세요.");
 			$("#join_form").attr("onsubmit","return false");
 		}else if(policyCheck == null || policyCheck == "" || policyCheck == false) {
@@ -107,9 +108,12 @@ $(function() {
 	
 	$("#updateSubmit").on("click", function() {
 		let email = $("#email").val();
-		
-		if(email != originEmail) {
-			alert("이메일 인증을 진행해 주세요.")
+		let emailAuth = authCheck;
+		console.log(emailAuth)
+		if(email != originEmail && !emailAuth) {
+			
+			alert("이메일 인증을 진행해 주세요.");
+			
 			$("#join_form").attr("onsubmit","return false");
 		}else {
 			$("#join_form").attr("onsubmit","return true");
