@@ -55,8 +55,6 @@ public class FileDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rset != null)
-					rset.close();
 				if (pstmt != null)
 					pstmt.close();
 				

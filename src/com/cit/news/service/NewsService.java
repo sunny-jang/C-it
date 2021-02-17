@@ -25,7 +25,7 @@ public class NewsService {
 			return 0;
 		}
 		
-	};
+	}
 	
 	public NewsDto getNews(int num) {
 		NewsDao ndao = NewsDao.getInstance();

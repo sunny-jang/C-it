@@ -88,7 +88,7 @@
 					</div>
 					<!-- 작성하기 버튼 -->
 					<p class="btn-write">
-						<a href="${pageContext.request.contextPath}/boardWrite.do">작성하기</a>
+						<a href="${pageContext.request.contextPath}/BoardWrite.do">작성하기</a>
 					</p>
 				</div>
 			</form>
