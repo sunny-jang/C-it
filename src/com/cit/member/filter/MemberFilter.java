@@ -15,7 +15,7 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Servlet Filter implementation class MemberFilter
  */
-@WebFilter(urlPatterns= {"/MemberUpdateController.do", "/joinController.do"})
+@WebFilter(urlPatterns= {"/MemberUpdateController.do", "/JoinController.do"})
 public class MemberFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		Map<String, String> job = new HashMap<String, String>();

@@ -22,19 +22,10 @@ public class NewsListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/news/news_main.jsp");
 		NewsService ns = new NewsService();
-		ArrayList<NewsDto> list = ns.getList();
+		ArrayList<NewsDto> list = new ArrayList<NewsDto>();
 		
-		for(int i=0; i<list.size(); i++) {
-			String content = list.get(i).getCont();
-			try {
-				content = removeTag(content);
-				list.get(i).setCont(content);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
+		list = makeList();
+		
 		list = setCategory(request, response, list);
 		setPage(request, response);
 		
@@ -42,7 +33,7 @@ public class NewsListController extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
-	public void setPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public static void setPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String endNum = null;
 		if(request.getParameter("pageEnd") != null) {
 			endNum = request.getParameter("pageEnd");
@@ -70,7 +61,27 @@ public class NewsListController extends HttpServlet {
 		return list;
 	}
 	
-	public String removeTag(String html) throws Exception {
+	public static String removeTag(String html) throws Exception {
 		return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	}
+	
+	public static ArrayList<NewsDto> makeList() {
+		NewsService ns = new NewsService();
+		ArrayList<NewsDto> list = ns.getList();
+		
+		for(int i=0; i<list.size(); i++) {
+			String content = list.get(i).getCont();
+			try {
+				content = removeTag(content);
+				list.get(i).setCont(content);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return list;
+		
 	}
 }

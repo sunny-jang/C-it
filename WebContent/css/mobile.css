@@ -53,7 +53,9 @@
     .month{font-size: 15px; margin: 1% 5% 1% 5%; flex-wrap: wrap;}
     .month li {width:16%; text-align: center;}
 
-   
-
+    /* member_delete */
+    /* 회원탈퇴 */
+    section p.delete-title {font-size:1.5rem; }
+    section p.delete-content {font-size:0.9rem; font-weight:600;}
 
 }
