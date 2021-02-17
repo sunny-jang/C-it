@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/include/header.jsp" %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/findId.css">
 <script>
 $(function() {
 	$("#searchIdCheck").on("click", function() {
@@ -43,7 +42,7 @@ $(function() {
 	                    <div class="box-div" id="box-div-text">아이디는 가입시 입력하신 이메일을 통해 찾을 수 있습니다.</div>
 	                    <div class="box-div"><input type="text" name="name" id="name" placeholder="이름" /><br></div>
 	                    <div class="box-div"><input type="email" name="email" id="email" placeholder="이메일" /><br></div>
-	                    <div class="box-div findid-btn"><input type="button" id="searchIdCheck" value="찾기" /></div>
+	                    <div class="box-div"><input type="button" id="searchIdCheck" value="찾기" /></div>
 	                </div>
                 </form>
             </div>   

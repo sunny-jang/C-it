@@ -47,9 +47,9 @@ $(function() {
                     <div class="box-div idck"><input type="checkbox" name="idStatus">아이디저장</div>
                 </form>    
                     <div class="box-text-out">
-                        <div class="box-text" id="id-text"><a href="#">아이디찾기</a></div>
-                        <div class="box-text" id="pw-text"><a href="#">/비밀번호찾기</a></div>
-                        <div class="box-text" id="join-text"><a href="#">회원가입</a></div>
+                        <div class="box-text" id="id-text"><a href="/Cit/search/findId.jsp">아이디찾기</a></div>
+                        <div class="box-text" id="pw-text"><a href="/Cit/search/findpw.jsp">/비밀번호찾기</a></div>
+                        <div class="box-text" id="join-text"><a href="/Cit/search/findId.jsp">회원가입</a></div>
                     </div>
                 </div>  
             </div>   
