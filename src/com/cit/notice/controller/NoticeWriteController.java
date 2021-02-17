@@ -19,6 +19,7 @@ import com.cit.notice.service.NoticeService;
 public class NoticeWriteController extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String title = request.getParameter("title");
 		String cont = request.getParameter("contents");
 		HttpSession session = request.getSession();
@@ -29,7 +30,6 @@ public class NoticeWriteController extends HttpServlet{
 		
 		request.setAttribute("result", result);
 		request.getRequestDispatcher("/NoticeListAdmin.do").forward(request, response);
-		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		

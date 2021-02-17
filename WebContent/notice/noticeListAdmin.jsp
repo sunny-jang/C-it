@@ -7,7 +7,7 @@
 <%@ include file="/include/header.jsp" %>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
-<script src="${pageContext.request.contextPath}/js/style.js"></script>
+
 
 <script>
 function moreList(num) {
@@ -23,7 +23,7 @@ function moreList(num) {
                 <!-- 게시판 목록 -->
                   <div class="accordion_container">
                   <c:choose>
-                    <c:when test="${empty list}"><div class="unwritten">등록된 게시물이 없습니다.</div></c:when>
+                    <c:when test="${empty list}"><div class="null_msg">등록된 게시물이 없습니다.</div></c:when>
                     <c:otherwise>
                     <c:forEach var="n" items="${list}" begin="0" end="${endNum}" >
                     <div class="accordion_head" width="auto">
@@ -63,7 +63,9 @@ function moreList(num) {
                   </c:otherwise>
                   </c:choose>
                    <div class="bottom">
-                   <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
+                   <c:if test="${!empty list}">
+					<div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" onclick="moreList('${endNum+5}')" /></div>
+					</c:if>>
                     <!-- 작성하기 버튼 -->
                     <c:if test="${isAdmin eq 1}">
 	                    <p class="btn-write">
