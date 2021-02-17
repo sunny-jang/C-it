@@ -1,4 +1,4 @@
-# C-it 
+# C-it ![로고](https://user-images.githubusercontent.com/54854166/108253898-a95a3e80-719d-11eb-9098-05287335e155.png)
 IT 취준생을 위한 IT 뉴스 커뮤니티
 
 ## 소개
