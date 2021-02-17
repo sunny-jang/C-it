@@ -15,6 +15,7 @@
     #section-contents-wrap{width: 100%;}
     #section_contents{margin: 0% 5% 0% 5%;min-height: 500px;}
     #section-title-text {margin: 0% 5% 0% 5%; font-size: 1.5rem;}
+    .footer{ padding-top: 10%; }
 
     /* 아이디찾기-실패 */
     #nofoundid{font-size: 14px;  text-align: center;}
@@ -70,9 +71,11 @@
     .tolist-btn-input{background-color:  #3e8685; color:#f2ebe5; border:none; margin-top: 10%; padding:1%;}
     
     /* 메인 */
-    .main_news_set_box{width:100%; margin-top: 10%;}    
-    
+    .main_news_set_box{width:100%; margin-top: 10%;}        
     .complete-btn-wrap input{width: 40%;}
     .board-wrap th{font-size: 0.7rem;}
+
+    /* 공지사항-관리자 */
+   
 
 }
