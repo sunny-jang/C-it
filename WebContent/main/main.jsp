@@ -7,10 +7,10 @@
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
             <div id="section_contents">                
-                <div class="news_set">
+                <div class="main_news_set">
                     <c:forEach var="news" items="${nList}" begin="${pageStart}"
-					end="${endNum}">
-					<div class="news_set_box">
+					end="3">
+					<div class="main_news_set_box">
 						<div class="news_pic">
 							<a href="/Cit/NewsViewController.do?num=${news.num}" href="#"
 								style="background-image: url(${news.imagePathList[0]}); background-size: cover; background-position: center; background-repeat: no-repeat;"></a>
@@ -28,7 +28,6 @@
 					</div>
 				</c:forEach>         
                 </div> 
-                <div class="more-btn"><input class="more-btn-input" type="submit" value="+더보기" ></input></div>
             	<div id="section_title" class="main-section-title">
 					<h1 id="section-title-text">Board</h1>
 				</div>
