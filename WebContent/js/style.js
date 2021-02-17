@@ -57,4 +57,14 @@ $(document).ready(function() {
 		mymenu.classList.toggle('active');
 		header.classList.toggle('active');
 	});
+	
+	//뉴스카테고리
+	const category=document.querySelector('.news_cate');
+
+	category.addEventListener('click',()=>{
+		category.classList.toggle('active');
+	});
+
+	
+
 })
