@@ -4,7 +4,7 @@
     <section>
         <!-- 제목 -->
         <div id="section_title" class="clearfix"><h1 id="section-title-text" class="float--left">MyPage</h1>
-        <a href="" class="member-update-delete float--right">회원정보 수정 / 탈퇴
+        <a href="${pageContext.request.contextPath}/member/memberUpdate.jsp" class="member-update-delete float--right">회원정보 수정 / 탈퇴
         <i class="fas fa-chevron-circle-right"></i></a></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
@@ -43,7 +43,7 @@
 												<fmt:parseNumber value="${write_dt}" integerOnly="true" var="wd" />
 													<c:out value="new" />	
 											</div></c:if></td>
-										<td><a href="Mypage.do?id=${n.id }">${n.title}</a></td>
+										<td><a href="BoardDetail.do?num=${n.num }">${n.title}</a></td>
 										<td>${n.date }</td>
 										<td>${n.id }</td>
 										<td>${n.views }</td>
@@ -55,19 +55,38 @@
                            </div> 
                         </div>
                    </div>
+			<div class="bottom">
+				<c:set var="page" value="${(empty param.p)?1:param.p}"></c:set>
+				<c:set var="startNum" value="${page-(page-1)%3}"></c:set>
+				<c:set var="lastNum" value="18"></c:set>
 
-                <div class="bottom">
-                <ul class="pagination justify-content-center">
-                <span class="p-btn" onclick="alert('이전 페이지가 없습니다.');">◁</span>
-                <li><a class="page-item" href="">1</a></li>
-                <li><a class="page-item" href="">2</a></li>
-                <li><a class="page-item" href="">3</a></li>
-                <li><a class="page-item" href="">4</a></li>
-                <li><a class="page-item" href="">5</a></li>       
-                <span class="p-btn" onclick="alert('다음 페이지가 없습니다.');">▷</span>
-                </ul>
-                </div>
-            </div>   
+				<div class="page_wrap">
+					<div class="pagination justify-content-center">
+						<c:if test="${startNum> 1}">
+							<a href="?p=${startNum-1}" class="btn btn-prev"></a>
+						</c:if>
+						<c:if test="${startNum <= 1}">
+							<a class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">◁</a>
+						</c:if>
+
+						<c:forEach var="i" begin="0" end="${maxPage}">
+							<c:if test="${(startNum+i) <= lastNum }">
+								<a class="text ${(page == (startNum+i))? 'blue' :''}  bold"
+									href="?p=${startNum+i}">${startNum+i}</a>
+							</c:if>
+						</c:forEach>
+
+						<c:if test="${startNum+2 < lastNum}">
+							<a href="?p=${startNum+3}" class="btn btn-next"></a>
+						</c:if>
+						<c:if test="${startNum+2 >= lastNum}">
+							<a class="btn btn-next" onclick="alert('다음 페이지가 없습니다.');">▷</a>
+						</c:if>
+
+					</div>
+				</div>
+			</div>
+		</div>   
         </div>     
     </section>
 <%@ include file="/include/footer.jsp" %>     
