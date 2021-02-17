@@ -17,7 +17,6 @@ public class NewsService {
 
 	public int insert(NewsDto ndto, List<FileDto> fList) {
 		NewsDao ndao = NewsDao.getInstance();
-		FileDao fdao = FileDao.getInstance();
 		
 		int newsRs = ndao.insertNews(ndto, fList);
 		if( newsRs ==1) {
@@ -27,4 +26,16 @@ public class NewsService {
 		}
 		
 	};
+	
+	public NewsDto getNews(int num) {
+		NewsDao ndao = NewsDao.getInstance();
+		return ndao.getNews(num);
+	}
+	
+	public int updateNews(NewsDto ndto, List<FileDto> fList) {
+		NewsDao ndao = NewsDao.getInstance();
+		ndao.updateNews(ndto, fList);
+		return 0;
+		
+	}
 }

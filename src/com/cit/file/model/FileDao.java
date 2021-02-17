@@ -68,6 +68,38 @@ public class FileDao {
 		
 	}
 	
+	public int updateFile(List<FileDto> fList, int boardNum, Connection conn) {
+		try {
+			
+			for(int i=0; i<fList.size(); i++) {
+				query = "UPDATE \"B_FILE\" SET \"C_NAME\" = ? , \"PATH\" = ? WHERE \"BOARD_NUM\" = ?";
+				pstmt = conn.prepareStatement(query);
+				pstmt.setString(1, fList.get(i).getcName());
+				pstmt.setString(2, fList.get(i).getPath());
+				pstmt.setInt(3, boardNum);
+				pstmt.executeUpdate();
+			}
+			
+			return 1;
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rset != null)
+					rset.close();
+				if (pstmt != null)
+					pstmt.close();
+				
+			} catch (Exception e2) {
+			}
+		}
+		
+		return 0;
+		
+	}
+	
 	
 	public ArrayList<String> getFiles(int boardNum) {
 		Connection conn = null;
