@@ -31,7 +31,6 @@ public class LoginController extends HttpServlet{
 		if(result == 1 ) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("id", id);
-			session.setAttribute("pw", pw);
 			MemberService ms = new MemberService();
 			MemberDto md = ms.get(id);
 			session.setAttribute("isAdmin", md.getIsAdmin());
