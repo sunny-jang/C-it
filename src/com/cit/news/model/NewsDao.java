@@ -47,7 +47,8 @@ public class NewsDao {
 
 			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\",\"B_CONTENTS\", \"U_ID\", "
 					+ "\"B_CTGORY\", \"REF_NUM\", \"AUTHOR\", \"NEWS_LINK\"  from \"F_BOARD\" JOIN \"NEWS\""
-					+ " USING (\"BOARD_NUM\") WHERE \"B_CTGORY\" = '채용' OR \"B_CTGORY\" = '기업' OR \"B_CTGORY\" = '인터뷰'";
+					+ " USING (\"BOARD_NUM\") WHERE \"B_CTGORY\" = '채용' OR \"B_CTGORY\" = '기업' OR \"B_CTGORY\" = '인터뷰'"
+					+ "ORDER BY \"B_ENROLLED_DATE\" DESC";
 			pstmt = conn.prepareStatement(query);
 
 			rset = pstmt.executeQuery();
@@ -85,6 +86,53 @@ public class NewsDao {
 		}
 		return newsList;
 	}
+	
+	
+	public NewsDto getNews(int boardNum) {
+		NewsDto ndto = null;
+		
+		try {
+			conn = getConnection();
+
+			query = "select \"BOARD_NUM\", \"B_TITLE\", \"B_ENROLLED_DATE\", \"B_VIEWS\",\"B_CONTENTS\", \"U_ID\", "
+					+ "\"B_CTGORY\", \"REF_NUM\", \"AUTHOR\", \"NEWS_LINK\"  from \"F_BOARD\" JOIN \"NEWS\""
+					+ " USING (\"BOARD_NUM\") WHERE \"BOARD_NUM\" = ?";
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, boardNum);
+			rset = pstmt.executeQuery();
+			
+			if (rset.next()) {
+				int bNum = rset.getInt("BOARD_NUM");
+				String title = rset.getString("B_TITLE");
+				String content = rset.getString("B_CONTENTS");
+				String uId = rset.getString("U_ID");
+				String category = rset.getString("B_CTGORY");
+				String author = rset.getString("AUTHOR");
+				String newsLink = rset.getString("NEWS_LINK");
+				java.util.Date enrollDate = new java.util.Date(rset.getDate("B_ENROLLED_DATE").getTime());
+				int refNum = rset.getInt("REF_NUM");
+				int views = rset.getInt("B_VIEWS");
+				ndto = new NewsDto(bNum, title, content, uId, category, author, newsLink, enrollDate, views,
+						refNum);
+				ndto.setImagePathList(FileDao.getInstance().getFiles(bNum));
+			}
+			return ndto;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rset != null)
+					rset.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+			}
+		}
+		return ndto;
+	}
 
 	
 
@@ -93,10 +141,8 @@ public class NewsDao {
 			conn = getConnection();
 			conn.setAutoCommit(false);
 			query = "insert into \"F_BOARD\" values(BOARD_SEQ.nextval, ?, sysdate, 0, ?, ?, ?, BOARD_SEQ.currval)";
-			String query1 = "insert into \"NEWS\" values(BOARD_SEQ.currval, ?, ?)";
 			pstmt = conn.prepareStatement(query);
-			
-			
+		
 			pstmt.setString(1, ndto.getTitle());
 			pstmt.setString(2, ndto.getCont());
 			pstmt.setString(3, ndto.getId());
@@ -106,27 +152,17 @@ public class NewsDao {
 			
 			pstmt.close();
 			
-			pstmt = conn.prepareStatement(query1);
+			String newsQuery = "insert into \"NEWS\" values(BOARD_SEQ.currval, ?, ?)";
+			pstmt = conn.prepareStatement(newsQuery);
 
 			pstmt.setString(1, ndto.getAuthor());
 			pstmt.setString(2, ndto.getNewsLink());
-			
-//			CallableStatement cstmt = conn.prepareCall("{call INSERT_NEWS(?,?,?,?,?,?)}"); 
-//
-//			cstmt.setString(1,ndto.getId()); 
-//			cstmt.setString(2,ndto.getCate()); 
-//			cstmt.setString(3,ndto.getTitle()); 
-//			cstmt.setString(4,ndto.getAuthor()); 
-//			cstmt.setString(5,ndto.getNewsLink()); 
-//			cstmt.setString(6,ndto.getCont()); 
-//			cstmt.executeQuery();
 			pstmt.executeUpdate();
 			
 			int fileRs = FileDao.getInstance().insertFile(fList, conn);
 			if(fileRs>0) {
 				conn.commit();
 			}
-			System.out.println("실행");
 
 		} catch (Exception e) {
 			e.printStackTrace();
