@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/hotfix.css" type="text/css">
     <script src="${pageContext.request.contextPath}/js/jquery.js" type="application/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/style.js" type="application/javascript"></script>
+    <link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>C-it</title>
 </head>
 <body>     
