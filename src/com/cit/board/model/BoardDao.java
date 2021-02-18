@@ -104,10 +104,13 @@ public class BoardDao {
     		conn = getConnection();
     		conn.setAutoCommit(false);
     		FileDao.getInstance().delFile(num);
-    		String query = "DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		System.out.println("성공");
+    		String query = "DELETE FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
     		pstmt = conn.prepareStatement(query);
+    		
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
+    		System.out.println("성공");
     		conn.commit();
     		
 		} catch (Exception e) {
