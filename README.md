@@ -111,3 +111,9 @@ C-it의 세 번째 대표 서비스로 각 월을 클릭하면 해당 월에 열
 ![진행중인밋업이없습니다](https://user-images.githubusercontent.com/54854166/108248571-65fcd180-7197-11eb-855e-d50a00623844.png)
 
 ##모바일 화면
+![뉴스메인](https://user-images.githubusercontent.com/54854166/108309059-35975080-71f4-11eb-9ec3-f186c19b3e5b.JPG)
+![m정보수정완료](https://user-images.githubusercontent.com/54854166/108309061-362fe700-71f4-11eb-9d20-74ea38fa0020.JPG)
+![뉴스작성](https://user-images.githubusercontent.com/54854166/108309053-33cd8d00-71f4-11eb-983f-6851c66b8685.JPG)
+![공지사항](https://user-images.githubusercontent.com/54854166/108309057-34feba00-71f4-11eb-98e1-2d291637bfce.JPG)
+
+
