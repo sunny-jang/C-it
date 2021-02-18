@@ -138,7 +138,7 @@ public class FileDao {
 	}
 	
 	
-	public int delNews(int boardNum) {
+	public int delFile(int boardNum) {
 		int rs =0;
 		try {
 			conn = getConnection();
@@ -146,6 +146,7 @@ public class FileDao {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, boardNum);
+			pstmt.executeUpdate();
 			
 			return rs;
 			

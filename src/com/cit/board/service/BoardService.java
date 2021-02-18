@@ -31,4 +31,8 @@ public class BoardService {
 		bdao.updatePost(bdto, fList);
 		return 0;	
 	}
+	
+	public void delBoard(int num) {
+		BoardDao.getInstance().delPost(num);
+	}
 }
