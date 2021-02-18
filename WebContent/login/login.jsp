@@ -49,7 +49,7 @@ $(function() {
                     <div class="box-text-out">
                         <div class="box-text" id="id-text"><a href="/Cit/search/findId.jsp">아이디찾기</a></div>
                         <div class="box-text" id="pw-text"><a href="/Cit/search/findpw.jsp">/비밀번호찾기</a></div>
-                        <div class="box-text" id="join-text"><a href="/Cit/search/findId.jsp">회원가입</a></div>
+                        <div class="box-text" id="join-text"><a href="/Cit/JoinController.do">회원가입</a></div>
                     </div>
                 </div>  
             </div>   
