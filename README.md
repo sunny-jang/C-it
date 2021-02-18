@@ -13,7 +13,7 @@ Java, Javascript, Jquery, HTML, CSS
 Internet Explorer 10, Chrome, Firefox에서 지원합니다.
 
 ### 사용 가능 디바이스
-PC, 모바일
+PC(1279px), 모바일(768px)
 
 
 ## 기능(PC용 화면)
@@ -110,3 +110,4 @@ C-it의 두 번째 대표 서비스로 주요 타깃 사용자인 개발자 지�
 C-it의 세 번째 대표 서비스로 각 월을 클릭하면 해당 월에 열리는 각종 IT 행사 및 모임 모아보기가 가능합니다.
 ![진행중인밋업이없습니다](https://user-images.githubusercontent.com/54854166/108248571-65fcd180-7197-11eb-855e-d50a00623844.png)
 
+##모바일 화면
