@@ -29,10 +29,10 @@ public class BoardListController extends HttpServlet {
 		BoardListService bs = new BoardListService();
 		ArrayList<BoardDto> list = bs.List();
 		
-		int maxPage = list.size()/3;
+		int maxPage = list.size()/7;
 		request.setAttribute("maxPage", maxPage);
 		
-		int[] listSizeSet = setListSize(page_, 3, list.size()); 
+		int[] listSizeSet = setListSize(page_, 7, list.size()); 
 		
  		ArrayList<BoardDto> list_ = makeList(list, listSizeSet);
 		
