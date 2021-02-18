@@ -19,7 +19,8 @@ Internet Explorer 10, Chrome, Firefox에서 지원합니다.
 ### 사용 가능 디바이스
 PC(1279px), 모바일(768px)
 
-### ERD 
+### ERD  
+![ERD](https://user-images.githubusercontent.com/54854166/108317372-819cc200-7201-11eb-899b-e46f02cd463d.png)
 
 
 ## 기능(PC용 화면)
