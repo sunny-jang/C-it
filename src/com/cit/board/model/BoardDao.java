@@ -104,10 +104,13 @@ public class BoardDao {
     		conn = getConnection();
     		conn.setAutoCommit(false);
     		FileDao.getInstance().delFile(num);
-    		String query = "DELETE FROM \"F_BOARD\" WHERE BOARD_NUM = ?";
+    		System.out.println("성공");
+    		String query = "DELETE FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
     		pstmt = conn.prepareStatement(query);
+    		
     		pstmt.setInt(1, num);
     		result = pstmt.executeUpdate();
+    		System.out.println("성공");
     		conn.commit();
     		
 		} catch (Exception e) {
@@ -239,4 +242,34 @@ public class BoardDao {
 		}
 		return 0;	
 	}
+
+    public ArrayList<BoardDto> getMyList(String id) {
+
+    	ArrayList<BoardDto> list = new ArrayList<BoardDto>();
+		
+    	try {
+			conn = getConnection();
+			query = "SELECT * FROM \"F_BOARD\" WHERE \"U_ID\" = ?  ORDER BY \"B_ENROLLED_DATE\" DESC";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new BoardDto(rset.getInt(1),rset.getString(2),rset.getDate(3),rset.getInt(4),
+							rset.getString(5),rset.getString(6),rset.getString(7),rset.getInt(8)));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rset != null) rset.close();
+				if(pstmt != null) stmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				System.out.println("연결오류");
+			}
+		}
+    	return list;  	
+    }
+
 }

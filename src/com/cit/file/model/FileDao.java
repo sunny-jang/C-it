@@ -146,6 +146,7 @@ public class FileDao {
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, boardNum);
+			pstmt.executeUpdate();
 			
 			return rs;
 			
