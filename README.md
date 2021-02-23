@@ -11,7 +11,14 @@ IT 취준생을 위한 IT 뉴스 커뮤니티
 😊 웃는 모습의 로고처럼 언제나 사용자와 같은 자리에서 it 업계를 바라보겠습니다.
 
 ## 사용 기술
-Java, Javascript, Jquery, HTML5, CSS3, JSP, Servlet, Ajax
+Java, Javascript, Jquery, HTML5, CSS3, JSP, Servlet, Ajax, Oracle, SQL
+
+## 개발 환경/ 사용 툴
+### 프론트  
+Git, Emit, VisualStudio
+
+### 백앤드  
+SQL developer/ Eclipse
 
 ### 브라우저 서포트
 Internet Explorer 10, Chrome, Firefox에서 지원합니다.
