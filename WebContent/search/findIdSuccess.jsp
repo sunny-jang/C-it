@@ -18,8 +18,8 @@
                     <div>입니다.</div>
                 </div> 
                 <div class="btn-set">
-                    <input type="button" class="fpw-btn" name="fpw-btn" value="Find Pw">
-                    <input type="button" class="sign-btn" name="sign-btn" value="Sign In">
+                    <input type="button" class="fid-btn" name="fid-btn" value="Find Id" onClick="location.href='${pageContext.request.contextPath}/search/findpw.jsp'">
+                    <input type="button" class="sign-btn" name="sign-btn" value="Sign In" onClick="location.href='${pageContext.request.contextPath}/login/login.jsp'">
                 </div> 
             </div>   
         </div>     
