@@ -55,7 +55,7 @@
 								</tr>
 							</c:when>
 							<c:otherwise>
-								<c:forEach var="n" items="${bList}" begin="0" end="2">
+								<c:forEach var="n" items="${bList}" begin="0" end="4">
 									<tr>
 										<td><c:if test="${today-wd le 5}">
 										<div class="new-icon"><jsp:useBean id="now" class="java.util.Date" />

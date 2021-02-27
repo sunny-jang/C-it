@@ -8,7 +8,7 @@ import com.cit.board.model.BoardDto;
 public class MyPageMainService {
 	public ArrayList<BoardDto> getMyList(String id){
 		BoardDao bdao = BoardDao.getInstance();
-		ArrayList<BoardDto> myList = bdao.getList();
+		ArrayList<BoardDto> myList = bdao.getMyList(id);
 		
 		return myList;
 	}

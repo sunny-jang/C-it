@@ -7,3 +7,6 @@
 .null_msg {height: 500px; font-size: 2rem; font-weight: bold; display: flex; align-items:center; justify-content: center; width: 100%;}
 #section_title.main-section-title {border-bottom : 3px solid #000; margin-bottom : 2px; width: 100%;}
 #section_title.main-section-title h1 {margin : 0;} 
+.new-icon {
+	line-height: 24px;
+}

@@ -41,6 +41,10 @@ public class LoginController extends HttpServlet{
 			MemberService ms = new MemberService();
 			MemberDto md = ms.get(id);
 			session.setAttribute("isAdmin", md.getIsAdmin());
+			if(md.getIsAdmin() == 1) {
+				request.setAttribute("adminAlert", "<script>alert('관리자 로그인 되었습니다.')</script>");
+			}
+			
 			response.sendRedirect(request.getContextPath()+"/MainViewController.do"); 
 			
 			if (idStatus != null) { // 로그인 유지하기 누르면 쿠키 생성

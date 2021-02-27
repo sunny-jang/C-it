@@ -15,6 +15,7 @@
     #section-contents-wrap{width: 100%;}
     #section_contents{margin: 0% 5% 0% 5%;min-height: 500px;}
     #section-title-text {margin: 0% 5% 0% 5%; font-size: 1.5rem;}
+    .footer{ padding-top: 10%; }
 
     /* 아이디찾기-실패 */
     #nofoundid{font-size: 14px;  text-align: center;}
@@ -54,7 +55,6 @@
     section p.delete-title {font-size: 1.5rem; }
     section p.delete-content {font-size: 0.9rem; font-weight: 600;}
 
-
     /* 회원가입 */
     section #join_form span {font-size: 1rem;}
     #join_form input[type="text"] {padding:0.5rem;}
@@ -70,9 +70,22 @@
     .tolist-btn-input{background-color:  #3e8685; color:#f2ebe5; border:none; margin-top: 10%; padding:1%;}
     
     /* 메인 */
-    .main_news_set_box{width:100%; margin-top: 10%;}    
-    
+    .main_news_set_box{width:100%; margin-top: 10%;}        
     .complete-btn-wrap input{width: 40%;}
     .board-wrap th{font-size: 0.7rem;}
+   
+    /* 공지사항-관리자 */
+    section .join {width:40%;}
 
+   /* 회원정보 수정 */
+   .btncustom.update-btn.float--right {margin: 0 10px 10px 0;}
+   .btncustom.delete-btn.float--right {margin: 0 10px 10px 0;}
+    #widthdrawl {margin-top:-21%; background-color:#a9daaa;}
+   .complete-btn-wrap input[type="submit"] {width: 40%;}
+   .btn.btn-confirm {margin-left: 5%;}
+
+   /* 게시판 목록 */
+   .page_nation a:nth-child(5), .page_nation a:nth-child(6) {display:none;}
+   .page_wrap {margin:0 auto;}
+   .ctgr {width:3.5rem; height: 2rem;}
 }

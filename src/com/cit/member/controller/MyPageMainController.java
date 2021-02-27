@@ -40,10 +40,10 @@ public class MyPageMainController extends HttpServlet{
 		ArrayList<BoardDto> myList = mms.getMyList(id);
 		request.setAttribute("myList", myList);
 		
-		int maxPage = myList.size()/3;
+		int maxPage = myList.size()/5;
 		request.setAttribute("maxPage", maxPage);
 		
-		int[] listSizeSet = setListSize(page_, 3, myList.size()); 
+		int[] listSizeSet = setListSize(page_, 5, myList.size()); 
 		
  		ArrayList<BoardDto> myList_ = makeList(myList, listSizeSet);
 		
