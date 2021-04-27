@@ -4,7 +4,7 @@
     <section>
         <!-- 제목 -->
         <div id="section_title" class="clearfix"><h1 id="section-title-text" class="float--left">MyPage</h1>
-        <a href="${pageContext.request.contextPath}/member/memberUpdate.jsp" class="member-update-delete float--right">회원정보 수정 / 탈퇴
+        <a href="${pageContext.request.contextPath}/MemberUpdateController.do" class="member-update-delete float--right">회원정보 수정 / 탈퇴
         <i class="fas fa-chevron-circle-right"></i></a></div>
         <!-- 컨텐츠내용 -->
         <div id="section-contents-wrap">
