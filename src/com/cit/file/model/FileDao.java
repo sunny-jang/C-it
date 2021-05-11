@@ -138,62 +138,30 @@ public class FileDao {
 	}
 	
 	
-	public int delFile(int boardNum) {
+	public int delFile(int boardNum, Connection conn) {
 		int rs =0;
 		try {
-			conn = getConnection();
 			query = "DELETE \"B_FILE\" WHERE \"BOARD_NUM\" = ?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, boardNum);
 			pstmt.executeUpdate();
 			
+			
 			return rs;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-
+		}finally {
 			try {
 				if (pstmt != null)
 					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				
+			} catch (Exception e2) {
 			}
-		}
+		} 
 		
 		return rs;
 	}
 	
-	public int delPost(int boardNum) {
-		int rs =0;
-		try {
-			conn = getConnection();
-			query = "DELETE \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setInt(1, boardNum);
-			rs = pstmt.executeUpdate();
-			
-			return rs;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return rs;
-		
-	}
 }
