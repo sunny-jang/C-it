@@ -26,8 +26,8 @@ public class MemberFilter implements Filter {
 		job.put("IT 관련 종사자", "developer");
 		
 		path.put("광고","ads");
-		path.put("타싸이트","site");
-		path.put("지인추천","rec");
+		path.put("타 사이트","site");
+		path.put("지인 추천","rec");
 		
 		request.setAttribute("job", job);
 		request.setAttribute("path", path);
