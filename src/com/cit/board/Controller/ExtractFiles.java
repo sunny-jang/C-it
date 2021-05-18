@@ -32,7 +32,6 @@ public class ExtractFiles {
 			imagePath.add(matcher.group(1).trim());
 		};
 		return imagePath;
-		
 	}
 	
 	public static List<String> extracImageName(List<String> imagePath) {
