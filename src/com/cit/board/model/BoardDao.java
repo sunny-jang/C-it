@@ -103,7 +103,7 @@ public class BoardDao {
     	try {
     		conn = getConnection();
     		conn.setAutoCommit(false);
-    		FileDao.getInstance().delFile(num);
+    		FileDao.getInstance().delFile(num, conn);
     		System.out.println("성공");
     		String query = "DELETE FROM \"F_BOARD\" WHERE \"BOARD_NUM\" = ?";
     		pstmt = conn.prepareStatement(query);
