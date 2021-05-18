@@ -16,7 +16,7 @@
 	<div id="section-contents-wrap">
 		<div id="section_contents">
 			<!-- 게시판 목록 -->
-			<form class=board-wrap >
+			<form class=board >
 				<table class="table-list">
 					<thead>
 						<tr>
